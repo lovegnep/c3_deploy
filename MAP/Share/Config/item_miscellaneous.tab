@@ -5987,7 +5987,7 @@ NUM	NUM	NUM	NUM	TEXT	TEXT	TEXT	NUM	NUM	NUM	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	
 12930063	12	3	79	CJSH_item_wanfa_1_11	高级马装随机礼包	#cC8B88E右键点击打开，随机获得高级马装一个。	1	-1	-1	99	1	1	28	250	930061	52	-1	-1	-1	4	4	-1	0	0	礼包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	-1	-1	0	-1	-1	-1	1	0	-1	0	-1
 12930064	12	3	80	CJSH_item_wanfa_1_11	终极马装随机礼包	#cC8B88E右键点击打开，随机获得终极马装一个。	1	-1	-1	99	1	1	28	250	930062	52	-1	-1	-1	4	4	-1	0	0	礼包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	-1	-1	0	-1	-1	-1	1	0	-1	0	-1
 12930090	12	3	23	CJSH_item_xiangzi_2_2	宗师级打磨剂礼包	获得1个宗师级打磨剂，每天限开5个包	85	-1	-1	99	1	1	28	250	930064	52	-1	-1	-1	4	4	-1	0	0	打磨剂礼包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	0	-1	-1	-1	1	0	-1	0	-1
-12930106	12	3	23	CJSH_item_zhipian_2_8	万能坐骑碎片	可以兑换坐骑	70	-1	-1	99	1	1	28	250	935017	52	-1	-1	-1	4	4	-1	0	0	坐骑碎片	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	1	15	-1	-1	1	0	-1	0	-1
+12930106	12	3	23	CJSH_item_zhipian_2_8	万能坐骑碎片	可以兑换坐骑	1	-1	-1	99	1	1	30	250	-1	-1	-1	-1	-1	4	4	-1	0	0	坐骑碎片	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	1	-1	-1	-1	1	0	-1	0	-1
 12930107	12	3	23	CJSH_item_xiangzi_2_3	万能坐骑碎片礼包	70级可以使用，获得500个碎片。每天限制1次，共15次	70	-1	-1	99	1	1	28	250	935017	52	-1	-1	-1	4	4	-1	0	0	娱乐币包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	1	15	-1	-1	1	0	-1	0	-1
 12930108	12	3	23	CJSH_item_xiangzi_2_4	神话级打磨剂礼包	获得1个神话级剂打磨剂，每天限开5个包	95	-1	-1	99	1	1	28	250	930070	52	-1	-1	-1	4	4	-1	0	0	打磨剂礼包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	0	-1	-1	-1	1	0	-1	0	-1
 12930109	12	3	23	CJSH_item_baoshi_2_5	宗师级黄龙晶礼包	获得爆2+生命120。每天限开4个，次数共享	1	-1	-1	99	1	1	28	250	930071	52	-1	-1	-1	4	4	-1	0	0	爆2礼包	掉落礼物包.lmodel	cj_yingguang_huang	0	ffffff	-1	1	-1	0	-1	-1	-1	1	0	-1	0	-1
