@@ -322,24 +322,26 @@ function x700136_ProcFubenEnd( varMap)
 		ret2 = CreateMonster(varMap, 18088, 36, 38, 3, -1, -1, 122993, 20,-1, 270,  "    ")
 		local horse = random(0,100)
 		if horse <= 80 then
-							local humancount = GetFuben_PlayerCount(varMap);
-					local monattr = random(0,5)
-					for varI = 0, humancount - 1 do					
-					local humanId = GetFuben_PlayerObjId(varMap, varI);
-					local name = GetName(varMap, humanId)
-					CreateMonster(varMap, 18090+monattr, 38+random(2,5),38-random(2,5), 31, -1, -1, x700136_var_FileId, 21, 25*60*1000, random(0,20), "", "", -1)
-					if monattr == 0 then
-		 			varMsg = format( name.."在月宫发现了#O咆哮战狼!" )
-					LuaAllScenceM2Wrold( varMap, varMsg, 5, 1)
-					LuaAllScenceM2Wrold(varMap, varMsg, CHAT_PLANE_SCROLL, 1)
-					LuaAllScenceM2Wrold(varMap,varMsg, CHAT_LEFTDOWN, 1) 
-					else
-					varMsg = format( name.."在月宫发现了#O神秘驯兽师!" )
-					LuaAllScenceM2Wrold( varMap, varMsg, 5, 1)
-					LuaAllScenceM2Wrold(varMap, varMsg, CHAT_PLANE_SCROLL, 1)
-					LuaAllScenceM2Wrold(varMap,varMsg, CHAT_LEFTDOWN, 1) 
-					end
-					end
+            local monattr = -1
+            if random(0,20) == 0 then
+                monattr = 0
+            else
+                monattr = random(1,5)
+            end
+            local humanId = GetFuben_PlayerObjId(varMap, varI);
+            local name = GetName(varMap, humanId)
+            CreateMonster(varMap, 18090+monattr, 38+random(2,5),38-random(2,5), 31, -1, -1, x700136_var_FileId, 21, 25*60*1000, random(0,20), "", "", -1)
+            if monattr == 0 then
+                varMsg = format( name.."在月宫发现了#O咆哮战狼!" )
+                LuaAllScenceM2Wrold( varMap, varMsg, 5, 1)
+                LuaAllScenceM2Wrold(varMap, varMsg, CHAT_PLANE_SCROLL, 1)
+                LuaAllScenceM2Wrold(varMap,varMsg, CHAT_LEFTDOWN, 1)
+            else
+                varMsg = format( name.."在月宫发现了#O神秘驯兽师!" )
+                LuaAllScenceM2Wrold( varMap, varMsg, 5, 1)
+                LuaAllScenceM2Wrold(varMap, varMsg, CHAT_PLANE_SCROLL, 1)
+                LuaAllScenceM2Wrold(varMap,varMsg, CHAT_LEFTDOWN, 1)
+            end
 
 		end
     end
