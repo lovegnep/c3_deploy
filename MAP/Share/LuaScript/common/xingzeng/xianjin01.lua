@@ -7,7 +7,7 @@
 x588038_var_FileId 		= 588038
 x588038_var_FileItemId 		= 12030098
 
-x588038_var_LevelMin		=	60
+x588038_var_LevelMin		=	40
 x588038_var_gold		=	10000
 
 
