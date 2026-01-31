@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_goulanyuan/city_goulanyuan.nav
+monster=city_goulanyuan/city_goulanyuan_monster.tab
+xunluo=city_goulanyuan/city_goulanyuan_patrolpoint.ini
+caijidata=city_goulanyuan/city_goulanyuan_growpoint.txt
+caijisetup=city_goulanyuan/city_goulanyuan_growpointsetup.txt
+teleport=city_goulanyuan/city_goulanyuan_area.ini

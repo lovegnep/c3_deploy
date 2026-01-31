@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=test/test.nav
+monster=test/test_monster.tab
+xunluo=test/test_patrolpoint.ini
+teleport=test/test_area.ini
+caijidata=test/test_growpoint.txt
+caijisetup=test/test_growpointsetup.txt

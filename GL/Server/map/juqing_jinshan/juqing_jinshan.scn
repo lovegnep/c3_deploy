@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_jinshan/juqing_jinshan.nav
+monster=juqing_jinshan/juqing_jinshan_monster.tab
+xunluo=juqing_jinshan/juqing_jinshan_patrolpoint.ini
+caijidata=juqing_jinshan/juqing_jinshan_growpoint.txt
+caijisetup=juqing_jinshan/juqing_jinshan_growpointsetup.txt
+teleport=juqing_jinshan/juqing_jinshan_area.ini

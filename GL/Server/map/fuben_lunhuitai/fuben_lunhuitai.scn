@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_lunhuitai/fuben_lunhuitai.nav
+monster=fuben_lunhuitai/fuben_lunhuitai_monster.tab
+xunluo=fuben_lunhuitai/fuben_lunhuitai_patrolpoint.ini
+caijidata=fuben_lunhuitai/fuben_lunhuitai_growpoint.txt
+caijisetup=fuben_lunhuitai/fuben_lunhuitai_growpointsetup.txt
+teleport=fuben_lunhuitai/fuben_lunhuitai_area.ini

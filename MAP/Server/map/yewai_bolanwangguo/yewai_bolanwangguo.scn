@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_bolanwangguo/juqing_bolanwangguo.nav
+monster=yewai_bolanwangguo/yewai_bolanwangguo_monster.tab
+xunluo=yewai_bolanwangguo/yewai_bolanwangguo_patrolpoint.ini
+caijidata=yewai_bolanwangguo/yewai_bolanwangguo_growpoint.txt
+caijisetup=yewai_bolanwangguo/yewai_bolanwangguo_growpointsetup.txt
+teleport=yewai_bolanwangguo/yewai_bolanwangguo_area.ini

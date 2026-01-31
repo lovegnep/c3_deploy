@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_jiayuan/city_jiayuan.nav
+monster=city_jiayuan/city_jiayuan_monster.tab
+xunluo=city_jiayuan/city_jiayuan_patrolpoint.ini
+caijidata=city_jiayuan/city_jiayuan_growpoint.txt
+caijisetup=city_jiayuan/city_jiayuan_growpointsetup.txt
+teleport=city_jiayuan/city_jiayuan_area.ini

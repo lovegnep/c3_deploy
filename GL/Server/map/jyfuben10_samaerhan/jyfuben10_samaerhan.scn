@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben10_samaerhan/jyfuben10_samaerhan.nav
+monster=jyfuben10_samaerhan/jyfuben10_samaerhan_monster.tab
+xunluo=jyfuben10_samaerhan/jyfuben10_samaerhan_patrolpoint.ini
+caijidata=jyfuben10_samaerhan/jyfuben10_samaerhan_growpoint.txt
+caijisetup=jyfuben10_samaerhan/jyfuben10_samaerhan_growpointsetup.txt
+teleport=jyfuben10_samaerhan/jyfuben10_samaerhan_area.ini

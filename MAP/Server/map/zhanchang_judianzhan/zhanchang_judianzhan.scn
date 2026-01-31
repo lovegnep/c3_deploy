@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=zhanchang_judianzhan/zhanchang_judianzhan.nav
+monster=zhanchang_judianzhan/zhanchang_judianzhan_monster.tab
+xunluo=zhanchang_judianzhan/zhanchang_judianzhan_patrolpoint.ini
+caijidata=zhanchang_judianzhan/zhanchang_judianzhan_growpoint.txt
+caijisetup=zhanchang_judianzhan/zhanchang_judianzhan_growpointsetup.txt
+teleport=zhanchang_judianzhan/zhanchang_judianzhan_area.ini

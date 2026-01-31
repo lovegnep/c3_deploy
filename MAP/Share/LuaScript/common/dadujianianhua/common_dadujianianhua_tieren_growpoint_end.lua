@@ -1,0 +1,13 @@
+function x305061_ProcTimerDoingStart( varMap, varAct, varParam1, varParam2, varParam3, varParam4,Param5 )
+	ChangeGrowPointViewGroupByType(varMap, 700, 1)
+	ChangeGrowPointViewGroupByType(varMap, 701, 1)
+	ChangeGrowPointViewGroupByType(varMap, 702, 1)
+	ChangeGrowPointViewGroupByType(varMap, 703, 1)
+	ChangeGrowPointViewGroupByType(varMap, 704, 1)
+	ChangeGrowPointViewGroupByType(varMap, 705, 1)
+	ChangeGrowPointViewGroupByType(varMap, 706, 1)
+	ChangeGrowPointViewGroupByType(varMap, 707, 1)
+	ChangeGrowPointViewGroupByType(varMap, 708, 1)
+	ChangeGrowPointViewGroupByType(varMap, 709, 1)
+	ChangeGrowPointViewGroupByType(varMap, 710, 1)
+end

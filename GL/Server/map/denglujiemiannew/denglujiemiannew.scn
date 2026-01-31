@@ -1,0 +1,5 @@
+[MapDesc]
+mapnav=denglujiemiannew/denglujiemiannew.nav
+monster=denglujiemiannew/denglujiemiannew_monster.tab
+xunluo=denglujiemiannew/denglujiemiannew_patrolpoint.ini
+teleport=denglujiemiannew/denglujiemiannew_area.ini

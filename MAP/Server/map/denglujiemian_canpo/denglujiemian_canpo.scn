@@ -1,0 +1,5 @@
+[MapDesc]
+mapnav=denglujiemian_canpo/denglujiemian_canpo.nav
+monster=denglujiemian_canpo/denglujiemian_canpo_monster.tab
+xunluo=denglujiemian_canpo/denglujiemian_canpo_patrolpoint.ini
+teleport=denglujiemian_canpo/denglujiemian_canpo_area.ini

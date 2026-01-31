@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_fututa01/fuben_fututa01.nav
+monster=fuben_fututa01/fuben_fututa01_monster.tab
+xunluo=fuben_fututa01/fuben_fututa01_patrolpoint.ini
+caijidata=fuben_fututa01/fuben_fututa01_growpoint.txt
+caijisetup=fuben_fututa01/fuben_fututa01_growpointsetup.txt
+teleport=fuben_fututa01/fuben_fututa01_area.ini

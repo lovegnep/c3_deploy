@@ -1,0 +1,2 @@
+INT	INT	FLOAT	FLOAT	INT	INT	INT
+INT	INT	FLOAT	FLOAT	生长点类型(0标准式1集合式)	种子数	种子补充的间隔时间

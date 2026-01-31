@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_hetiancaochang/yewai_hetiancaochang.nav
+monster=yewai_hetiancaochang/yewai_hetiancaochang_monster.tab
+xunluo=yewai_hetiancaochang/yewai_hetiancaochang_patrolpoint.ini
+caijidata=yewai_hetiancaochang/yewai_hetiancaochang_growpoint.txt
+caijisetup=yewai_hetiancaochang/yewai_hetiancaochang_growpointsetup.txt
+teleport=yewai_hetiancaochang/yewai_hetiancaochang_area.ini

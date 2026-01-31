@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=city_loulansichougudao/city_loulansichougudao.nav
+monster=city_loulansichougudao/city_loulansichougudao_monster.tab
+xunluo=city_loulansichougudao/city_loulansichougudao_patrolpoint.ini
+caijidata=city_loulansichougudao/city_loulansichougudao_growpoint.txt
+caijisetup=city_loulansichougudao/city_loulansichougudao_growpointsetup.txt
+teleport=city_loulansichougudao/city_loulansichougudao_area.ini
+baitan=city_loulansichougudao/city_loulansichougudao_StallInfo.stall

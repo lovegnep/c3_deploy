@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>游戏介绍 — 私人服务器说明页</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#58a6ff;--muted:#9aa4b2;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, "PingFang SC", "Noto Sans CJK SC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef6;background:linear-gradient(180deg,#071126 0%, #071829 100%);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:980px;margin:40px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7de3b9);display:flex;align-items:center;justify-content:center;color:#012; font-weight:700}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{color:var(--muted);margin-top:6px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .full{grid-column:1/-1}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#012;font-weight:600;text-decoration:none}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#cfe6ff}
+    .meta{font-size:0.95rem;color:var(--muted)}
+
+    ul{padding-left:18px}
+    li{margin:8px 0}
+    .kb{background:var(--glass);padding:10px;border-radius:8px;font-family:monospace;color:#d8eefc}
+
+    footer{margin-top:22px;color:var(--muted);font-size:0.9rem}
+
+    @media (max-width:860px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+
+    .copy{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;display:flex;gap:8px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">私服</div>
+      <div>
+        <h1>私人服务器 — 游戏介绍</h1>
+        <p class="lead">概要说明：长期开启、永久免费，玩法仿官方但福利更宽松，适合慢慢体验和打宝。</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>快速开始</h2>
+        <p class="meta">下面提供了游戏下载和注册入口。页面中的按钮支持一键复制和在新窗口打开。</p>
+
+        <div style="margin-top:10px">
+          <div class="copy">
+            <div style="flex:1">
+              <div style="font-size:0.9rem;color:var(--muted)">游戏下载地址</div>
+              <div id="downloadLink" class="kb">https://nas.home.jann.fun:16666/s/234877085f7348a5bf</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <button class="btn" onclick="openLink('download')">打开</button>
+              <button class="btn ghost" onclick="copyToClipboard('downloadLink')">复制</button>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="copy">
+            <div style="flex:1">
+              <div style="font-size:0.9rem;color:var(--muted)">注册 / 登录器或网页</div>
+              <div id="registerLink" class="kb">http://223.166.61.137:38989/khan3/index.html</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <button class="btn" onclick="openLink('register')">打开</button>
+              <button class="btn ghost" onclick="copyToClipboard('registerLink')">复制</button>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted)">提示：群文件也可下载。</div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h3>环境说明</h3>
+        <p class="meta">服务器环境：自家电脑，长期开服，低成本、稳定、放心玩。</p>
+        <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0">
+        <ul>
+          <li>只开了：楼兰、天山。</li>
+          <li>永久免费、长期在线。</li>
+          <li>仿官方规则，掉落为主，不是那种几天毕业的快服。</li>
+        </ul>
+      </aside>
+
+      <section class="card full">
+        <h2>玩法亮点</h2>
+        <ul>
+          <li><strong>生活技能:</strong> 材料采集数量是官方的 <strong>10–40 倍</strong>，升级速度很快；可学习 3 个大师级生活技能。</li>
+          <li><strong>挂机与打金：</strong> 挂机可获得现金；大乱斗地图击杀僵尸会爆现金，单个敌人可掉 <em>约 45 文</em>（示例值）。</li>
+<li><strong>现金BOSS：</strong> 每晚9，10整点，大乱斗地图出现大猫boss，爆5D现金</li>
+<li><strong>五孔钻：</strong> 秘钻黄金藏宝图 挖宝获得</li>
+<li><strong>时装4件套  1~4孔钻：</strong>3F副本战车获得</li>
+          <li><strong>宝箱 / 掉落：</strong> 18 和 部将 可掉落许愿种子与现金；轮回台与金矿洞可产出金卡。</li>
+          <li><strong>坐骑与升级：</strong> 坐骑可以在月宫和印度河开启的大乱斗中获得并升级；升级时可分配 <strong>5 点属性</strong> 来定制坐骑成长。</li>
+          <li><strong>装备与材料：</strong> 装备、材料、坐骑均靠打怪获得，玩法偏向长期打宝与成长。</li>
+<li><strong>金卡：</strong> 金矿洞，轮回台爆大量金卡，一天只能刷固定次数。</li>
+        </ul>
+
+        <h3 style="margin-top:12px">更多说明</h3>
+        <p class="meta">服务器风格：仿官方但更友好，不刻意缩短成长周期，适合喜欢慢慢体验、逐步收集的玩家。</p>
+      </section>
+
+      <section class="card full">
+        <h2>常见问题</h2>
+        <ul>
+          <li><strong>是否收费？</strong> 完全免费。</li>
+          <li><strong>数据安全？</strong> 服务器为个人服务器，长期运行；请合理保管账户信息。</li>
+          <li><strong>如何获取更多文件？</strong> 群文件和服务器提供的下载地址都可使用。</li>
+        </ul>
+      </section>
+
+      <section class="card full">
+        <h2>联系与免责声明</h2>
+        <p style="margin-top:8px">免责声明：本页面仅为服务介绍页面，使用时请遵守当地法律法规及游戏运营方相关规定。</p>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script>
+    function copyToClipboard(id){
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(()=>{
+        alert('已复制到剪贴板')
+      }).catch(()=>{alert('复制失败，请手动选择并复制')})
+    }
+    function openLink(which){
+      const id = which === 'download' ? 'downloadLink' : 'registerLink';
+      const url = document.getElementById(id).innerText.trim();
+      try{window.open(url,'_blank','noopener')}catch(e){location.href=url}
+    }
+  </script>
+</body>
+</html>

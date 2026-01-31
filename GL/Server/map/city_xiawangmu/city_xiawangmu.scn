@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_xiawangmu/city_xiawangmu.nav
+monster=city_xiawangmu/city_xiawangmu_monster.tab
+xunluo=city_xiawangmu/city_xiawangmu_patrolpoint.ini
+caijidata=city_xiawangmu/city_xiawangmu_growpoint.txt
+caijisetup=city_xiawangmu/city_xiawangmu_growpointsetup.txt
+teleport=city_xiawangmu/city_xiawangmu_area.ini

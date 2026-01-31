@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao.nav
+monster=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao_monster.tab
+xunluo=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao_patrolpoint.ini
+caijidata=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao_growpoint.txt
+caijisetup=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao_growpointsetup.txt
+teleport=jyfuben21_jiuzhoudao/jyfuben21_jiuzhoudao_area.ini

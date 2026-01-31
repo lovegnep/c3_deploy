@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>游戏介绍 — 私人服务器说明页</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <style>
+    :root{
+      --bg:#0f1724;--accent:#58a6ff;--muted:#9aa4b2;--glass:rgba(255,255,255,0.05)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Inter","PingFang SC","Noto Sans CJK SC",system-ui;
+      color:#e6eef6;background:#000;overflow-x:hidden;
+    }
+    #vanta-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1}
+    .wrap{max-width:980px;margin:60px auto;padding:24px;animation:fadeInUp 1.5s ease;}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#7de3b9);
+      display:flex;align-items:center;justify-content:center;color:#012;font-weight:700;
+      font-size:1.4rem;box-shadow:0 0 20px rgba(88,166,255,0.6);animation:floatLogo 4s ease-in-out infinite;}
+    h1{margin:0;font-size:1.8rem;background:linear-gradient(90deg,#58a6ff,#7de3b9);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      text-shadow:0 0 10px rgba(88,166,255,0.4);animation:glowText 3s ease-in-out infinite alternate;}
+    p.lead{color:var(--muted);margin-top:6px}
+    .card{background:var(--glass);border:1px solid rgba(255,255,255,0.08);padding:18px;border-radius:12px;
+      margin-top:20px;box-shadow:0 0 20px rgba(0,0,0,0.5);backdrop-filter:blur(10px);transition:all .3s ease;animation:fadeInUp 1s ease;}
+    .card:hover{box-shadow:0 0 25px rgba(88,166,255,0.5);transform:translateY(-4px);}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .full{grid-column:1/-1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;
+      background:linear-gradient(90deg,#58a6ff,#7de3b9);color:#012;font-weight:700;text-decoration:none;
+      position:relative;overflow:hidden;transition:0.3s;}
+    .btn::before{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:rgba(255,255,255,0.4);
+      transform:skewX(-25deg);transition:0.5s;}
+    .btn:hover::before{left:125%;}
+    .btn:active{transform:scale(0.97)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#cfe6ff;}
+    .copy{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);
+      padding:10px;border-radius:8px;display:flex;gap:8px;align-items:center;}
+    ul{padding-left:20px;margin-top:10px}
+    li{margin:8px 0}
+    footer{margin-top:22px;color:var(--muted);font-size:0.9rem}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes floatLogo{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+    @keyframes glowText{from{text-shadow:0 0 10px rgba(88,166,255,0.4);}to{text-shadow:0 0 20px rgba(125,227,185,0.8);} }
+    @media(max-width:860px){.grid{grid-template-columns:1fr}.logo{width:60px;height:60px}}
+    /* 导航栏样式 */
+    .tab-nav{display:flex;gap:10px;margin-bottom:14px;}
+    .tab-btn{flex:1;text-align:center;padding:10px 0;border-radius:8px;
+      background:rgba(255,255,255,0.05);color:#9aa4b2;cursor:pointer;transition:all .3s ease;font-weight:600;}
+    .tab-btn.active{background:linear-gradient(90deg,#58a6ff,#7de3b9);color:#012;box-shadow:0 0 15px rgba(88,166,255,0.4);}
+    .tab-content{display:none;}
+    .tab-content.active{display:block;animation:fadeInUp 0.6s ease;}
+    .tab-img{max-width:300px;border-radius:12px;display:block;margin:14px auto;cursor:pointer;}
+
+    /* 图片放大模态框样式 */
+    #imgModal{
+      display:none;
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.8);
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+    }
+    #imgModal img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:12px;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="vanta-bg"></div>
+  <div class="wrap">
+    <header>
+      <div class="logo">成3</div>
+      <div><h1>游戏介绍</h1><p class="lead">适合慢慢体验与打宝。</p></div>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>快速开始</h2>
+        <div class="copy" style="margin-top:10px">
+          <div style="flex:1">
+            <div style="font-size:0.9rem;color:var(--muted)">下载地址</div>
+            <div id="downloadLink" style="font-family:monospace;">https://nas.home.jann.fun:16666/s/234877085f7348a5bf</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="btn" onclick="openLink('download')">打开</button>
+            <button class="btn ghost" onclick="copyToClipboard('downloadLink')">复制</button>
+          </div>
+        </div>
+        <div class="copy" style="margin-top:12px">
+          <div style="flex:1">
+            <div style="font-size:0.9rem;color:var(--muted)">注册 / 登录器或网页</div>
+            <div id="registerLink" style="font-family:monospace;">https://game.home.jann.fun:16666/khan3/re.html</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <button class="btn" onclick="openLink('register')">打开</button>
+            <button class="btn ghost" onclick="copyToClipboard('registerLink')">复制</button>
+          </div>
+        </div>
+          <div class="copy" style="margin-top:12px">
+              <div style="flex:1">
+                  <div style="font-size:0.9rem;color:var(--muted)">boss信息，物品掉落查询工具</div>
+                  <div id="toolLink" style="font-family:monospace;">https://game.home.jann.fun:16666/khan3/query.html</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                  <button class="btn" onclick="openLink('tool')">打开</button>
+                  <button class="btn ghost" onclick="copyToClipboard('toolLink')">复制</button>
+              </div>
+          </div>
+        <p style="margin-top:12px;color:var(--muted)">提示：群文件也可下载。</p>
+      </section>
+
+      <aside class="card">
+        <h3>环境说明</h3>
+        <ul>
+          <li>长期运行。</li>
+            <li>只开了：楼兰、天山。</li>
+          <li>发育很慢，不是几天毕业的快服。</li>
+        </ul>
+      </aside>
+
+      <section class="card full">
+        <h2>玩法亮点</h2>
+        <ul>
+          <li><strong>生活技能:</strong> 材料采集数量是官方的 <strong>10–40 倍</strong>。</li>
+          <li><strong>挂机与打金：</strong> 挂机得现金；打僵尸爆现金。</li>
+          <li><strong>现金BOSS：</strong> 每晚9、10点刷新。</li>
+          <li><strong>五孔钻：</strong> 秘钻藏宝图挖宝获得。</li>
+          <li><strong>时装4件套：</strong> 3F副本战车掉落。</li>
+          <li><strong>金卡：</strong> 轮回台与金矿洞可爆。</li>
+          <li><strong>坐骑升级：</strong> 月宫与印度河大乱斗中获得。</li>
+        </ul>
+      </section>
+
+      <!-- ✅ 新的导航栏部分 -->
+      <section class="card full">
+        <h2>活动与奖励展示</h2>
+        <div class="tab-nav">
+          <div class="tab-btn active" data-tab="schedule">活动时间表</div>
+          <div class="tab-btn" data-tab="mount">坐骑</div>
+          <div class="tab-btn" data-tab="cash">现金</div>
+        </div>
+
+        <div id="schedule" class="tab-content active">
+          <div id="tableContainer" style="margin-top:20px; overflow-x:auto;"></div>
+        </div>
+
+        <div id="mount" class="tab-content">
+          <p style="text-align:center;color:var(--muted);margin-top:10px;">
+            获得途径： 月宫与印度河boss。 月宫可通过下图功能npc传送到圣山进入。 印度河地图通过天坛旁边的npc进入。
+          </p>
+		  <p style="text-align:center;color:var(--muted);margin-top:10px;">
+            注意： 坐骑每升一级可以获得5个属性点，所以请提高坐骑等级。
+          </p>
+          <img src="img/坐骑.png" alt="坐骑" class="tab-img">
+        </div>
+
+        <div id="cash" class="tab-content">
+          <p style="text-align:center;color:var(--muted);margin-top:10px;">
+            现金：大乱斗地图挂机得现金，部将，18魔君，印度河与大乱斗boss都会爆现金
+          </p>
+		  <p style="text-align:center;color:var(--muted);margin-top:10px;">
+            金卡：金矿洞，国运，出国(这两个要在国运令和出国期间才会有金卡)，内政，轮回台，黄金藏宝图
+          </p>
+          <img src="img/现金.png" alt="现金" class="tab-img">
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 图片放大模态框 -->
+  <div id="imgModal">
+    <img id="modalImg" src="">
+  </div>
+
+  <script>
+    function copyToClipboard(id){
+      const text=document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(()=>alert('✅ 已复制到剪贴板'));
+    }
+    function openLink(which){
+        let id = "";
+        switch(which){
+            case 'download':
+                id = "downloadLink";
+                break;
+            case 'tool':
+                id = "toolLink";
+                break;
+            default:
+                id = "registerLink";
+                break;
+        }
+      const url=document.getElementById(id).innerText.trim();
+      window.open(url,'_blank','noopener');
+    }
+
+    // Vanta 动画
+    window.addEventListener('DOMContentLoaded',()=>{
+      VANTA.NET({el:"#vanta-bg",mouseControls:true,touchControls:true,gyroControls:false,
+        minHeight:200.00,minWidth:200.00,scale:1.00,scaleMobile:1.00,
+        color:0x58a6ff,backgroundColor:0x050a15,points:10.00,maxDistance:25.00,spacing:18.00});
+    });
+
+    // 页签切换
+    document.addEventListener('click',e=>{
+      if(e.target.classList.contains('tab-btn')){
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        e.target.classList.add('active');
+        const tab=e.target.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+        document.getElementById(tab).classList.add('active');
+      }
+    });
+
+    // 点击图片放大
+    document.querySelectorAll('img').forEach(img=>{
+      img.style.cursor='pointer';
+      img.addEventListener('click',()=>{
+        const modal=document.getElementById('imgModal');
+        const modalImg=document.getElementById('modalImg');
+        modalImg.src=img.src;
+        modal.style.display='flex';
+      });
+    });
+    // 点击模态框关闭
+    document.getElementById('imgModal').addEventListener('click',()=>{
+      document.getElementById('imgModal').style.display='none';
+    });
+  </script>
+
+  <!-- 原 timer.tab 加载逻辑 -->
+  <script src="https://cdn.jsdelivr.net/npm/encoding-japanese@2.0.0/encoding.min.js"></script>
+  <script>
+async function loadTimerTab() {
+  const container = document.getElementById('tableContainer');
+  try {
+    const res = await fetch('tabs/Timer.tab');
+    if (!res.ok) throw new Error('无法读取 Timer.tab 文件（HTTP ' + res.status + '）');
+    const buffer = await res.arrayBuffer();
+    let text = '';
+    try { text = new TextDecoder('gb18030').decode(buffer); }
+    catch { const bytes = new Uint8Array(buffer);
+      text = Encoding.convert(bytes,{to:'UNICODE',from:'GB18030',type:'string'}); }
+    const lines = text.split(/\r?\n/).filter(l=>l.trim().length>0);
+    if (lines.length<=2){container.innerHTML='<p style="color:#f66;"⚠️ Timer.tab 内容过少</p>';return;}
+    const data=[];for (let i=2;i<lines.length;i++){
+      const cols=lines[i].split(/\t+/);if(cols.length<8)continue;
+      const name=cols[1]?.trim()||'';if(/^(游乐场|公交车)/.test(name))continue;
+      const optType=cols[3]||'',timeType=cols[4]||'';
+      const start=formatTime(cols[5]),end=formatTime(cols[6]);
+      const dayType=(optType==="1"||timeType==="1")?"每天":(optType==="0"?"指定日期/周几":"未知");
+      data.push({name,start,end,dayType});
+    }
+    renderTable(data);
+  } catch (err) {
+    container.innerHTML=`<p style="color:#f66;">❌ 加载失败：${err.message}</p>`;
+  }
+}
+function formatTime(numStr){if(!numStr||numStr==='-1')return'-';
+  const n=parseInt(String(numStr).replace(/\D/g,''),10);
+  const hh=String(Math.floor(n/100)).padStart(2,'0'),mm=String(n%100).padStart(2,'0');return`${hh}:${mm}`;}
+function renderTable(data){
+  const c=document.getElementById('tableContainer');
+  if(!data||!data.length){c.innerHTML='<p style="color:#aaa;">无活动数据</p>';return;}
+  let html=`<table style="width:100%;border-collapse:collapse;text-align:left;">
+  <thead><tr style="background:rgba(255,255,255,0.06);">
+  <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">活动名称</th>
+  <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">开始时间</th>
+  <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">结束时间</th>
+  <th style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.08);">触发类型</th></tr></thead><tbody>`;
+  for(const r of data){
+    html+=`<tr><td style="padding:6px 8px;">${r.name}</td>
+    <td style="padding:6px 8px;">${r.start}</td>
+    <td style="padding:6px 8px;">${r.end}</td>
+    <td style="padding:6px 8px;color:#7de3b9;">${r.dayType}</td></tr>`;}
+  html+='</tbody></table>';c.innerHTML=html;}
+window.addEventListener('DOMContentLoaded',loadTimerTab);
+  </script>
+</body>
+</html>

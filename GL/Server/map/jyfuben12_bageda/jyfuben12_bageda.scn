@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben12_bageda/jyfuben12_bageda.nav
+monster=jyfuben12_bageda/jyfuben12_bageda_monster.tab
+xunluo=jyfuben12_bageda/jyfuben12_bageda_patrolpoint.ini
+caijidata=jyfuben12_bageda/jyfuben12_bageda_growpoint.txt
+caijisetup=jyfuben12_bageda/jyfuben12_bageda_growpointsetup.txt
+teleport=jyfuben12_bageda/jyfuben12_bageda_area.ini

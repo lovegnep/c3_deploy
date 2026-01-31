@@ -1,0 +1,132 @@
+
+
+
+
+
+
+x430041_var_FileId = 430041
+x430041_var_ItemId   = 10306019
+x430041_var_ItemList = {}
+x430041_var_LevelMin = 1
+
+
+
+function x430041_ProcDefaultEvent( varMap, varPlayer, varBagIdx )
+
+
+
+end
+
+
+
+
+
+
+function x430041_ProcIsSpellLikeScript( varMap, varPlayer)
+	return 1; 
+end
+
+
+
+
+
+
+function x430041_ProcCancelImpacts( varMap, varPlayer )
+	return 0; 
+end
+
+
+
+
+
+
+function x430041_ProcConditionCheck( varMap, varPlayer )
+	
+	
+	
+	if(1~=VerifyUsedItem(varMap, varPlayer)) then
+		return 0
+	end
+	return 1; 
+end
+
+
+
+
+
+
+
+function x430041_ProcDeplete( varMap, varPlayer )
+	
+	
+	
+	
+	
+	
+	
+	return 1;
+end
+
+
+
+
+
+
+
+
+function x430041_ProcActivateOnce( varMap, varPlayer, varImpact )
+	
+	
+		
+		
+		
+		
+		
+	
+
+	if(1~=VerifyUsedItem(varMap, varPlayer)) then
+		return
+	end
+
+	local UsedItemIndex = GetBagIndexOfUsedItem(varMap,varPlayer)
+	local bBindItem= IsItemBind(varMap,varPlayer, UsedItemIndex )
+
+	StartItemTask(varMap)
+
+		ItemAppendBind( varMap, 10306019,1 )	
+
+	
+
+	local varRet = StopItemTask(varMap,varPlayer)
+	if varRet > 0 then
+		if(DepletingUsedItem(varMap, varPlayer)) == 1 then
+			StartTalkTask(varMap)
+			TalkAppendString(varMap,"打开礼盒，获得了银龙时装")
+			StopTalkTask(varMap)
+			DeliverTalkTips(varMap,varPlayer)
+			DeliverItemListSendToPlayer(varMap,varPlayer)
+		else
+			StartTalkTask(varMap)
+			TalkAppendString(varMap,"使用物品异常！")
+			StopTalkTask(varMap)
+			DeliverTalkTips(varMap,varPlayer)
+		end
+
+	else
+		StartTalkTask(varMap)
+		TalkAppendString(varMap,"背包已满，无法得到物品！您需要至少有1个背包空间！")
+		StopTalkTask(varMap)
+		DeliverTalkTips(varMap,varPlayer)
+	end
+
+end
+
+
+
+
+
+
+
+function x430041_ProcActivateEachTick( varMap, varPlayer)
+	return 1; 
+end

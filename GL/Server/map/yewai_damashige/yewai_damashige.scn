@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_damashige/juqing_damashige.nav
+monster=yewai_damashige/yewai_damashige_monster.tab
+xunluo=yewai_damashige/yewai_damashige_patrolpoint.ini
+caijidata=yewai_damashige/yewai_damashige_growpoint.txt
+caijisetup=yewai_damashige/yewai_damashige_growpointsetup.txt
+teleport=yewai_damashige/yewai_damashige_area.ini

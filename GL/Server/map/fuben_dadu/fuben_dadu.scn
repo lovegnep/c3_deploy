@@ -1,0 +1,9 @@
+[MapDesc]
+mapnav=fuben_dadu/fuben_dadu.nav
+monster=fuben_dadu/fuben_dadu_monster.tab
+xunluo=fuben_dadu/fuben_dadu_patrolpoint.ini
+caijidata=fuben_dadu/fuben_dadu_growpoint.txt
+caijisetup=fuben_dadu/fuben_dadu_growpointsetup.txt
+teleport=fuben_dadu/fuben_dadu_area.ini
+baitan=fuben_dadu/fuben_dadu_StallInfo.stall
+pkgrid=fuben_dadu/fuben_dadu_pkarea.ini

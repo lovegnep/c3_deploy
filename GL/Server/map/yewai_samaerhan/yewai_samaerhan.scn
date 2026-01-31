@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_samaerhan/juqing_samaerhan.nav
+monster=yewai_samaerhan/yewai_samaerhan_monster.tab
+xunluo=yewai_samaerhan/yewai_samaerhan_patrolpoint.ini
+caijidata=yewai_samaerhan/yewai_samaerhan_growpoint.txt
+caijisetup=yewai_samaerhan/yewai_samaerhan_growpointsetup.txt
+teleport=yewai_samaerhan/yewai_samaerhan_area.ini

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=kuafu_baoming/kuafu_baoming.nav
+monster=kuafu_baoming/kuafu_baoming_monster.tab
+xunluo=kuafu_baoming/kuafu_baoming_patrolpoint.ini
+caijidata=kuafu_baoming/kuafu_baoming_growpoint.txt
+caijisetup=kuafu_baoming/kuafu_baoming_growpointsetup.txt
+teleport=kuafu_baoming/kuafu_baoming_area.ini

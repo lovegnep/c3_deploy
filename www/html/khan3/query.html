@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>成3查询工具</title>
+    <style>
+        body {
+            font-family: "Segoe UI", "Microsoft Yahei", sans-serif;
+            background: linear-gradient(180deg, #f0f4f9, #ffffff);
+            color: #222;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 26px;
+            color: #2b8cff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+            max-width: 1100px;
+        }
+
+        .box:hover {
+            transform: translateY(-2px);
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            flex: 1;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #2b8cff;
+            box-shadow: 0 0 0 2px rgba(43, 140, 255, 0.2);
+            outline: none;
+        }
+
+        button {
+            padding: 9px 16px;
+            border: none;
+            background: linear-gradient(135deg, #2b8cff, #2276d2);
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(43, 140, 255, 0.3);
+        }
+
+        button:hover:not(:disabled) {
+            background: linear-gradient(135deg, #4094ff, #2b8cff);
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #eee;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #f7faff;
+            color: #333;
+        }
+
+        td {
+            background: #fff;
+        }
+
+        .small {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .status {
+            margin-top: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #e8f2ff;
+            color: #2b8cff;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .warn {
+            color: #c0392b;
+            background: #fdecea;
+            border: 1px solid #f5b7b1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* modal 背景 */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 40px;
+            z-index: 9999;
+            backdrop-filter: blur(2px);
+        }
+
+        /* modal 主体 */
+        .modal {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeIn 0.25s ease;
+        }
+
+        /* 常驻关闭按钮 */
+        .modal .closeBtn {
+            position: sticky;
+            top: 10px;
+            float: right;
+            background: #ff4d4d;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+            border: none;
+            z-index: 10000;
+            box-shadow: 0 2px 6px rgba(255, 77, 77, 0.4);
+        }
+
+        .modal .closeBtn:hover {
+            background: #e53935;
+        }
+
+        .modal h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #2b8cff;
+            border-bottom: 2px solid #e9f2ff;
+            padding-bottom: 6px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<h1>成3查询工具</h1>
+
+<div class="box" id="loaderBox">
+    <div class="row">
+        <strong>请先加载数据文件：</strong>
+        <div class="small">（默认文件名：item_miscellaneous.tab）</div>
+    </div>
+    <div style="margin-top:8px">
+        <button id="loadBtn">加载所有文件</button>
+        <span class="small" style="margin-left:12px">如果文件名不同，请在脚本中修改 fileList 变量。</span>
+    </div>
+    <div class="status" id="status">状态：未加载</div>
+</div>
+
+<div class="box">
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+            <div class="small">1. 按 <strong>坐骑（马）名称</strong> 查询掉落该马的怪物</div>
+            <div class="row" style="margin-top:8px">
+                <input id="horseInput" type="text" placeholder="输入马名称，例如：小马驹・黑" />
+                <button id="horseSearchBtn">查询（弹窗）</button>
+            </div>
+            <div class="small" style="margin-top:6px;color:#888">结果会在浮窗中显示，便于同时查看多个查询结果。</div>
+        </div>
+
+        <div style="flex:1;min-width:300px">
+            <div class="small">2. 按 <strong>道具名称</strong> 查询掉落该道具的怪物</div>
+            <div class="row" style="margin-top:8px">
+                <input id="itemInput" type="text" placeholder="输入道具名称，例如：废弃" />
+                <button id="itemSearchBtn">查询（弹窗）</button>
+            </div>
+        </div>
+
+        <div style="flex:1;min-width:300px">
+            <div class="small">3. 按 <strong>怪物名称</strong> 查询怪物信息及其掉落（物品与马）</div>
+            <div class="row" style="margin-top:8px">
+                <input id="monsterInput" type="text" placeholder="输入怪物名称，例如：汉-店小二男1" />
+                <button id="monsterSearchBtn">查询（弹窗）</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="small">4. 查询 <strong>黄金藏宝图</strong> 挖出的道具与概率</div>
+    <div style="margin-top:8px">
+        <button id="treasureMapSearchBtn">查询所有藏宝图（弹窗）</button>
+        <span class="small" style="margin-left:12px">显示5种黄金藏宝图的所有奖励道具、数量和概率。</span>
+    </div>
+</div>
+
+<div class="box">
+    <div class="small">5. 查询 <strong>活动时间</strong></div>
+    <div style="margin-top:8px">
+        <button id="timerSearchBtn">查询所有活动时间（弹窗）</button>
+        <span class="small" style="margin-left:12px">显示所有活动的开始时间、结束时间和刷新周期。</span>
+    </div>
+</div>
+
+<div class="box">
+    <div class="small">6. 查询 <strong>祈福玉佩</strong> 掉落道具</div>
+    <div style="margin-top:8px">
+        <button id="luckyPeiyuSearchBtn">查询祈福玉佩（弹窗）</button>
+        <span class="small" style="margin-left:12px">显示祈福玉佩掉落的道具、数量和概率。</span>
+    </div>
+</div>
+
+<div class="box">
+    <div class="small">7. 查询 <strong>祈福种子</strong> 掉落道具</div>
+    <div style="margin-top:8px">
+        <button id="luckyZhongziSearchBtn">查询祈福种子（弹窗）</button>
+        <span class="small" style="margin-left:12px">显示祈福种子掉落的道具、数量和概率。</span>
+    </div>
+</div>
+
+<!-- 保持逻辑完全不变 -->
+<script>
+    (async function(){
+        // ------- 配置区 -------
+        const fileList = {
+            item: 'tabs/item_miscellaneous.tab',
+            monster: 'tabs/mon_attr_ex.tab',
+            monsterdrop: 'tabs/monsterdrop_content.tab',
+            horsedrop: 'tabs/horse_drop_content.tab',
+            horse: 'tabs/horse_jichu.tab',
+            equipmodel: 'tabs/equipmodel.tab',
+            extrabag: 'tabs/Extra_Bag.tab',
+            timer: 'tabs/Timer.tab',
+        };
+
+        const treasureMapFiles = {
+            bind: 'tabs/common_huangjincangbaotu_bind.lua',
+            baoshi_bind: 'tabs/common_huangjincangbaotu_baoshi_bind.lua',
+            shizhuang_bind: 'tabs/common_huangjincangbaotu_shizhuang_bind.lua',
+            waizhuang_bind: 'tabs/common_huangjincangbaotu_waizhuang_bind.lua',
+            xishiji_bind: 'tabs/common_huangjincangbaotu_xishiji_bind.lua',
+        };
+
+        const luckySeedFiles = {
+            peiyu: 'tabs/930101.lua',  // 祈福玉佩
+            zhongzi: 'tabs/common_jieri_gongce08.lua',  // 祈福种子
+        };
+
+        // ------- 数据 -------
+        const DB = {
+            item: { headers: [], types: [], rows: [], mapById: new Map() },
+            monster: { headers: [], types: [], rows: [], mapById: new Map() },
+            monsterdrop: { headers: [], types: [], rows: [], mapById: new Map() },
+            horsedrop: { headers: [], types: [], rows: [], mapById: new Map() },
+            horse: { headers: [], types: [], rows: [], mapById: new Map() },
+            equipmodel: { headers: [], types: [], rows: [], mapById: new Map() },
+            extrabag: { headers: [], types: [], rows: [], mapById: new Map() },
+            timer: { headers: [], types: [], rows: [], mapById: new Map() },
+        };
+
+        // 藏宝图数据
+        const TreasureMaps = [];
+        
+        // 祈福数据
+        const LuckySeedData = {
+            peiyu: null,  // 祈福玉佩
+            zhongzi: null,  // 祈福种子
+        };
+
+        const statusEl = document.getElementById('status');
+        const loadBtn = document.getElementById('loadBtn');
+
+        function setStatus(txt) { statusEl.textContent = '状态：' + txt; }
+
+        async function fetchFileAsArrayLines(url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const buf = await res.arrayBuffer();
+                let text = null;
+                const tryEncodings = ['gb18030', 'gbk', 'utf-8'];
+                for (const enc of tryEncodings) {
+                    try {
+                        const dec = new TextDecoder(enc);
+                        text = dec.decode(buf);
+                        if (text) break;
+                    } catch (e) {}
+                }
+                if (text === null) throw new Error('无法解码文本（尝试 gb18030/gbk/utf-8）');
+                const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+                return lines;
+            } catch (e) {
+                throw new Error('读取 ' + url + ' 失败: ' + (e.message || e));
+            }
+        }
+
+        function parseTabLines(lines) {
+            while (lines.length && lines[0].trim() === '') lines.shift();
+            while (lines.length && lines[lines.length-1].trim() === '') lines.pop();
+            if (lines.length < 2) return { types: [], headers: [], rows: [] };
+            const types = lines[0].split('\t').map(s => s.trim());
+            const headers = lines[1].split('\t').map(s => s.trim());
+            const rows = [];
+            for (let i = 2; i < lines.length; i++) {
+                const raw = lines[i];
+                if (!raw) continue;
+                const trimmed = raw.trim();
+                if (trimmed.startsWith('#')) continue;
+                const cols = raw.split('\t').map(s => s.trim());
+                while (cols.length < headers.length) cols.push('');
+                rows.push(cols);
+            }
+            return { types, headers, rows };
+        }
+
+        function buildMapById(dbSection) {
+            dbSection.mapById = new Map();
+            for (const row of dbSection.rows) {
+                const id = (row[0] || '').trim();
+                if (id) dbSection.mapById.set(id, row);
+            }
+        }
+
+        function rowToObj(headers, row) {
+            const o = {};
+            for (let i=0;i<headers.length;i++) o[headers[i] || ('col'+i)] = row[i] === undefined ? '' : row[i];
+            return o;
+        }
+
+        function findHeaderIndices(headers, keyword) {
+            const ks = keyword.toLowerCase();
+            const idxs = [];
+            for (let i=0;i<headers.length;i++) {
+                const h = (headers[i] || '').toLowerCase();
+                if (h.indexOf(ks) !== -1) idxs.push(i);
+            }
+            return idxs;
+        }
+
+        function parseIdsCell(cell) {
+            if (cell === undefined || cell === null) return [];
+            const s = String(cell).trim();
+            if (s === '' || s === '-1') return [];
+            return s.split('|').map(x => x.trim()).filter(x => x !== '' && x !== '-1');
+        }
+
+        // 解析lua文件，提取var_LuckySeedTable
+        function parseLuckySeedTable(content, varName) {
+            const result = {
+                items: []
+            };
+
+            // 查找变量定义，支持 x数字_var_LuckySeedTable 或 var_LuckySeedTable 格式
+            const varPattern = new RegExp(`(?:x\\d+_)?var_LuckySeedTable\\s*=\\s*\\{`, 'i');
+            const matchResult = content.match(varPattern);
+            if (!matchResult) return result;
+            
+            const tableStart = matchResult.index + matchResult[0].length - 1; // 从{开始
+            
+            // 找到匹配的结束大括号（处理嵌套）
+            let braceCount = 0;
+            let tableEnd = tableStart;
+            for (let i = tableStart; i < content.length; i++) {
+                if (content[i] === '{') {
+                    braceCount++;
+                } else if (content[i] === '}') {
+                    braceCount--;
+                    if (braceCount === 0) {
+                        tableEnd = i;
+                        break;
+                    }
+                }
+            }
+            if (tableEnd === tableStart) return result;
+
+            const tableContent = content.substring(tableStart + 1, tableEnd);
+            
+            // 匹配每个item条目
+            // 格式: {varItem= 数字, probability= 数字, price= 数字, varName="字符串", num=数字}
+            // 支持各种空白字符和换行
+            const itemPattern = /\{\s*varItem\s*=\s*(\d+)\s*,\s*probability\s*=\s*(\d+)\s*,\s*price\s*=\s*(\d+)\s*,\s*varName\s*=\s*"([^"]+)"\s*,\s*num\s*=\s*(\d+)\s*(?:,\s*doubleID\s*=\s*(\d+))?\s*\}/gs;
+            let match;
+            while ((match = itemPattern.exec(tableContent)) !== null) {
+                result.items.push({
+                    varItem: match[1],
+                    varName: match[4],
+                    num: parseInt(match[5]),
+                    probability: parseInt(match[2]),
+                    price: parseInt(match[3]),
+                    doubleID: match[6] || null
+                });
+            }
+
+            return result;
+        }
+
+        // 解析lua文件，提取_var_QuestName和_var_ItemBonus
+        function parseLuaFile(content) {
+            const result = {
+                questName: '',
+                itemBonus: []
+            };
+
+            // 提取_var_QuestName - 匹配 x数字_var_QuestName 格式
+            const questNameMatch = content.match(/x\d+_var_QuestName\s*=\s*"([^"]+)"/);
+            if (questNameMatch) {
+                result.questName = questNameMatch[1];
+            }
+
+            // 提取_var_ItemBonus表 - 匹配 x数字_var_ItemBonus 格式
+            // 使用更复杂的匹配来处理嵌套的大括号
+            const itemBonusStartPattern = /x\d+_var_ItemBonus\s*=\s*\{/;
+            const matchResult = content.match(itemBonusStartPattern);
+            if (!matchResult) return result;
+            
+            const itemBonusStart = matchResult.index + matchResult[0].length - 1; // 从{开始
+            
+            // 找到匹配的结束大括号（处理嵌套）
+            let braceCount = 0;
+            let itemBonusEnd = itemBonusStart;
+            for (let i = itemBonusStart; i < content.length; i++) {
+                if (content[i] === '{') {
+                    braceCount++;
+                } else if (content[i] === '}') {
+                    braceCount--;
+                    if (braceCount === 0) {
+                        itemBonusEnd = i;
+                        break;
+                    }
+                }
+            }
+            if (itemBonusEnd === itemBonusStart) return result;
+
+            const itemBonusContent = content.substring(itemBonusStart + 1, itemBonusEnd); // 排除开始和结束的大括号
+            
+            // 匹配每个item条目 - 更宽松的正则，处理各种空白字符和换行
+            // 格式: {varId = 数字, varName = "字符串", varNum = 数字, probability = 数字}
+            const itemPattern = /\{\s*varId\s*=\s*(\d+)\s*,\s*varName\s*=\s*"([^"]+)"\s*,\s*varNum\s*=\s*(\d+)\s*,\s*probability\s*=\s*(\d+)\s*\}/g;
+            let match;
+            while ((match = itemPattern.exec(itemBonusContent)) !== null) {
+                result.itemBonus.push({
+                    varId: match[1],
+                    varName: match[2],
+                    varNum: parseInt(match[3]),
+                    probability: parseInt(match[4])
+                });
+            }
+
+            return result;
+        }
+
+        async function loadAllFiles() {
+            setStatus('开始加载文件...');
+            try {
+                // 加载tab文件
+                for (const key of Object.keys(fileList)) {
+                    const fn = fileList[key];
+                    setStatus('加载 ' + fn + ' ...');
+                    const lines = await fetchFileAsArrayLines(fn);
+                    const parsed = parseTabLines(lines);
+                    DB[key].types = parsed.types;
+                    DB[key].headers = parsed.headers;
+                    DB[key].rows = parsed.rows;
+                    buildMapById(DB[key]);
+                }
+                
+                // 加载藏宝图lua文件
+                setStatus('加载藏宝图文件...');
+                TreasureMaps.length = 0;
+                for (const key of Object.keys(treasureMapFiles)) {
+                    const fn = treasureMapFiles[key];
+                    setStatus('加载 ' + fn + ' ...');
+                    try {
+                        const res = await fetch(fn);
+                        if (!res.ok) {
+                            console.warn('无法加载 ' + fn + ': HTTP ' + res.status);
+                            continue;
+                        }
+                        const buf = await res.arrayBuffer();
+                        let text = null;
+                        const tryEncodings = ['gb18030', 'gbk', 'utf-8'];
+                        for (const enc of tryEncodings) {
+                            try {
+                                const dec = new TextDecoder(enc);
+                                text = dec.decode(buf);
+                                if (text) break;
+                            } catch (e) {}
+                        }
+                        if (text) {
+                            const parsed = parseLuaFile(text);
+                            if (parsed.questName && parsed.itemBonus.length > 0) {
+                                TreasureMaps.push({
+                                    key: key,
+                                    fileName: fn,
+                                    questName: parsed.questName,
+                                    itemBonus: parsed.itemBonus
+                                });
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('加载 ' + fn + ' 失败:', e);
+                    }
+                }
+                
+                // 加载祈福lua文件
+                setStatus('加载祈福文件...');
+                for (const key of Object.keys(luckySeedFiles)) {
+                    const fn = luckySeedFiles[key];
+                    setStatus('加载 ' + fn + ' ...');
+                    try {
+                        const res = await fetch(fn);
+                        if (!res.ok) {
+                            console.warn('无法加载 ' + fn + ': HTTP ' + res.status);
+                            continue;
+                        }
+                        const buf = await res.arrayBuffer();
+                        let text = null;
+                        const tryEncodings = ['gb18030', 'gbk', 'utf-8'];
+                        for (const enc of tryEncodings) {
+                            try {
+                                const dec = new TextDecoder(enc);
+                                text = dec.decode(buf);
+                                if (text) break;
+                            } catch (e) {}
+                        }
+                        if (text) {
+                            const parsed = parseLuckySeedTable(text);
+                            if (parsed.items.length > 0) {
+                                LuckySeedData[key] = {
+                                    fileName: fn,
+                                    items: parsed.items
+                                };
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('加载 ' + fn + ' 失败:', e);
+                    }
+                }
+                
+                setStatus('全部文件已加载，数据准备完成。');
+            } catch (e) {
+                setStatus('加载失败：' + e.message);
+                console.error(e);
+                alert('加载失败：' + e.message + '\n请检查文件是否存在于当前目录且文件名正确，或浏览器是否支持 GBK/GB18030 解码。');
+                throw e;
+            }
+        }
+
+        loadBtn.addEventListener('click', async () => {
+            loadBtn.disabled = true;
+            try { await loadAllFiles(); } catch (e) {} finally { loadBtn.disabled = false; }
+        });
+
+        // --------- 新的业务逻辑修正（针对你的要求） ---------
+
+        // 帮助：尝试获取怪物表中“掉落马ID”和“马掉落率”列索引（可能名称有变化）
+        function locateMonsterHorseColumns() {
+            const headers = DB.monster.headers;
+            // 常见：掉落马ID / 掉落马 / 掉落马ID(或英文) ; 掉落马率 / 马掉落率 / 掉落率（针对马）
+            const horseIdIdxs = findHeaderIndices(headers, '掉落马ID');
+            const horseRateIdxs = findHeaderIndices(headers, '马掉落率');
+            // We will pair based on proximity if both found; otherwise return arrays.
+            return { horseIdIdxs, horseRateIdxs };
+        }
+
+        // search horses: 只有当对应的 rate == 100 时才认为会掉落（若能找到 rate 列并能取得数值）
+        function monsterWillDropHorse(monsterRow, horseIdIdx, horseRateIdxs) {
+            // If the column value is empty or -1 => no drop
+            const raw = monsterRow[horseIdIdx];
+            if (!raw || String(raw).trim() === '' || String(raw).trim() === '-1') return false;
+            // If we have explicit rate columns, check nearby rate column(s)
+            if (horseRateIdxs && horseRateIdxs.length) {
+                // Choose the closest rate-column index to horseIdIdx, if any
+                let chosenRateIdx = null;
+                let bestDist = Infinity;
+                for (const ridx of horseRateIdxs) {
+                    const d = Math.abs(ridx - horseIdIdx);
+                    if (d < bestDist) { bestDist = d; chosenRateIdx = ridx; }
+                }
+                if (chosenRateIdx !== null) {
+                    const v = monsterRow[chosenRateIdx];
+                    if (!v || v.toString().trim() === '') return false; // 为空视为不掉落
+                    // 有些表里 rate 是 1000000 等表示千分制或万分制——但你明确要求“=100 才掉落” -> 我们严格判断等于 100
+                    const num = Number(String(v).trim());
+                    if (Number.isFinite(num)) {
+                        return num === 100;
+                    } else {
+                        // 非数字则认为不掉落（保守）
+                        return false;
+                    }
+                }
+            }
+            // 没有 rate 列可参考：如果有 id 且不为 -1，仍然尝试解析 horsedrop 表以获取实际 horse id（但不判定掉落率）
+            return true;
+        }
+
+        // ---------- 主查询函数（更新后） ----------
+
+        function searchByHorseName(name) {
+            if (!name) return { error: '请输入马名称' };
+            const horseHeaders = DB.horse.headers;
+            const nameIdxCandidates = findHeaderIndices(horseHeaders, '坐骑名字').concat(findHeaderIndices(horseHeaders, '坐骑名'), findHeaderIndices(horseHeaders, '名字'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 4;
+            const matchedHorseIds = [];
+            for (const row of DB.horse.rows) {
+                const cell = (row[nameIdx] || '').trim();
+                if (cell && cell.indexOf(name) !== -1) matchedHorseIds.push(row[0]);
+            }
+            if (matchedHorseIds.length === 0) return { error: '未在坐骑表中找到匹配的马名称' };
+
+            const monsterHeaders = DB.monster.headers;
+            // locate horse id columns in monster table
+            const { horseIdIdxs, horseRateIdxs } = locateMonsterHorseColumns();
+            const monsterResults = [];
+            for (const row of DB.monster.rows) {
+                let matched = false;
+                for (const idx of horseIdIdxs) {
+                    if (!row[idx]) continue;
+                    if (!monsterWillDropHorse(row, idx, horseRateIdxs)) continue; // 根据 rate 决定是否掉落
+                    // parse ids (可能是 group id 指向 horsedrop)
+                    const ids = parseIdsCell(row[idx]);
+                    for (const id of ids) {
+                        // if direct horse id
+                        if (matchedHorseIds.includes(id)) { matched = true; break; }
+                        // else id might be a horses drop group id -> check horsedrop table
+                        const hdRow = DB.horsedrop.mapById.get(id);
+                        if (hdRow) {
+                            for (let j=0;j<DB.horsedrop.headers.length;j++) {
+                                // 只找那些可能包含掉落内容的列（header 包含 掉落内容 或 掉落）
+                                const hh = (DB.horsedrop.headers[j] || '').toLowerCase();
+                                if (hh.indexOf('掉落内容') === -1 && hh.indexOf('掉落') === -1) continue;
+                                const content = hdRow[j];
+                                const horseIds = parseIdsCell(content);
+                                for (const hid of horseIds) {
+                                    if (matchedHorseIds.includes(hid)) { matched = true; break; }
+                                }
+                                if (matched) break;
+                            }
+                            if (matched) break;
+                        }
+                    }
+                    if (matched) break;
+                }
+                if (matched) monsterResults.push(rowToObj(DB.monster.headers, row));
+            }
+            return { horseIds: matchedHorseIds, monsters: monsterResults, monsterHeaders: DB.monster.headers };
+        }
+
+        function searchByItemName(name) {
+            if (!name) return { error: '请输入道具名称' };
+            const itemHeaders = DB.item.headers;
+            const nameIdxCandidates = findHeaderIndices(itemHeaders, '名称').concat(findHeaderIndices(itemHeaders, '物品名字'), findHeaderIndices(itemHeaders, '名字'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 5;
+            const matchedItemIds = [];
+            for (const row of DB.item.rows) {
+                const v = row[nameIdx] || '';
+                if (v && v.indexOf(name) !== -1) matchedItemIds.push(row[0]);
+            }
+            if (matchedItemIds.length === 0) return { error: '未在道具表中找到匹配的道具名称' };
+
+            const monsterHeaders = DB.monster.headers;
+            const dropGroupIdxCandidates = findHeaderIndices(monsterHeaders, '掉落物品组').concat(findHeaderIndices(monsterHeaders, '掉落物品'));
+            const dropGroupIdx = dropGroupIdxCandidates.length ? dropGroupIdxCandidates[0] : -1;
+            const foundMonsters = [];
+            if (dropGroupIdx === -1) return { error: '未在怪物表中找到掉落物品组列，无法检索' };
+            for (const mrow of DB.monster.rows) {
+                const groupCell = mrow[dropGroupIdx];
+                if (!groupCell) continue;
+                const groupIds = parseIdsCell(groupCell);
+                let matched = false;
+                for (const gid of groupIds) {
+                    const gRow = DB.monsterdrop.mapById.get(gid);
+                    if (!gRow) continue;
+                    for (let j=0;j<DB.monsterdrop.headers.length;j++) {
+                        const h = DB.monsterdrop.headers[j] || '';
+                        if (h.indexOf('掉落内容') === -1) continue;
+                        const content = gRow[j];
+                        const ids = parseIdsCell(content);
+                        for (const iid of ids) {
+                            if (matchedItemIds.includes(iid)) { matched = true; break; }
+                        }
+                        if (matched) break;
+                    }
+                    if (matched) break;
+                }
+                if (matched) foundMonsters.push(rowToObj(DB.monster.headers, mrow));
+            }
+            return { itemIds: matchedItemIds, monsters: foundMonsters, monsterHeaders: DB.monster.headers };
+        }
+
+        function searchByMonsterName(name) {
+            if (!name) return { error: '请输入怪物名称' };
+            const monsterHeaders = DB.monster.headers;
+            const nameIdxCandidates = findHeaderIndices(monsterHeaders, '怪物名称').concat(findHeaderIndices(monsterHeaders,'名称'), findHeaderIndices(monsterHeaders,'npc名称'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 2;
+            const matchedRows = [];
+            for (const row of DB.monster.rows) {
+                const v = row[nameIdx] || '';
+                if (v && v.indexOf(name) !== -1) matchedRows.push(row);
+            }
+            if (matchedRows.length === 0) return { error: '未找到匹配的怪物' };
+
+            // locate drop columns
+            const dropGroupIdxs = findHeaderIndices(monsterHeaders, '掉落物品组ID');
+            const { horseIdIdxs, horseRateIdxs } = locateMonsterHorseColumns();
+
+            const results = [];
+            for (const mrow of matchedRows) {
+                const monsterObj = rowToObj(monsterHeaders, mrow);
+                // items
+                const allItemIds = new Set();
+                for (const dgIdx of dropGroupIdxs) {
+                    if (!mrow[dgIdx]) continue;
+                    const groupIds = parseIdsCell(mrow[dgIdx]);
+                    for (const gid of groupIds) {
+                        const gRow = DB.monsterdrop.mapById.get(gid);
+                        if (!gRow) continue;
+                        for (let j=0;j<DB.monsterdrop.headers.length;j++) {
+                            const h = DB.monsterdrop.headers[j] || '';
+                            if (h.indexOf('掉落内容') === -1) continue;
+                            const content = gRow[j];
+                            const ids = parseIdsCell(content);
+                            ids.forEach(id => allItemIds.add(id));
+                        }
+                    }
+                }
+                // horses
+                const allHorseIds = new Set();
+                for (const hdIdx of horseIdIdxs) {
+                    if (!mrow[hdIdx]) continue;
+                    if (!monsterWillDropHorse(mrow, hdIdx, horseRateIdxs)) continue; // 根据 rate 决定是否掉落
+                    const val = mrow[hdIdx];
+                    const ids = parseIdsCell(val);
+                    for (const id of ids) {
+                        // direct horse id
+                        // if (DB.horsedrop.mapById.has(id)) { allHorseIds.add(id); continue; }
+                        // else it's a horsedrop group
+                        const hdRow = DB.horsedrop.mapById.get(id);
+                        if (hdRow) {
+                            for (let j=0;j<DB.horsedrop.headers.length;j++) {
+                                const h = (DB.horsedrop.headers[j] || '').toLowerCase();
+                                if (h.indexOf('掉落内容') === -1) continue;
+                                const content = hdRow[j];
+                                const ids2 = parseIdsCell(content);
+                                ids2.forEach(x => allHorseIds.add(x));
+                            }
+                        }
+                    }
+                }
+
+                const items = [];
+                for (const iid of Array.from(allItemIds)) {
+                    const irow = DB.item.mapById.get(iid);
+                    if (irow) {
+                        const itemNameIdxCandidates = findHeaderIndices(DB.item.headers, '名称');
+                        const inameIdx = itemNameIdxCandidates.length ? itemNameIdxCandidates[0] : 5;
+                        items.push({ id: iid, name: irow[inameIdx] || '' , raw: rowToObj(DB.item.headers, irow) });
+                    } else {
+                        const ierow = DB.equipmodel.mapById.get(iid);
+                        if (ierow) {
+                            const itemNameIdxCandidates = findHeaderIndices(DB.equipmodel.headers, '装备名称');
+                            const inameIdx = itemNameIdxCandidates.length ? itemNameIdxCandidates[0] : 5;
+                            items.push({ id: iid, name: ierow[inameIdx] || '' , raw: rowToObj(DB.equipmodel.headers, ierow) });
+                        } else {
+                            items.push({ id: iid, name: '', raw: null });
+
+                        }
+                    }
+                }
+
+                const horses = [];
+                for (const hid of Array.from(allHorseIds)) {
+                    const hrow = DB.horse.mapById.get(hid);
+                    if (hrow) {
+                        const horseNameIdxCandidates = findHeaderIndices(DB.horse.headers, '坐骑名字').concat(findHeaderIndices(DB.horse.headers, '坐骑名'), findHeaderIndices(DB.horse.headers,'名字'));
+                        const hnameIdx = horseNameIdxCandidates.length ? horseNameIdxCandidates[0] : 4;
+                        horses.push({ id: hid, name: hrow[hnameIdx] || '', raw: rowToObj(DB.horse.headers, hrow) });
+                    } else {
+                        horses.push({ id: hid, name: '', raw: null });
+                    }
+                }
+
+                results.push({ monster: monsterObj, items, horses });
+            }
+
+            return { headers: monsterHeaders, results };
+        }
+
+        // --------- 渲染 modal ----------
+
+        function createModal(title, innerHtml) {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'closeBtn';
+            closeBtn.textContent = '关闭 ✕';
+            closeBtn.onclick = () => document.body.removeChild(backdrop);
+            const h2 = document.createElement('h2');
+            h2.textContent = title;
+            modal.appendChild(closeBtn);
+            modal.appendChild(h2);
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = innerHtml;
+            modal.appendChild(contentDiv);
+            backdrop.appendChild(modal);
+            document.body.appendChild(backdrop);
+            // 返回 backdrop 以便调用者后续可以关闭
+            return backdrop;
+        }
+
+        function escapeHtml(s) {
+            if (s === null || s === undefined) return '';
+            return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function renderMonsterListHtml(monsterHeaders, monsterObjs) {
+            if (!monsterObjs || monsterObjs.length === 0) return '<div class="small">无匹配怪物</div>';
+            let html = `<div class="meta">${monsterObjs.length} 个怪物</div>`;
+            html += `<table><thead><tr>${monsterHeaders.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead><tbody>`;
+            for (const o of monsterObjs) {
+                html += '<tr>' + monsterHeaders.map(h => `<td>${escapeHtml(o[h]===undefined?'':o[h])}</td>`).join('') + '</tr>';
+            }
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function renderSearchByHorse(res) {
+            if (res.error) return createModal('查询马 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            let html = `<div class="tag">匹配马ID：${res.horseIds.join(', ')}</div>`;
+            html += renderMonsterListHtml(res.monsterHeaders, res.monsters);
+            return createModal('查询马 — 结果', html);
+        }
+
+        function renderSearchByItem(res) {
+            if (res.error) return createModal('查询物品 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            let html = `<div class="tag">匹配物品ID：${res.itemIds.join(', ')}</div>`;
+            html += renderMonsterListHtml(res.monsterHeaders, res.monsters);
+            return createModal('查询物品 — 结果', html);
+        }
+
+        function renderSearchByMonster(res) {
+            if (res.error) return createModal('查询怪物 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            if (!res.results || res.results.length === 0) return createModal('查询怪物 — 结果', '<div class="small">无结果</div>');
+            let html = '';
+            res.results.forEach((r, idx) => {
+                html += `<div style="margin-bottom:12px"><div style="font-weight:600">怪物 #${idx+1}</div>`;
+                // monster table
+                html += `<table style="margin-top:6px"><thead><tr>${res.headers.map(h=>`<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>`;
+                html += `<tbody><tr>${res.headers.map(h=>`<td>${escapeHtml(r.monster[h]||'')}</td>`).join('')}</tr></tbody></table>`;
+                // items
+                html += `<div style="margin-top:8px"><strong>掉落物品 (${r.items.length})</strong></div>`;
+                if (r.items.length===0) html += `<div class="small">无</div>`; else {
+                    html += `<table><thead><tr><th>物品ID</th><th>物品名称</th></tr></thead><tbody>`;
+                    for (const it of r.items) html += `<tr><td class="mono">${escapeHtml(it.id)}</td><td>${escapeHtml(it.name||'(未知)')}</td></tr>`;
+                    html += `</tbody></table>`;
+                }
+                // horses
+                html += `<div style="margin-top:8px"><strong>掉落坐骑/马 (${r.horses.length})</strong></div>`;
+                if (r.horses.length===0) html += `<div class="small">无</div>`; else {
+                    html += `<table><thead><tr><th>坐骑ID</th><th>坐骑名称</th></tr></thead><tbody>`;
+                    for (const h of r.horses) html += `<tr><td class="mono">${escapeHtml(h.id)}</td><td>${escapeHtml(h.name||'(未知)')}</td></tr>`;
+                    html += `</tbody></table>`;
+                }
+                html += `</div>`;
+            });
+            return createModal('查询怪物 — 结果', html);
+        }
+
+        function searchTreasureMaps() {
+            if (TreasureMaps.length === 0) {
+                return { error: '藏宝图数据未加载，请先点击"加载所有文件"' };
+            }
+            return { maps: TreasureMaps };
+        }
+
+        function renderSearchTreasureMaps(res) {
+            if (res.error) return createModal('查询藏宝图 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            if (!res.maps || res.maps.length === 0) return createModal('查询藏宝图 — 结果', '<div class="small">无结果</div>');
+            
+            let html = `<div class="meta">共 ${res.maps.length} 种藏宝图</div>`;
+            
+            res.maps.forEach((map, idx) => {
+                // 计算总概率
+                const totalProb = map.itemBonus.reduce((sum, item) => sum + item.probability, 0);
+                
+                html += `<div style="margin-bottom:24px;padding:12px;background:#f7faff;border-radius:8px;">`;
+                html += `<div style="font-weight:600;font-size:16px;color:#2b8cff;margin-bottom:8px;">${idx + 1}. ${escapeHtml(map.questName)}</div>`;
+                html += `<div class="small" style="margin-bottom:8px;">文件: ${escapeHtml(map.fileName)}</div>`;
+                html += `<div class="small" style="margin-bottom:12px;">总概率: ${totalProb} | 道具数量: ${map.itemBonus.length}</div>`;
+                
+                // 按概率降序排序
+                const sortedItems = [...map.itemBonus].sort((a, b) => b.probability - a.probability);
+                
+                html += `<table style="margin-top:8px"><thead><tr><th>道具ID</th><th>道具名称</th><th>数量</th><th>概率</th><th>概率百分比</th></tr></thead><tbody>`;
+                for (const item of sortedItems) {
+                    const percent = totalProb > 0 ? ((item.probability / totalProb) * 100).toFixed(2) : '0.00';
+                    html += `<tr>`;
+                    html += `<td class="mono">${escapeHtml(item.varId)}</td>`;
+                    html += `<td>${escapeHtml(item.varName)}</td>`;
+                    html += `<td style="text-align:center">${escapeHtml(item.varNum)}</td>`;
+                    html += `<td style="text-align:right">${escapeHtml(item.probability)}</td>`;
+                    html += `<td style="text-align:right">${percent}%</td>`;
+                    html += `</tr>`;
+                }
+                html += `</tbody></table>`;
+                html += `</div>`;
+            });
+            
+            return createModal('查询黄金藏宝图 — 结果', html);
+        }
+
+        // 将时间值转换为时:分格式
+        // 5位数格式：WWHHMM，WW是星期（1-7），HHMM是时间（小时*100+分钟）
+        // 小于5位数：HHMM格式（小时*100+分钟），如100=1:00, 1120=11:20
+        function minutesToTime(timeValue) {
+            if (timeValue === -1 || timeValue === null || timeValue === undefined || timeValue === '') return '-';
+            const timeStr = String(timeValue).trim();
+            if (timeStr === '' || timeStr === '-1') return '-';
+            
+            const timeNum = parseInt(timeValue);
+            if (isNaN(timeNum) || timeNum < 0) return '-';
+            
+            // 如果是5位数或更多，格式是：WWHHMM
+            if (timeStr.length >= 5) {
+                const week = Math.floor(timeNum / 10000);
+                const timePart = timeNum % 10000;
+                const hours = Math.floor(timePart / 100);
+                const minutes = timePart % 100;
+                const weekNames = ['', '周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+                const weekName = week >= 1 && week <= 7 ? weekNames[week] : `周${week}`;
+                return `${weekName} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+            } else {
+                // 小于5位数，格式是HHMM（小时*100+分钟）
+                const hours = Math.floor(timeNum / 100);
+                const minutes = timeNum % 100;
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+            }
+        }
+
+        // 计算刷新周期（小时）
+        function calculateRefreshInterval(times) {
+            if (times.length < 2) return null;
+            const sorted = [...times].sort((a, b) => a - b);
+            const intervals = [];
+            
+            // 计算相邻时间的间隔
+            for (let i = 1; i < sorted.length; i++) {
+                const diff = sorted[i] - sorted[i - 1];
+                intervals.push(diff);
+            }
+            
+            // 检查是否所有间隔都相同（允许5分钟的误差）
+            if (intervals.length === 0) return null;
+            const firstInterval = intervals[0];
+            const allSame = intervals.every(iv => Math.abs(iv - firstInterval) < 5);
+            
+            if (allSame) {
+                const hours = firstInterval / 60;
+                // 如果是整数小时，返回整数；否则保留一位小数
+                if (hours % 1 === 0) {
+                    return hours;
+                } else {
+                    return Math.round(hours * 10) / 10;
+                }
+            }
+            
+            // 检查是否是每天固定时间（间隔接近24小时）
+            if (sorted.length >= 2) {
+                const dayIntervals = [];
+                for (let i = 1; i < sorted.length; i++) {
+                    const diff = sorted[i] - sorted[i - 1];
+                    if (diff > 1200) { // 大于20小时，可能是跨天
+                        dayIntervals.push(diff);
+                    }
+                }
+                if (dayIntervals.length > 0 && dayIntervals.every(iv => Math.abs(iv - 1440) < 60)) {
+                    return 24; // 每天
+                }
+            }
+            
+            return null;
+        }
+
+        // 从时间值中提取用于排序和比较的数值（统一转换为分钟数）
+        function timeToMinutes(timeValue) {
+            if (timeValue === -1 || timeValue === null || timeValue === undefined || timeValue === '') return -1;
+            const timeStr = String(timeValue).trim();
+            const timeNum = parseInt(timeValue);
+            if (isNaN(timeNum) || timeNum < 0) return -1;
+            
+            // 如果是5位数或更多，格式是：WWHHMM
+            if (timeStr.length >= 5) {
+                const timePart = timeNum % 10000;
+                const hours = Math.floor(timePart / 100);
+                const minutes = timePart % 100;
+                return hours * 60 + minutes; // 只返回时间部分，不包含星期
+            } else {
+                // 小于5位数，格式是HHMM（小时*100+分钟）
+                const hours = Math.floor(timeNum / 100);
+                const minutes = timeNum % 100;
+                return hours * 60 + minutes;
+            }
+        }
+
+        // 合并相同名称的活动
+        function mergeActivities(activities) {
+            const merged = new Map();
+            
+            for (const activity of activities) {
+                const name = activity.name;
+                if (!merged.has(name)) {
+                    merged.set(name, {
+                        name: name,
+                        times: [],
+                        timeValues: [], // 保存原始值用于显示
+                        scriptIds: new Set(),
+                        optTypes: new Set(),
+                        timeTypes: new Set(),
+                        rawRows: []
+                    });
+                }
+                const mergedAct = merged.get(name);
+                if (activity.timeStart !== -1 && activity.timeStart !== null) {
+                    mergedAct.timeValues.push(activity.timeStart);
+                    // 用于排序和计算间隔的分钟数
+                    const mins = timeToMinutes(activity.timeStart);
+                    if (mins >= 0) {
+                        mergedAct.times.push(mins);
+                    }
+                }
+                if (activity.scriptId && activity.scriptId !== '-1') {
+                    mergedAct.scriptIds.add(activity.scriptId);
+                }
+                mergedAct.optTypes.add(activity.optType);
+                mergedAct.timeTypes.add(activity.timeType);
+                mergedAct.rawRows.push(activity);
+            }
+            
+            // 转换为数组并计算刷新周期
+            const result = [];
+            for (const [name, act] of merged.entries()) {
+                // 按时间排序（使用分钟数）
+                const sortedIndices = act.times.map((_, i) => i).sort((a, b) => act.times[a] - act.times[b]);
+                const sortedTimeValues = sortedIndices.map(i => act.timeValues[i]);
+                
+                const refreshInterval = calculateRefreshInterval(act.times);
+                result.push({
+                    name: name,
+                    times: act.times,
+                    timeValues: sortedTimeValues,
+                    timeStrings: sortedTimeValues.map(t => minutesToTime(t)),
+                    refreshInterval: refreshInterval,
+                    refreshPattern: refreshInterval ? `每${refreshInterval}小时` : (act.times.length > 1 ? '多时段' : '单次'),
+                    scriptIds: Array.from(act.scriptIds),
+                    optTypes: Array.from(act.optTypes),
+                    timeTypes: Array.from(act.timeTypes),
+                    count: act.rawRows.length
+                });
+            }
+            
+            return result.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        function searchActivities() {
+            if (!DB.timer.rows.length) {
+                return { error: '活动时间数据未加载，请先点击"加载所有文件"' };
+            }
+            
+            const headers = DB.timer.headers;
+            const nameIdx = findHeaderIndices(headers, '名称')[0] || 1;
+            const timeStartIdx = findHeaderIndices(headers, 'time_start')[0] || 7;
+            const timeOverIdx = findHeaderIndices(headers, 'time_over')[0] || 8;
+            const scriptIdIdx = findHeaderIndices(headers, 'scriptid')[0] || 2;
+            const optTypeIdx = findHeaderIndices(headers, 'opt_type')[0] || 3;
+            const timeTypeIdx = findHeaderIndices(headers, 'time_type')[0] || 4;
+            
+            const activities = [];
+            for (const row of DB.timer.rows) {
+                const name = (row[nameIdx] || '').trim();
+                if (!name || name === '') continue;
+                
+                const timeStart = row[timeStartIdx] !== undefined && row[timeStartIdx] !== '' ? parseInt(row[timeStartIdx]) : -1;
+                const timeOver = row[timeOverIdx] !== undefined && row[timeOverIdx] !== '' ? parseInt(row[timeOverIdx]) : -1;
+                const scriptId = (row[scriptIdIdx] || '').trim();
+                const optType = (row[optTypeIdx] || '').trim();
+                const timeType = (row[timeTypeIdx] || '').trim();
+                
+                activities.push({
+                    name: name,
+                    timeStart: timeStart,
+                    timeOver: timeOver,
+                    scriptId: scriptId,
+                    optType: optType,
+                    timeType: timeType,
+                    raw: rowToObj(headers, row)
+                });
+            }
+            
+            const merged = mergeActivities(activities);
+            return { activities: merged };
+        }
+
+        function renderSearchActivities(res) {
+            if (res.error) return createModal('查询活动时间 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            if (!res.activities || res.activities.length === 0) return createModal('查询活动时间 — 结果', '<div class="small">无结果</div>');
+            
+            let html = `<div class="meta">共 ${res.activities.length} 个活动（已合并相同名称）</div>`;
+            html += `<table style="margin-top:12px"><thead><tr><th>活动名称</th><th>时间点</th><th>刷新周期</th><th>记录数</th></tr></thead><tbody>`;
+            
+            for (const act of res.activities) {
+                html += `<tr>`;
+                html += `<td><strong>${escapeHtml(act.name)}</strong></td>`;
+                html += `<td>${act.timeStrings.length > 0 ? act.timeStrings.join(', ') : '-'}</td>`;
+                html += `<td>${escapeHtml(act.refreshPattern)}</td>`;
+                html += `<td style="text-align:center">${act.count}</td>`;
+                html += `</tr>`;
+            }
+            
+            html += `</tbody></table>`;
+            html += `<div class="small" style="margin-top:12px;color:#666;">说明：相同名称的活动已合并，时间点按顺序显示，刷新周期自动识别。</div>`;
+            return createModal('查询活动时间 — 结果', html);
+        }
+
+        function searchLuckySeed(type) {
+            const data = LuckySeedData[type];
+            if (!data) {
+                return { error: '数据未加载，请先点击"加载所有文件"' };
+            }
+            return { data: data };
+        }
+
+        function renderSearchLuckySeed(res, title) {
+            if (res.error) return createModal(title + ' — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            if (!res.data || !res.data.items || res.data.items.length === 0) {
+                return createModal(title + ' — 结果', '<div class="small">无结果</div>');
+            }
+            
+            const items = res.data.items;
+            // 计算总概率
+            const totalProb = items.reduce((sum, item) => sum + item.probability, 0);
+            
+            // 按概率降序排序
+            const sortedItems = [...items].sort((a, b) => b.probability - a.probability);
+            
+            let html = `<div class="meta">文件: ${escapeHtml(res.data.fileName)} | 总概率: ${totalProb} | 道具数量: ${items.length}</div>`;
+            html += `<table style="margin-top:12px"><thead><tr><th>道具ID</th><th>道具名称</th><th>数量</th><th>概率</th><th>概率百分比</th><th>价格</th></tr></thead><tbody>`;
+            
+            for (const item of sortedItems) {
+                const percent = totalProb > 0 ? ((item.probability / totalProb) * 100).toFixed(2) : '0.00';
+                html += `<tr>`;
+                html += `<td class="mono">${escapeHtml(item.varItem)}</td>`;
+                html += `<td>${escapeHtml(item.varName)}</td>`;
+                html += `<td style="text-align:center">${escapeHtml(item.num)}</td>`;
+                html += `<td style="text-align:right">${escapeHtml(item.probability)}</td>`;
+                html += `<td style="text-align:right">${percent}%</td>`;
+                html += `<td style="text-align:right">${escapeHtml(item.price)}</td>`;
+                html += `</tr>`;
+            }
+            
+            html += `</tbody></table>`;
+            return createModal(title + ' — 结果', html);
+        }
+
+        // 绑定按钮
+        document.getElementById('horseSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('horseInput').value.trim();
+            if (!DB.horse.rows.length) { createModal('错误', '<div class="warn">请先点击“加载所有文件”加载数据。</div>'); return; }
+            try {
+                const res = searchByHorseName(name);
+                renderSearchByHorse(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('itemSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('itemInput').value.trim();
+            if (!DB.item.rows.length) { createModal('错误', '<div class="warn">请先点击“加载所有文件”加载数据。</div>'); return; }
+            try {
+                const res = searchByItemName(name);
+                renderSearchByItem(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('monsterSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('monsterInput').value.trim();
+            if (!DB.monster.rows.length) { createModal('错误', '<div class="warn">请先点击"加载所有文件"加载数据。</div>'); return; }
+            try {
+                const res = searchByMonsterName(name);
+                renderSearchByMonster(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('treasureMapSearchBtn').addEventListener('click', () => {
+            if (TreasureMaps.length === 0) { 
+                createModal('错误', '<div class="warn">请先点击"加载所有文件"加载数据。</div>'); 
+                return; 
+            }
+            try {
+                const res = searchTreasureMaps();
+                renderSearchTreasureMaps(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('timerSearchBtn').addEventListener('click', () => {
+            if (!DB.timer.rows.length) { 
+                createModal('错误', '<div class="warn">请先点击"加载所有文件"加载数据。</div>'); 
+                return; 
+            }
+            try {
+                const res = searchActivities();
+                renderSearchActivities(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('luckyPeiyuSearchBtn').addEventListener('click', () => {
+            if (!LuckySeedData.peiyu) { 
+                createModal('错误', '<div class="warn">请先点击"加载所有文件"加载数据。</div>'); 
+                return; 
+            }
+            try {
+                const res = searchLuckySeed('peiyu');
+                renderSearchLuckySeed(res, '查询祈福玉佩');
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('luckyZhongziSearchBtn').addEventListener('click', () => {
+            if (!LuckySeedData.zhongzi) { 
+                createModal('错误', '<div class="warn">请先点击"加载所有文件"加载数据。</div>'); 
+                return; 
+            }
+            try {
+                const res = searchLuckySeed('zhongzi');
+                renderSearchLuckySeed(res, '查询祈福种子');
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        setStatus('等待用户点击 "加载所有文件"');
+    })();
+</script>
+</body>
+</html>

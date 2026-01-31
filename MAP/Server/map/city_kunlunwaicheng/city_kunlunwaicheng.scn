@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_kunlunwaicheng/city_kunlunwaicheng.nav
+monster=city_kunlunwaicheng/city_kunlunwaicheng_monster.tab
+xunluo=city_kunlunwaicheng/city_kunlunwaicheng_patrolpoint.ini
+caijidata=city_kunlunwaicheng/city_kunlunwaicheng_growpoint.txt
+caijisetup=city_kunlunwaicheng/city_kunlunwaicheng_growpointsetup.txt
+teleport=city_kunlunwaicheng/city_kunlunwaicheng_area.ini

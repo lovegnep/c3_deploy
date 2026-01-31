@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=midong_jiuzhoushanao/midong_jiuzhoushanao.nav
+monster=midong_jiuzhoushanao/midong_jiuzhoushanao_monster.tab
+xunluo=midong_jiuzhoushanao/midong_jiuzhoushanao_patrolpoint.ini
+caijidata=midong_jiuzhoushanao/midong_jiuzhoushanao_growpoint.txt
+caijisetup=midong_jiuzhoushanao/midong_jiuzhoushanao_growpointsetup.txt
+teleport=midong_jiuzhoushanao/midong_jiuzhoushanao_area.ini

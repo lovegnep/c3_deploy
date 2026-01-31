@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_zhongxingfu/city_zhongxingfu.nav
+monster=city_zhongxingfu/city_zhongxingfu_monster.tab
+xunluo=city_zhongxingfu/city_zhongxingfu_patrolpoint.ini
+caijidata=city_zhongxingfu/city_zhongxingfu_growpoint.txt
+caijisetup=city_zhongxingfu/city_zhongxingfu_growpointsetup.txt
+teleport=city_zhongxingfu/city_zhongxingfu_area.ini

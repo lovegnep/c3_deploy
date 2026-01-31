@@ -1,0 +1,19 @@
+NUM	TEXT	NUM	NUM	TEXT	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
+作物ID	作物名称	作物生长模型	作物成熟模型	生长图	成熟图	需要种子ID	种子等级	需要种子数量	需求土地等级	消耗种植次数	成熟时间(秒)	产出果实ID	产出果实数量	额外产出的概率	产出额外物品1ID	产出额外物品1几率（10000做分母）	产出额外物品1数量	产出额外物品2ID	产出额外物品2几率（10000做分母）	产出额外物品2数量	产出额外物品3ID	产出额外物品3几率（10000做分母）	产出额外物品3数量	种子单价
+19000101	金环麦	29000	1100	set:UI_MainCover_36 image:UI_MainCover_36_seedling_1	set:UI_MainCover_36 image:UI_MainCover_36_mature_1	12271046	30	1	1	1	1200	12271030	1	10	12271030	0	1	12271030	0	1	12271030	0	1	5
+19000102	绿油麦	29001	1101	set:UI_MainCover_36 image:UI_MainCover_36_seedling_1	set:UI_MainCover_36 image:UI_MainCover_36_mature_1	12271047	50	1	1	1	3600	12271031	1	10	12271031	0	1	12271031	0	1	12271031	0	1	8
+19000103	双叶麦	29002	1102	set:UI_MainCover_36 image:UI_MainCover_36_seedling_1	set:UI_MainCover_36 image:UI_MainCover_36_mature_1	12271048	70	1	1	1	7200	12271032	1	10	12271032	0	1	12271032	0	1	12271032	0	1	15
+19000104	幻岩麦	29003	1103	set:UI_MainCover_36 image:UI_MainCover_36_seedling_1	set:UI_MainCover_36 image:UI_MainCover_36_mature_1	12271049	90	1	1	1	14400	12271033	1	10	12271033	0	1	12271033	0	1	12271033	0	1	20
+19000201	白凡豆	29004	1110	set:UI_MainCover_36 image:UI_MainCover_36_seedling_2	set:UI_MainCover_36 image:UI_MainCover_36_mature_2	12271050	30	1	1	1	1500	12271034	1	10	12271034	0	1	12271034	0	1	12271034	0	1	10
+19000202	绿魔豆	29005	1111	set:UI_MainCover_36 image:UI_MainCover_36_seedling_2	set:UI_MainCover_36 image:UI_MainCover_36_mature_2	12271051	50	1	1	1	4500	12271035	1	10	12271035	0	1	12271035	0	1	12271035	0	1	15
+19000203	赤芸豆	29006	1112	set:UI_MainCover_36 image:UI_MainCover_36_seedling_2	set:UI_MainCover_36 image:UI_MainCover_36_mature_2	12271052	70	1	1	1	9000	12271036	1	10	12271036	0	1	12271036	0	1	12271036	0	1	25
+19000204	湾金豆	29007	1113	set:UI_MainCover_36 image:UI_MainCover_36_seedling_2	set:UI_MainCover_36 image:UI_MainCover_36_mature_2	12271053	90	1	1	1	18000	12271037	1	10	12271037	0	1	12271037	0	1	12271037	0	1	35
+19000301	白灵芝	29008	1120	set:UI_MainCover_36 image:UI_MainCover_36_seedling_5	set:UI_MainCover_36 image:UI_MainCover_36_mature_3	12271054	80	1	1	1	1800	12271038	1	10	12271038	0	1	12271038	0	1	12271038	0	1	20
+19000302	木苑芝	29009	1121	set:UI_MainCover_36 image:UI_MainCover_36_seedling_5	set:UI_MainCover_36 image:UI_MainCover_36_mature_3	12271055	90	1	1	1	5400	12271039	1	10	12271039	0	1	12271039	0	1	12271039	0	1	25
+19000303	火灵芝	29010	1122	set:UI_MainCover_36 image:UI_MainCover_36_seedling_5	set:UI_MainCover_36 image:UI_MainCover_36_mature_3	12271056	100	1	1	1	10800	12271040	1	10	12271040	0	1	12271040	0	1	12271040	0	1	30
+19000304	谷灵芝	29011	1123	set:UI_MainCover_36 image:UI_MainCover_36_seedling_5	set:UI_MainCover_36 image:UI_MainCover_36_mature_3	12271057	110	1	1	1	21600	12271041	1	10	12271041	0	1	12271041	0	1	12271041	0	1	35
+19000401	奇异果	29012	1130	set:UI_MainCover_36 image:UI_MainCover_36_seedling_3	set:UI_MainCover_36 image:UI_MainCover_36_mature_4	12271058	40	1	1	1	3600	12271042	1	10	12271042	0	1	12271042	0	1	12271042	0	1	10
+19000402	情缘果	29013	1131	set:UI_MainCover_36 image:UI_MainCover_36_seedling_3	set:UI_MainCover_36 image:UI_MainCover_36_mature_4	12271059	60	1	1	1	7200	12271043	1	10	12271043	0	1	12271043	0	1	12271043	0	1	15
+19000403	炽焰果	29014	1132	set:UI_MainCover_36 image:UI_MainCover_36_seedling_3	set:UI_MainCover_36 image:UI_MainCover_36_mature_4	12271060	80	1	1	1	14400	12271044	1	10	12271044	0	1	12271044	0	1	12271044	0	1	20
+19000404	智慧果	29015	1133	set:UI_MainCover_36 image:UI_MainCover_36_seedling_3	set:UI_MainCover_36 image:UI_MainCover_36_mature_4	12271061	100	1	1	1	28800	12271045	1	10	12271045	0	1	12271045	0	1	12271045	0	1	25
+19000504	变身果	29028	1134	set:UI_MainCover_36 image:UI_MainCover_36_seedling_3	set:UI_MainCover_36 image:UI_MainCover_36_mature_4	12271062	60	1	1	1	7200	12035368	1	10	12035368	0	1	12035368	0	1	12035368	0	1	25

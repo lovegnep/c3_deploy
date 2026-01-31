@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_poluozhou/yewai_poluozhou.nav
+monster=yewai_poluozhou/yewai_poluozhou_monster.tab
+xunluo=yewai_poluozhou/yewai_poluozhou_patrolpoint.ini
+caijidata=yewai_poluozhou/yewai_poluozhou_growpoint.txt
+caijisetup=yewai_poluozhou/yewai_poluozhou_growpointsetup.txt
+teleport=yewai_poluozhou/yewai_poluozhou_area.ini

@@ -1,0 +1,57 @@
+
+
+
+x418022_var_FileId = 418022
+x418022_var_Buf1 = 7519 
+x418022_var_item = 12030334
+
+function x418022_ProcEventEntry( varMap, varPlayer, varBagIdx )
+		
+
+
+
+    
+end
+
+function x418022_ProcIsSpellLikeScript( varMap, varPlayer)
+	return 1;     
+	
+	
+
+end
+
+function x418022_ProcCancelImpacts( varMap, varPlayer )
+	return 0; 
+
+end
+
+function x418022_ProcConditionCheck( varMap, varPlayer )
+	
+	
+	if(1~=VerifyUsedItem(varMap, varPlayer)) then
+		return 0
+	end
+	return 1; 
+	
+end
+
+function x418022_ProcDeplete( varMap, varPlayer )
+	return 1
+end
+
+function x418022_ProcActivateOnce( varMap, varPlayer )
+
+	if(DepletingUsedItem(varMap, varPlayer)) == 1 then
+		local yanhua=   SendSpecificImpactToUnit(varMap, varPlayer, varPlayer, varPlayer, x418021_var_Buf1, 0);
+	else
+			StartTalkTask(varMap)
+			TalkAppendString(varMap,"使用物品异常！")
+			StopTalkTask(varMap)
+			DeliverTalkTips(varMap,varPlayer)
+	end
+
+end
+
+function x418022_ProcActivateEachTick( varMap, varPlayer)
+	return 1; 
+end

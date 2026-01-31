@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=longzigu/longzigu.nav
+monster=longzigu/longzigu_monster.tab
+xunluo=longzigu/longzigu_patrolpoint.ini
+caijidata=longzigu/longzigu_growpoint.txt
+caijisetup=longzigu/longzigu_growpointsetup.txt
+teleport=longzigu/longzigu_area.ini

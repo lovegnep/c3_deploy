@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben4_juyongguan/jyfuben4_juyongguan.nav
+monster=jyfuben4_juyongguan/jyfuben4_juyongguan_monster.tab
+xunluo=jyfuben4_juyongguan/jyfuben4_juyongguan_patrolpoint.ini
+caijidata=jyfuben4_juyongguan/jyfuben4_juyongguan_growpoint.txt
+caijisetup=jyfuben4_juyongguan/jyfuben4_juyongguan_growpointsetup.txt
+teleport=jyfuben4_juyongguan/jyfuben4_juyongguan_area.ini

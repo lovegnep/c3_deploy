@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan.nav
+monster=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan_monster.tab
+xunluo=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan_patrolpoint.ini
+caijidata=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan_growpoint.txt
+caijisetup=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan_growpointsetup.txt
+teleport=juqing_hannanhecaoyuan/juqing_hannanhecaoyuan_area.ini

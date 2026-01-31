@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_lunhuizhidi/city_lunhuizhidi.nav
+monster=city_lunhuizhidi/city_lunhuizhidi_monster.tab
+xunluo=city_lunhuizhidi/city_lunhuizhidi_patrolpoint.ini
+caijidata=city_lunhuizhidi/city_lunhuizhidi_growpoint.txt
+caijisetup=city_lunhuizhidi/city_lunhuizhidi_growpointsetup.txt
+teleport=city_lunhuizhidi/city_lunhuizhidi_area.ini

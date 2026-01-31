@@ -1,0 +1,9 @@
+#!/bin/sh
+cd /home/khan3/GL/Server/
+./billing &
+sleep 2
+./DBCenter &
+sleep 4
+./DBShare &
+sleep 4
+./GLServer &

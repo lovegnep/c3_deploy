@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_keliebu/juqing_keliebu.nav
+monster=yewai_keliebu/yewai_keliebu_monster.tab
+xunluo=yewai_keliebu/yewai_keliebu_patrolpoint.ini
+caijidata=yewai_keliebu/yewai_keliebu_growpoint.txt
+caijisetup=yewai_keliebu/yewai_keliebu_growpointsetup.txt
+teleport=yewai_keliebu/yewai_keliebu_area.ini

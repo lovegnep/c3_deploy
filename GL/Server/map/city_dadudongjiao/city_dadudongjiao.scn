@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_dadudongjiao/city_dadudongjiao.nav
+monster=city_dadudongjiao/city_dadudongjiao_monster.tab
+xunluo=city_dadudongjiao/city_dadudongjiao_patrolpoint.ini
+caijidata=city_dadudongjiao/city_dadudongjiao_growpoint.txt
+caijisetup=city_dadudongjiao/city_dadudongjiao_growpointsetup.txt
+teleport=city_dadudongjiao/city_dadudongjiao_area.ini

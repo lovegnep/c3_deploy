@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_taishan/yewai_taishan.nav
+monster=yewai_taishan/yewai_taishan_monster.tab
+xunluo=yewai_taishan/yewai_taishan_patrolpoint.ini
+caijidata=yewai_taishan/yewai_taishan_growpoint.txt
+caijisetup=yewai_taishan/yewai_taishan_growpointsetup.txt
+teleport=yewai_taishan/yewai_taishan_area.ini

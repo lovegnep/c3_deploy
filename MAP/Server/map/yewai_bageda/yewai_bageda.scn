@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_bageda/juqing_bageda.nav
+monster=yewai_bageda/yewai_bageda_monster.tab
+xunluo=yewai_bageda/yewai_bageda_patrolpoint.ini
+caijidata=yewai_bageda/yewai_bageda_growpoint.txt
+caijisetup=yewai_bageda/yewai_bageda_growpointsetup.txt
+teleport=yewai_bageda/yewai_bageda_area.ini

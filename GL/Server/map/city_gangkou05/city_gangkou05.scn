@@ -1,0 +1,9 @@
+[MapDesc]
+mapnav=city_gangkou05/city_gangkou05.nav
+monster=city_gangkou05/city_gangkou05_monster.tab
+xunluo=city_gangkou05/city_gangkou05_patrolpoint.ini
+caijidata=city_gangkou05/city_gangkou05_growpoint.txt
+caijisetup=city_gangkou05/city_gangkou05_growpointsetup.txt
+teleport=city_gangkou05/city_gangkou05_area.ini
+baitan=city_gangkou05/city_gangkou05_StallInfo.stall
+pkgrid=city_gangkou05/city_gangkou05_pkarea.ini

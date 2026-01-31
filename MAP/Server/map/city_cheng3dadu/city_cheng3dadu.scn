@@ -1,0 +1,9 @@
+[MapDesc]
+mapnav=city_cheng3dadu/city_cheng3dadu.nav
+monster=city_cheng3dadu/city_cheng3dadu_monster.tab
+xunluo=city_cheng3dadu/city_cheng3dadu_patrolpoint.ini
+caijidata=city_cheng3dadu/city_cheng3dadu_growpoint.txt
+caijisetup=city_cheng3dadu/city_cheng3dadu_growpointsetup.txt
+teleport=city_cheng3dadu/city_cheng3dadu_area.ini
+baitan=city_cheng3dadu/city_cheng3dadu_StallInfo.stall
+pkgrid=city_cheng3dadu/city_cheng3dadu_pkarea.ini

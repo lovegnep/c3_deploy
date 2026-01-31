@@ -1,0 +1,58 @@
+
+
+
+
+
+
+x300363_var_FileId 					= 300363
+x300363_var_QuestName				= "【师徒】徒弟报名"
+
+
+
+
+
+
+function x300363_ProcEnumEvent(varMap, varPlayer, varTalknpc, varQuest)
+	TalkAppendButton(varMap, x300363_var_FileId, x300363_var_QuestName,3,0);
+end
+
+
+
+
+
+
+
+function x300363_ProcEventEntry(varMap, varPlayer, varTalknpc)
+	local Readme_1 = "#Y【师徒】徒弟报名#r"
+	local Readme_2 = "\t#W等级已达到20级并且没有师傅的玩家可以在这里进行徒弟资格的报名。报名之后，玩家可以在查询徒弟模块中找到你的资讯，从而更方便地让希望成为师傅的玩家找到你。\n\t你想报名#G成为徒弟#W吗？"
+	local varReadme = Readme_1..Readme_2
+	StartTalkTask(varMap);
+	TalkAppendString(varMap, varReadme);
+	StopTalkTask();
+	DeliverTalkInfo(varMap, varPlayer, varTalknpc, x300363_var_FileId,-1);
+	
+end
+
+
+
+
+
+
+
+function x300363_ProcAcceptCheck(varMap, varPlayer, varTalknpc)
+
+	return 1;
+
+end
+
+
+
+
+
+
+
+function x300363_ProcAccept(varMap, varPlayer)
+	
+	PrenticeCandidate(varMap, varPlayer)
+
+end

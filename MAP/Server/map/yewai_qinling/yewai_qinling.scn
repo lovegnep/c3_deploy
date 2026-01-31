@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_qinling/yewai_qinling.nav
+monster=yewai_qinling/yewai_qinling_monster.tab
+xunluo=yewai_qinling/yewai_qinling_patrolpoint.ini
+caijidata=yewai_qinling/yewai_qinling_growpoint.txt
+caijisetup=yewai_qinling/yewai_qinling_growpointsetup.txt
+teleport=yewai_qinling/yewai_qinling_area.ini

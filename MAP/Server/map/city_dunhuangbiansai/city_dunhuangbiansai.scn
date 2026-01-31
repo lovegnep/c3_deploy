@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_dunhuangbiansai/city_dunhuangbiansai.nav
+monster=city_dunhuangbiansai/city_dunhuangbiansai_monster.tab
+xunluo=city_dunhuangbiansai/city_dunhuangbiansai_patrolpoint.ini
+caijidata=city_dunhuangbiansai/city_dunhuangbiansai_growpoint.txt
+caijisetup=city_dunhuangbiansai/city_dunhuangbiansai_growpointsetup.txt
+teleport=city_dunhuangbiansai/city_dunhuangbiansai_area.ini

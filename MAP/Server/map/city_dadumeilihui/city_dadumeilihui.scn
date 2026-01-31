@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_dadumeilihui/city_dadumeilihui.nav
+monster=city_dadumeilihui/city_dadumeilihui_monster.tab
+xunluo=city_dadumeilihui/city_dadumeilihui_patrolpoint.ini
+caijidata=city_dadumeilihui/city_dadumeilihui_growpoint.txt
+caijisetup=city_dadumeilihui/city_dadumeilihui_growpointsetup.txt
+teleport=city_dadumeilihui/city_dadumeilihui_area.ini

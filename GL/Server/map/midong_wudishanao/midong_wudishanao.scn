@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=midong_wudishanao/midong_wudishanao.nav
+monster=midong_wudishanao/midong_wudishanao_monster.tab
+xunluo=midong_wudishanao/midong_wudishanao_patrolpoint.ini
+caijidata=midong_wudishanao/midong_wudishanao_growpoint.txt
+caijisetup=midong_wudishanao/midong_wudishanao_growpointsetup.txt
+teleport=midong_wudishanao/midong_wudishanao_area.ini

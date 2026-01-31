@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_bosigaoyuan/juqing_bosigaoyuan.nav
+monster=yewai_bosigaoyuan/yewai_bosigaoyuan_monster.tab
+xunluo=yewai_bosigaoyuan/yewai_bosigaoyuan_patrolpoint.ini
+caijidata=yewai_bosigaoyuan/yewai_bosigaoyuan_growpoint.txt
+caijisetup=yewai_bosigaoyuan/yewai_bosigaoyuan_growpointsetup.txt
+teleport=yewai_bosigaoyuan/yewai_bosigaoyuan_area.ini

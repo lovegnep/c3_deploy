@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=migong_shabake_minju03/migong_shabake_minju03.nav
+monster=migong_shabake_minju03/migong_shabake_minju03_monster.tab
+xunluo=migong_shabake_minju03/migong_shabake_minju03_patrolpoint.ini
+caijidata=migong_shabake_minju03/migong_shabake_minju03_growpoint.txt
+caijisetup=migong_shabake_minju03/migong_shabake_minju03_growpointsetup.txt
+teleport=migong_shabake_minju03/migong_shabake_minju03_area.ini

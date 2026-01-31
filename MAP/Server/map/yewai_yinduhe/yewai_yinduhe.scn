@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_yinduhe/yewai_yinduhe.nav
+monster=yewai_yinduhe/yewai_yinduhe_monster.tab
+xunluo=yewai_yinduhe/yewai_yinduhe_patrolpoint.ini
+caijidata=yewai_yinduhe/yewai_yinduhe_growpoint.txt
+caijisetup=yewai_yinduhe/yewai_yinduhe_growpointsetup.txt
+teleport=yewai_yinduhe/yewai_yinduhe_area.ini

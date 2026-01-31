@@ -1,0 +1,2 @@
+NUM	NUM	NUM	NUM	NUM	TEXT	TEXT	FLOAT	FLOAT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
+index	guid	type	obj_id	camp_id	name	title	pos_x	pos_z	dir	script_id	respawn_time	group_id	team_id	base_ai	ai_file	patrol_id	shop0	shop1	shop2	shop3	ReputationID	level	viewgroup

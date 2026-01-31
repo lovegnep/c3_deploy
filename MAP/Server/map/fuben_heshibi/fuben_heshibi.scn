@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_heshibi/fuben_heshibi.nav
+monster=fuben_heshibi/fuben_heshibi_monster.tab
+xunluo=fuben_heshibi/fuben_heshibi_patrolpoint.ini
+caijidata=fuben_heshibi/fuben_heshibi_growpoint.txt
+caijisetup=fuben_heshibi/fuben_heshibi_growpointsetup.txt
+teleport=fuben_heshibi/fuben_heshibi_area.ini

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=migong_xianrengusiceng/migong_xianrengusiceng.nav
+monster=migong_xianrengusiceng/migong_xianrengusiceng_monster.tab
+xunluo=migong_xianrengusiceng/migong_xianrengusiceng_patrolpoint.ini
+caijidata=migong_xianrengusiceng/migong_xianrengusiceng_growpoint.txt
+caijisetup=migong_xianrengusiceng/migong_xianrengusiceng_growpointsetup.txt
+teleport=migong_xianrengusiceng/migong_xianrengusiceng_area.ini

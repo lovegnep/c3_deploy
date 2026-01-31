@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=testmap_npc/testmap_npc.nav
+monster=testmap_npc/testmap_npc_monster.tab
+xunluo=testmap_npc/testmap_npc_patrolpoint.ini
+caijidata=testmap_npc/testmap_npc_growpoint.txt
+caijisetup=testmap_npc/testmap_npc_growpointsetup.txt
+teleport=testmap_npc/testmap_npc_area.ini

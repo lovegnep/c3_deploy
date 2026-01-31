@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=city_kunlunsichougudao/city_kunlunsichougudao.nav
+monster=city_kunlunsichougudao/city_kunlunsichougudao_monster.tab
+xunluo=city_kunlunsichougudao/city_kunlunsichougudao_patrolpoint.ini
+caijidata=city_kunlunsichougudao/city_kunlunsichougudao_growpoint.txt
+caijisetup=city_kunlunsichougudao/city_kunlunsichougudao_growpointsetup.txt
+teleport=city_kunlunsichougudao/city_kunlunsichougudao_area.ini
+baitan=city_kunlunsichougudao/city_kunlunsichougudao_StallInfo.stall

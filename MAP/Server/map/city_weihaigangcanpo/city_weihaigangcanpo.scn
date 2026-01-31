@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_weihaigangcanpo/city_weihaigangcanpo.nav
+monster=city_weihaigangcanpo/city_weihaigangcanpo_monster.tab
+xunluo=city_weihaigangcanpo/city_weihaigangcanpo_patrolpoint.ini
+caijidata=city_weihaigangcanpo/city_weihaigangcanpo_growpoint.txt
+caijisetup=city_weihaigangcanpo/city_weihaigangcanpo_growpointsetup.txt
+teleport=city_weihaigangcanpo/city_weihaigangcanpo_area.ini

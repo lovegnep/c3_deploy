@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=denglucheng3/denglucheng3.nav
+monster=denglucheng3/denglucheng3_monster.tab
+xunluo=denglucheng3/denglucheng3_patrolpoint.ini
+caijidata=denglucheng3/denglucheng3_growpoint.txt
+caijisetup=denglucheng3/denglucheng3_growpointsetup.txt
+teleport=denglucheng3/denglucheng3_area.ini

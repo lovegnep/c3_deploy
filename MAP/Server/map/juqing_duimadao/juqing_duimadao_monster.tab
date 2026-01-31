@@ -1,0 +1,9 @@
+NUM	NUM	NUM	NUM	NUM	TEXT	TEXT	FLOAT	FLOAT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
+index	guid	type	obj_id	camp_id	name	title	pos_x	pos_z	dir	script_id	respawn_time	group_id	team_id	base_ai	ai_file	patrol_id	shop0	shop1	shop2	shop3	ReputationID	level	viewgroup
+0	1	1	-1	20	传送人		163.787003	115.987000	12	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+1	2	1	-1	20	威海来的入口		52.310234	59.354321	0	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+2	4	1	-1	20	去福冈的区域内		236.876007	121.293999	0	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+3	5	1	-1	20	从福冈来的入口		224.457397	119.998192	0	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+4	6	1	-1	20	传送人		227.936005	52.169498	16	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+5	7	1	-1	20	从九州传送过来的座标		213.989288	50.365639	0	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	
+6	8	1	-1	20	去威海港的区域内		38.371964	59.430573	0	0	10000	-1	-1	0	0	-1	-1	-1	-1	-1	-1	60	0	

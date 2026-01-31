@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06.nav
+monster=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06_monster.tab
+xunluo=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06_patrolpoint.ini
+caijidata=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06_growpoint.txt
+caijisetup=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06_growpointsetup.txt
+teleport=zhanchang_kuafu2v2_06/zhanchang_kuafu2v2_06_area.ini

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben19_duimadao/jyfuben19_duimadao.nav
+monster=jyfuben19_duimadao/jyfuben19_duimadao_monster.tab
+xunluo=jyfuben19_duimadao/jyfuben19_duimadao_patrolpoint.ini
+caijidata=jyfuben19_duimadao/jyfuben19_duimadao_growpoint.txt
+caijisetup=jyfuben19_duimadao/jyfuben19_duimadao_growpointsetup.txt
+teleport=jyfuben19_duimadao/jyfuben19_duimadao_area.ini

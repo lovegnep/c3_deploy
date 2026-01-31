@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_wuyishenyuan/fuben_wuyishenyuan.nav
+monster=fuben_wuyishenyuan/fuben_wuyishenyuan_monster.tab
+xunluo=fuben_wuyishenyuan/fuben_wuyishenyuan_patrolpoint.ini
+caijidata=fuben_wuyishenyuan/fuben_wuyishenyuan_growpoint.txt
+caijisetup=fuben_wuyishenyuan/fuben_wuyishenyuan_growpointsetup.txt
+teleport=fuben_wuyishenyuan/fuben_wuyishenyuan_area.ini

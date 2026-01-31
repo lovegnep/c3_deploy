@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=migong_poluozhou/migong_poluozhou.nav
+monster=migong_poluozhou/migong_poluozhou_monster.tab
+xunluo=migong_poluozhou/migong_poluozhou_patrolpoint.ini
+caijidata=migong_poluozhou/migong_poluozhou_growpoint.txt
+caijisetup=migong_poluozhou/migong_poluozhou_growpointsetup.txt
+teleport=migong_poluozhou/migong_poluozhou_area.ini

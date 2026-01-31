@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_daluandou/yewai_daluandou.nav
+monster=yewai_daluandou/yewai_daluandou_monster.tab
+xunluo=yewai_daluandou/yewai_daluandou_patrolpoint.ini
+caijidata=yewai_daluandou/yewai_daluandou_growpoint.txt
+caijisetup=yewai_daluandou/yewai_daluandou_growpointsetup.txt
+teleport=yewai_daluandou/yewai_daluandou_area.ini

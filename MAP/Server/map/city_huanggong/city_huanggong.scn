@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_huanggong/city_huanggong.nav
+monster=city_huanggong/city_huanggong_monster.tab
+xunluo=city_huanggong/city_huanggong_patrolpoint.ini
+caijidata=city_huanggong/city_huanggong_growpoint.txt
+caijisetup=city_huanggong/city_huanggong_growpointsetup.txt
+teleport=city_huanggong/city_huanggong_area.ini

@@ -1,0 +1,7 @@
+[Area]
+Count=1
+[Area0]
+AreaInfo=成吉思汗III;1;1;0
+AreaPing=223.166.61.137
+ServerCount=1
+ServerInfo0=韩梅梅单机;1200;3;1;1;223.166.61.137:27713

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben8_jinshan/jyfuben8_jinshan.nav
+monster=jyfuben8_jinshan/jyfuben8_jinshan_monster.tab
+xunluo=jyfuben8_jinshan/jyfuben8_jinshan_patrolpoint.ini
+caijidata=jyfuben8_jinshan/jyfuben8_jinshan_growpoint.txt
+caijisetup=jyfuben8_jinshan/jyfuben8_jinshan_growpointsetup.txt
+teleport=jyfuben8_jinshan/jyfuben8_jinshan_area.ini

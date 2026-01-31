@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=city_tianshanwaicheng/city_tianshanwaicheng.nav
+monster=city_tianshanwaicheng/city_tianshanwaicheng_monster.tab
+xunluo=city_tianshanwaicheng/city_tianshanwaicheng_patrolpoint.ini
+caijidata=city_tianshanwaicheng/city_tianshanwaicheng_growpoint.txt
+caijisetup=city_tianshanwaicheng/city_tianshanwaicheng_growpointsetup.txt
+teleport=city_tianshanwaicheng/city_tianshanwaicheng_area.ini
+baitan=city_tianshanwaicheng/city_tianshanwaicheng_StallInfo.stall

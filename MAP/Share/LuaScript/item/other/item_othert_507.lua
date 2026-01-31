@@ -1,0 +1,113 @@
+
+
+
+
+
+
+x432507_var_FileId 		= 432507
+
+x432507_var_LevelMin		=	1
+
+
+
+
+
+
+function x432507_ProcEventEntry( varMap, varPlayer, varBagIdx )
+
+end
+
+
+
+
+
+
+function x432507_ProcIsSpellLikeScript( varMap, varPlayer)
+	return 1; 
+end
+
+
+
+
+
+
+function x432507_ProcCancelImpacts( varMap, varPlayer )
+	return 0; 
+end
+
+
+
+
+
+
+function x432507_ProcConditionCheck( varMap, varPlayer )
+	
+	
+	
+	if(1~=VerifyUsedItem(varMap, varPlayer)) then
+		return 0
+	end
+	return 1; 
+end
+
+
+
+
+
+
+
+function x432507_ProcDeplete( varMap, varPlayer )
+	
+	
+	
+	
+	
+	
+	
+	return 1;
+end
+
+
+
+
+
+
+
+
+function x432507_ProcActivateOnce( varMap, varPlayer, varImpact )
+	
+	
+
+	StartItemTask(varMap)
+	ItemAppendBind( varMap, 11000902, 50 ) 
+	ItemAppendBind( varMap, 12500207, 1 ) 	
+	local ret = StopItemTask(varMap,varPlayer)
+	if ret > 0 then
+		if(DepletingUsedItem(varMap, varPlayer)) == 1 then
+			DeliverItemListSendToPlayer(varMap,varPlayer)	
+			Msg2Player( varMap,varPlayer,format("打开礼包，获得了%d个@item_%d#cffcf00和%d个@item_%d", 50,11000902 , 1, 12500207),8,3) ;
+			--GamePlayScriptLog( varMap, varPlayer, 2649)
+		else
+			StartTalkTask(varMap)
+			TalkAppendString(varMap,"使用物品异常！")
+			StopTalkTask(varMap)
+			DeliverTalkTips(varMap,varPlayer)
+		end
+	else
+		StartTalkTask(varMap)
+		TalkAppendString(varMap,"背包空间不足！")	
+		StopTalkTask(varMap)
+		DeliverTalkTips(varMap,varPlayer)
+	end
+
+end
+
+
+
+
+
+
+
+function x432507_ProcActivateEachTick( varMap, varPlayer)
+	return 1; 
+end

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=zuieshenyuan5/zuieshenyuan.nav
+monster=zuieshenyuan5/zuieshenyuan_monster.tab
+xunluo=zuieshenyuan5/zuieshenyuan_patrolpoint.ini
+caijidata=zuieshenyuan5/zuieshenyuan_growpoint.txt
+caijisetup=zuieshenyuan5/zuieshenyuan_growpointsetup.txt
+teleport=zuieshenyuan5/zuieshenyuan_area.ini

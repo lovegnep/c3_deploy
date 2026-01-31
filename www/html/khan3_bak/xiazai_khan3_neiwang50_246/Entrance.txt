@@ -1,0 +1,7 @@
+[Area]
+Count=1
+[Area0]
+AreaInfo=成吉思汗III;1;1;0
+AreaPing=192.168.50.246
+ServerCount=1
+ServerInfo0=四喜单机;1200;3;1;1;192.168.50.246:27713

@@ -1,0 +1,7 @@
+NUM	TEXT	NUM	FLOAT	FLOAT	FLOAT	TEXT	NUM	NUM	NUM	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT	CNC	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	TEXT	NUM	NUM	NUM
+ID	战车名称	是否显示头顶信息	名称高度	脚底光圈大小	阴影宽度	头像	模型ID	休闲动作间隔时间	是否可以与玩家交互	特殊光效名称1	绑定点名称1	特殊光效名称2	绑定点名称2	特殊光效名称3	绑定点名称3	特殊光效名称4	绑定点名称4	玩家绑定点1	玩家绑定点2	玩家绑定点3	玩家绑定点4	玩家绑定点5	玩家绑定点6	玩家绑定点7	玩家绑定点8	分割线	级别	攻	防	血	HP上限	蓝	MP上限	命中	闪避	暴击	降暴击	暴伤	降暴伤	特伤	降特伤	最大负重	最大电能	速度	攻击速率	预留	预留	预留	预留	预留	预留	预留	预留	脚本ID	发招动作时间	发招冷却时间	称号	战车内空间	是否显示人物	PK类型
+1	战车	-1	-1	200	100	set:KHan2_zhanche_01 image:KHan2_zhanche_01_5	2824	10	-1																		1	10	10	1000	1000	1000	1000	75	0	15	0	0	0	0	0	0	0	6000	100	-1	-1	-1	-1	-1	-1	-1	-1	-1	400	3600		1	0	0
+2	战车	-1	-1	200	100	set:KHan2_zhanche_01 image:KHan2_zhanche_01_4	2818	10	-1																		1	800	100	10000	10000	10000	10000	75	0	0	0	0	0	0	0	0	0	6000	100	-1	-1	-1	-1	-1	-1	-1	-1	-1	400	3600		1	0	0
+3	战车	-1	-1	200	100	set:KHan2_zhanche_01 image:KHan2_zhanche_01_1	2820	10	-1																		1	800	100	10000	10000	10000	10000	75	0	0	0	0	0	0	0	0	0	6000	100	-1	-1	-1	-1	-1	-1	-1	-1	-1	400	3600		1	0	0
+4	战车	-1	-1	200	100	set:KHan2_zhanche_01 image:KHan2_zhanche_01_7	2821	10	-1																		1	800	100	10000	10000	10000	10000	75	0	0	0	0	0	0	0	0	0	6000	100	-1	-1	-1	-1	-1	-1	-1	-1	-1	400	3600		1	0	0
+5	战车	-1	-1	200	100	set:KHan2_zhanche_01 image:KHan2_zhanche_01_2	2823	10	-1																		1	800	100	10000	10000	10000	10000	75	0	0	0	0	0	0	0	0	0	6000	100	-1	-1	-1	-1	-1	-1	-1	-1	-1	400	3600		1	0	0

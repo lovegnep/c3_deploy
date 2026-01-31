@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben20_fugang/jyfuben20_fugang.nav
+monster=jyfuben20_fugang/jyfuben20_fugang_monster.tab
+xunluo=jyfuben20_fugang/jyfuben20_fugang_patrolpoint.ini
+caijidata=jyfuben20_fugang/jyfuben20_fugang_growpoint.txt
+caijisetup=jyfuben20_fugang/jyfuben20_fugang_growpointsetup.txt
+teleport=jyfuben20_fugang/jyfuben20_fugang_area.ini

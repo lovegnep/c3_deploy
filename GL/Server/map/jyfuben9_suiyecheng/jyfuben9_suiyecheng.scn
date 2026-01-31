@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben9_suiyecheng/jyfuben9_suiyecheng.nav
+monster=jyfuben9_suiyecheng/jyfuben9_suiyecheng_monster.tab
+xunluo=jyfuben9_suiyecheng/jyfuben9_suiyecheng_patrolpoint.ini
+caijidata=jyfuben9_suiyecheng/jyfuben9_suiyecheng_growpoint.txt
+caijisetup=jyfuben9_suiyecheng/jyfuben9_suiyecheng_growpointsetup.txt
+teleport=jyfuben9_suiyecheng/jyfuben9_suiyecheng_area.ini

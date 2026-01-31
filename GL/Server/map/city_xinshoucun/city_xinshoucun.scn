@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_xinshoucun/city_xinshoucun.nav
+monster=city_xinshoucun/city_xinshoucun_monster.tab
+xunluo=city_xinshoucun/city_xinshoucun_patrolpoint.ini
+caijidata=city_xinshoucun/city_xinshoucun_growpoint.txt
+caijisetup=city_xinshoucun/city_xinshoucun_growpointsetup.txt
+teleport=city_xinshoucun/city_xinshoucun_area.ini

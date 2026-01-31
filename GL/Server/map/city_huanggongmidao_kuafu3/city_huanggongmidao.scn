@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=city_huanggongmidao_kuafu3/city_huanggongmidao.nav
+monster=city_huanggongmidao_kuafu3/city_huanggongmidao_monster.tab
+xunluo=city_huanggongmidao_kuafu3/city_huanggongmidao_patrolpoint.ini
+caijidata=city_huanggongmidao_kuafu3/city_huanggongmidao_growpoint.txt
+caijisetup=city_huanggongmidao_kuafu3/city_huanggongmidao_growpointsetup.txt
+teleport=city_huanggongmidao_kuafu3/city_huanggongmidao_area.ini
+pkgrid=city_huanggongmidao_kuafu3/city_huanggongmidao_pkarea.ini

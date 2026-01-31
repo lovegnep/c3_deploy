@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_cheng3bianjing/city_cheng3bianjing.nav
+monster=city_cheng3bianjing/city_cheng3bianjing_monster.tab
+xunluo=city_cheng3bianjing/city_cheng3bianjing_patrolpoint.ini
+caijidata=city_cheng3bianjing/city_cheng3bianjing_growpoint.txt
+caijisetup=city_cheng3bianjing/city_cheng3bianjing_growpointsetup.txt
+teleport=city_cheng3bianjing/city_cheng3bianjing_area.ini

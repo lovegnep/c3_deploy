@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=migong_tujuelihaiemodao/migong_tujuelihaiemodao.nav
+monster=migong_tujuelihaiemodao/migong_tujuelihaiemodao_monster.tab
+xunluo=migong_tujuelihaiemodao/migong_tujuelihaiemodao_patrolpoint.ini
+caijidata=migong_tujuelihaiemodao/migong_tujuelihaiemodao_growpoint.txt
+caijisetup=migong_tujuelihaiemodao/migong_tujuelihaiemodao_growpointsetup.txt
+teleport=migong_tujuelihaiemodao/migong_tujuelihaiemodao_area.ini

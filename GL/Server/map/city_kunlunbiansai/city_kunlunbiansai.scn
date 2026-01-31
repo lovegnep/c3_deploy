@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_kunlunbiansai/city_kunlunbiansai.nav
+monster=city_kunlunbiansai/city_kunlunbiansai_monster.tab
+xunluo=city_kunlunbiansai/city_kunlunbiansai_patrolpoint.ini
+caijidata=city_kunlunbiansai/city_kunlunbiansai_growpoint.txt
+caijisetup=city_kunlunbiansai/city_kunlunbiansai_growpointsetup.txt
+teleport=city_kunlunbiansai/city_kunlunbiansai_area.ini

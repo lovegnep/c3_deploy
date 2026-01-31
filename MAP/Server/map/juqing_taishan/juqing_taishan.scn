@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=yewai_taishan/yewai_taishan.nav
+monster=juqing_taishan/juqing_taishan_monster.tab
+xunluo=juqing_taishan/juqing_taishan_patrolpoint.ini
+caijidata=juqing_taishan/juqing_taishan_growpoint.txt
+caijisetup=juqing_taishan/juqing_taishan_growpointsetup.txt
+teleport=juqing_taishan/juqing_taishan_area.ini

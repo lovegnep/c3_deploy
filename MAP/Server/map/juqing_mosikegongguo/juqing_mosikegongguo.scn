@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=juqing_mosikegongguo/juqing_mosikegongguo.nav
+monster=juqing_mosikegongguo/juqing_mosikegongguo_monster.tab
+xunluo=juqing_mosikegongguo/juqing_mosikegongguo_patrolpoint.ini
+caijidata=juqing_mosikegongguo/juqing_mosikegongguo_growpoint.txt
+caijisetup=juqing_mosikegongguo/juqing_mosikegongguo_growpointsetup.txt
+teleport=juqing_mosikegongguo/juqing_mosikegongguo_area.ini

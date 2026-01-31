@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>成3查询工具</title>
+    <style>
+        body{font-family: Arial, "Microsoft Yahei", sans-serif; padding:20px; background: #f6f8fb; color:#222}
+        h1{font-size:20px; margin-bottom:8px}
+        .box{background:white;border-radius:8px;padding:16px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+        .row{display:flex;gap:8px;align-items:center}
+        input[type="text"]{padding:8px;border:1px solid #ddd;border-radius:6px;flex:1}
+        button{padding:8px 12px;border:0;background:#2b8cff;color:white;border-radius:6px;cursor:pointer}
+        button:disabled{opacity:0.6}
+        table{width:100%;border-collapse:collapse;margin-top:12px}
+        th,td{border:1px solid #eee;padding:6px;font-size:13px;text-align:left}
+        th{background:#fafafa}
+        .small{font-size:12px;color:#666}
+        .status{margin-top:8px;color:#444}
+        .result-title{margin-top:12px;font-weight:600}
+        .mono{font-family:monospace, monospace}
+        .warn{color:#c55}
+        /* modal 样式 */
+        .modal-backdrop { position: fixed; inset:0; background: rgba(0,0,0,0.35); display:flex; align-items:flex-start; justify-content:center; padding-top:40px; z-index:9999;}
+        .modal {background:white;border-radius:10px; padding:16px; width:90%; max-width:1000px; max-height:80vh; overflow:auto; box-shadow:0 8px 30px rgba(0,0,0,0.25); position:relative;}
+        .modal .closeBtn { position:absolute; right:12px; top:12px; background:#eee; border-radius:6px; padding:6px 8px; cursor:pointer; border: none; }
+        .modal h2{margin:0 0 8px 0}
+        .tag{display:inline-block;padding:4px 8px;background:#eef6ff;color:#2b8cff;border-radius:6px;margin-right:8px;font-size:12px}
+        .meta{margin-bottom:8px;color:#666}
+    </style>
+</head>
+<body>
+<h1>成3查询工具</h1>
+
+<div class="box" id="loaderBox">
+    <div class="row">
+        <strong>请先加载数据文件：</strong>
+        <div class="small">（默认文件名：item_miscellaneous.tab）</div>
+    </div>
+    <div style="margin-top:8px">
+        <button id="loadBtn">加载所有文件</button>
+        <span class="small" style="margin-left:12px">如果文件名不同，请在脚本中修改 fileList 变量。</span>
+    </div>
+    <div class="status" id="status">状态：未加载</div>
+</div>
+
+<div class="box">
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px">
+            <div class="small">1. 按 <strong>坐骑（马）名称</strong> 查询掉落该马的怪物</div>
+            <div class="row" style="margin-top:8px">
+                <input id="horseInput" type="text" placeholder="输入马名称，例如：小马驹・黑" />
+                <button id="horseSearchBtn">查询（弹窗）</button>
+            </div>
+            <div class="small" style="margin-top:6px">结果会在浮窗中显示，便于同时查看多个查询结果。</div>
+        </div>
+
+        <div style="flex:1;min-width:280px">
+            <div class="small">2. 按 <strong>道具名称</strong> 查询掉落该道具的怪物</div>
+            <div class="row" style="margin-top:8px">
+                <input id="itemInput" type="text" placeholder="输入道具名称，例如：废弃" />
+                <button id="itemSearchBtn">查询（弹窗）</button>
+            </div>
+        </div>
+
+        <div style="flex:1;min-width:280px">
+            <div class="small">3. 按 <strong>怪物名称</strong> 查询怪物信息及其掉落（物品与马）</div>
+            <div class="row" style="margin-top:8px">
+                <input id="monsterInput" type="text" placeholder="输入怪物名称，例如：汉-店小二男1" />
+                <button id="monsterSearchBtn">查询（弹窗）</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (async function(){
+        // ------- 配置区 -------
+        const fileList = {
+            item: 'item_miscellaneous.tab',
+            monster: 'mon_attr_ex.tab',
+            monsterdrop: 'monsterdrop_content.tab',
+            horsedrop: 'horse_drop_content.tab',
+            horse: 'horse_jichu.tab',
+            equipmodel: 'equipmodel.tab',
+            extrabag: 'Extra_Bag.tab',
+        };
+
+        // ------- 数据 -------
+        const DB = {
+            item: { headers: [], types: [], rows: [], mapById: new Map() },
+            monster: { headers: [], types: [], rows: [], mapById: new Map() },
+            monsterdrop: { headers: [], types: [], rows: [], mapById: new Map() },
+            horsedrop: { headers: [], types: [], rows: [], mapById: new Map() },
+            horse: { headers: [], types: [], rows: [], mapById: new Map() },
+            equipmodel: { headers: [], types: [], rows: [], mapById: new Map() },
+            extrabag: { headers: [], types: [], rows: [], mapById: new Map() },
+        };
+
+        const statusEl = document.getElementById('status');
+        const loadBtn = document.getElementById('loadBtn');
+
+        function setStatus(txt) { statusEl.textContent = '状态：' + txt; }
+
+        async function fetchFileAsArrayLines(url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const buf = await res.arrayBuffer();
+                let text = null;
+                const tryEncodings = ['gb18030', 'gbk', 'utf-8'];
+                for (const enc of tryEncodings) {
+                    try {
+                        const dec = new TextDecoder(enc);
+                        text = dec.decode(buf);
+                        if (text) break;
+                    } catch (e) {}
+                }
+                if (text === null) throw new Error('无法解码文本（尝试 gb18030/gbk/utf-8）');
+                const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+                return lines;
+            } catch (e) {
+                throw new Error('读取 ' + url + ' 失败: ' + (e.message || e));
+            }
+        }
+
+        function parseTabLines(lines) {
+            while (lines.length && lines[0].trim() === '') lines.shift();
+            while (lines.length && lines[lines.length-1].trim() === '') lines.pop();
+            if (lines.length < 2) return { types: [], headers: [], rows: [] };
+            const types = lines[0].split('\t').map(s => s.trim());
+            const headers = lines[1].split('\t').map(s => s.trim());
+            const rows = [];
+            for (let i = 2; i < lines.length; i++) {
+                const raw = lines[i];
+                if (!raw) continue;
+                const trimmed = raw.trim();
+                if (trimmed.startsWith('#')) continue;
+                const cols = raw.split('\t').map(s => s.trim());
+                while (cols.length < headers.length) cols.push('');
+                rows.push(cols);
+            }
+            return { types, headers, rows };
+        }
+
+        function buildMapById(dbSection) {
+            dbSection.mapById = new Map();
+            for (const row of dbSection.rows) {
+                const id = (row[0] || '').trim();
+                if (id) dbSection.mapById.set(id, row);
+            }
+        }
+
+        function rowToObj(headers, row) {
+            const o = {};
+            for (let i=0;i<headers.length;i++) o[headers[i] || ('col'+i)] = row[i] === undefined ? '' : row[i];
+            return o;
+        }
+
+        function findHeaderIndices(headers, keyword) {
+            const ks = keyword.toLowerCase();
+            const idxs = [];
+            for (let i=0;i<headers.length;i++) {
+                const h = (headers[i] || '').toLowerCase();
+                if (h.indexOf(ks) !== -1) idxs.push(i);
+            }
+            return idxs;
+        }
+
+        function parseIdsCell(cell) {
+            if (cell === undefined || cell === null) return [];
+            const s = String(cell).trim();
+            if (s === '' || s === '-1') return [];
+            return s.split('|').map(x => x.trim()).filter(x => x !== '' && x !== '-1');
+        }
+
+        async function loadAllFiles() {
+            setStatus('开始加载文件...');
+            try {
+                for (const key of Object.keys(fileList)) {
+                    const fn = fileList[key];
+                    setStatus('加载 ' + fn + ' ...');
+                    const lines = await fetchFileAsArrayLines(fn);
+                    const parsed = parseTabLines(lines);
+                    DB[key].types = parsed.types;
+                    DB[key].headers = parsed.headers;
+                    DB[key].rows = parsed.rows;
+                    buildMapById(DB[key]);
+                }
+                setStatus('全部文件已加载，数据准备完成。');
+            } catch (e) {
+                setStatus('加载失败：' + e.message);
+                console.error(e);
+                alert('加载失败：' + e.message + '\n请检查文件是否存在于当前目录且文件名正确，或浏览器是否支持 GBK/GB18030 解码。');
+                throw e;
+            }
+        }
+
+        loadBtn.addEventListener('click', async () => {
+            loadBtn.disabled = true;
+            try { await loadAllFiles(); } catch (e) {} finally { loadBtn.disabled = false; }
+        });
+
+        // --------- 新的业务逻辑修正（针对你的要求） ---------
+
+        // 帮助：尝试获取怪物表中“掉落马ID”和“马掉落率”列索引（可能名称有变化）
+        function locateMonsterHorseColumns() {
+            const headers = DB.monster.headers;
+            // 常见：掉落马ID / 掉落马 / 掉落马ID(或英文) ; 掉落马率 / 马掉落率 / 掉落率（针对马）
+            const horseIdIdxs = findHeaderIndices(headers, '掉落马ID');
+            const horseRateIdxs = findHeaderIndices(headers, '马掉落率');
+            // We will pair based on proximity if both found; otherwise return arrays.
+            return { horseIdIdxs, horseRateIdxs };
+        }
+
+        // search horses: 只有当对应的 rate == 100 时才认为会掉落（若能找到 rate 列并能取得数值）
+        function monsterWillDropHorse(monsterRow, horseIdIdx, horseRateIdxs) {
+            // If the column value is empty or -1 => no drop
+            const raw = monsterRow[horseIdIdx];
+            if (!raw || String(raw).trim() === '' || String(raw).trim() === '-1') return false;
+            // If we have explicit rate columns, check nearby rate column(s)
+            if (horseRateIdxs && horseRateIdxs.length) {
+                // Choose the closest rate-column index to horseIdIdx, if any
+                let chosenRateIdx = null;
+                let bestDist = Infinity;
+                for (const ridx of horseRateIdxs) {
+                    const d = Math.abs(ridx - horseIdIdx);
+                    if (d < bestDist) { bestDist = d; chosenRateIdx = ridx; }
+                }
+                if (chosenRateIdx !== null) {
+                    const v = monsterRow[chosenRateIdx];
+                    if (!v || v.toString().trim() === '') return false; // 为空视为不掉落
+                    // 有些表里 rate 是 1000000 等表示千分制或万分制——但你明确要求“=100 才掉落” -> 我们严格判断等于 100
+                    const num = Number(String(v).trim());
+                    if (Number.isFinite(num)) {
+                        return num === 100;
+                    } else {
+                        // 非数字则认为不掉落（保守）
+                        return false;
+                    }
+                }
+            }
+            // 没有 rate 列可参考：如果有 id 且不为 -1，仍然尝试解析 horsedrop 表以获取实际 horse id（但不判定掉落率）
+            return true;
+        }
+
+        // ---------- 主查询函数（更新后） ----------
+
+        function searchByHorseName(name) {
+            if (!name) return { error: '请输入马名称' };
+            const horseHeaders = DB.horse.headers;
+            const nameIdxCandidates = findHeaderIndices(horseHeaders, '坐骑名字').concat(findHeaderIndices(horseHeaders, '坐骑名'), findHeaderIndices(horseHeaders, '名字'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 4;
+            const matchedHorseIds = [];
+            for (const row of DB.horse.rows) {
+                const cell = (row[nameIdx] || '').trim();
+                if (cell && cell.indexOf(name) !== -1) matchedHorseIds.push(row[0]);
+            }
+            if (matchedHorseIds.length === 0) return { error: '未在坐骑表中找到匹配的马名称' };
+
+            const monsterHeaders = DB.monster.headers;
+            // locate horse id columns in monster table
+            const { horseIdIdxs, horseRateIdxs } = locateMonsterHorseColumns();
+            const monsterResults = [];
+            for (const row of DB.monster.rows) {
+                let matched = false;
+                for (const idx of horseIdIdxs) {
+                    if (!row[idx]) continue;
+                    if (!monsterWillDropHorse(row, idx, horseRateIdxs)) continue; // 根据 rate 决定是否掉落
+                    // parse ids (可能是 group id 指向 horsedrop)
+                    const ids = parseIdsCell(row[idx]);
+                    for (const id of ids) {
+                        // if direct horse id
+                        if (matchedHorseIds.includes(id)) { matched = true; break; }
+                        // else id might be a horses drop group id -> check horsedrop table
+                        const hdRow = DB.horsedrop.mapById.get(id);
+                        if (hdRow) {
+                            for (let j=0;j<DB.horsedrop.headers.length;j++) {
+                                // 只找那些可能包含掉落内容的列（header 包含 掉落内容 或 掉落）
+                                const hh = (DB.horsedrop.headers[j] || '').toLowerCase();
+                                if (hh.indexOf('掉落内容') === -1 && hh.indexOf('掉落') === -1) continue;
+                                const content = hdRow[j];
+                                const horseIds = parseIdsCell(content);
+                                for (const hid of horseIds) {
+                                    if (matchedHorseIds.includes(hid)) { matched = true; break; }
+                                }
+                                if (matched) break;
+                            }
+                            if (matched) break;
+                        }
+                    }
+                    if (matched) break;
+                }
+                if (matched) monsterResults.push(rowToObj(DB.monster.headers, row));
+            }
+            return { horseIds: matchedHorseIds, monsters: monsterResults, monsterHeaders: DB.monster.headers };
+        }
+
+        function searchByItemName(name) {
+            if (!name) return { error: '请输入道具名称' };
+            const itemHeaders = DB.item.headers;
+            const nameIdxCandidates = findHeaderIndices(itemHeaders, '名称').concat(findHeaderIndices(itemHeaders, '物品名字'), findHeaderIndices(itemHeaders, '名字'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 5;
+            const matchedItemIds = [];
+            for (const row of DB.item.rows) {
+                const v = row[nameIdx] || '';
+                if (v && v.indexOf(name) !== -1) matchedItemIds.push(row[0]);
+            }
+            if (matchedItemIds.length === 0) return { error: '未在道具表中找到匹配的道具名称' };
+
+            const monsterHeaders = DB.monster.headers;
+            const dropGroupIdxCandidates = findHeaderIndices(monsterHeaders, '掉落物品组').concat(findHeaderIndices(monsterHeaders, '掉落物品'));
+            const dropGroupIdx = dropGroupIdxCandidates.length ? dropGroupIdxCandidates[0] : -1;
+            const foundMonsters = [];
+            if (dropGroupIdx === -1) return { error: '未在怪物表中找到掉落物品组列，无法检索' };
+            for (const mrow of DB.monster.rows) {
+                const groupCell = mrow[dropGroupIdx];
+                if (!groupCell) continue;
+                const groupIds = parseIdsCell(groupCell);
+                let matched = false;
+                for (const gid of groupIds) {
+                    const gRow = DB.monsterdrop.mapById.get(gid);
+                    if (!gRow) continue;
+                    for (let j=0;j<DB.monsterdrop.headers.length;j++) {
+                        const h = DB.monsterdrop.headers[j] || '';
+                        if (h.indexOf('掉落内容') === -1) continue;
+                        const content = gRow[j];
+                        const ids = parseIdsCell(content);
+                        for (const iid of ids) {
+                            if (matchedItemIds.includes(iid)) { matched = true; break; }
+                        }
+                        if (matched) break;
+                    }
+                    if (matched) break;
+                }
+                if (matched) foundMonsters.push(rowToObj(DB.monster.headers, mrow));
+            }
+            return { itemIds: matchedItemIds, monsters: foundMonsters, monsterHeaders: DB.monster.headers };
+        }
+
+        function searchByMonsterName(name) {
+            if (!name) return { error: '请输入怪物名称' };
+            const monsterHeaders = DB.monster.headers;
+            const nameIdxCandidates = findHeaderIndices(monsterHeaders, '怪物名称').concat(findHeaderIndices(monsterHeaders,'名称'), findHeaderIndices(monsterHeaders,'npc名称'));
+            const nameIdx = nameIdxCandidates.length ? nameIdxCandidates[0] : 2;
+            const matchedRows = [];
+            for (const row of DB.monster.rows) {
+                const v = row[nameIdx] || '';
+                if (v && v.indexOf(name) !== -1) matchedRows.push(row);
+            }
+            if (matchedRows.length === 0) return { error: '未找到匹配的怪物' };
+
+            // locate drop columns
+            const dropGroupIdxs = findHeaderIndices(monsterHeaders, '掉落物品组ID');
+            const { horseIdIdxs, horseRateIdxs } = locateMonsterHorseColumns();
+
+            const results = [];
+            for (const mrow of matchedRows) {
+                const monsterObj = rowToObj(monsterHeaders, mrow);
+                // items
+                const allItemIds = new Set();
+                for (const dgIdx of dropGroupIdxs) {
+                    if (!mrow[dgIdx]) continue;
+                    const groupIds = parseIdsCell(mrow[dgIdx]);
+                    for (const gid of groupIds) {
+                        const gRow = DB.monsterdrop.mapById.get(gid);
+                        if (!gRow) continue;
+                        for (let j=0;j<DB.monsterdrop.headers.length;j++) {
+                            const h = DB.monsterdrop.headers[j] || '';
+                            if (h.indexOf('掉落内容') === -1) continue;
+                            const content = gRow[j];
+                            const ids = parseIdsCell(content);
+                            ids.forEach(id => allItemIds.add(id));
+                        }
+                    }
+                }
+                // horses
+                const allHorseIds = new Set();
+                for (const hdIdx of horseIdIdxs) {
+                    if (!mrow[hdIdx]) continue;
+                    if (!monsterWillDropHorse(mrow, hdIdx, horseRateIdxs)) continue; // 根据 rate 决定是否掉落
+                    const val = mrow[hdIdx];
+                    const ids = parseIdsCell(val);
+                    for (const id of ids) {
+                        // direct horse id
+                        // if (DB.horsedrop.mapById.has(id)) { allHorseIds.add(id); continue; }
+                        // else it's a horsedrop group
+                        const hdRow = DB.horsedrop.mapById.get(id);
+                        if (hdRow) {
+                            for (let j=0;j<DB.horsedrop.headers.length;j++) {
+                                const h = (DB.horsedrop.headers[j] || '').toLowerCase();
+                                if (h.indexOf('掉落内容') === -1) continue;
+                                const content = hdRow[j];
+                                const ids2 = parseIdsCell(content);
+                                ids2.forEach(x => allHorseIds.add(x));
+                            }
+                        }
+                    }
+                }
+
+                const items = [];
+                for (const iid of Array.from(allItemIds)) {
+                    const irow = DB.item.mapById.get(iid);
+                    if (irow) {
+                        const itemNameIdxCandidates = findHeaderIndices(DB.item.headers, '名称');
+                        const inameIdx = itemNameIdxCandidates.length ? itemNameIdxCandidates[0] : 5;
+                        items.push({ id: iid, name: irow[inameIdx] || '' , raw: rowToObj(DB.item.headers, irow) });
+                    } else {
+                        const ierow = DB.equipmodel.mapById.get(iid);
+                        if (ierow) {
+                            const itemNameIdxCandidates = findHeaderIndices(DB.equipmodel.headers, '装备名称');
+                            const inameIdx = itemNameIdxCandidates.length ? itemNameIdxCandidates[0] : 5;
+                            items.push({ id: iid, name: ierow[inameIdx] || '' , raw: rowToObj(DB.equipmodel.headers, ierow) });
+                        } else {
+                            items.push({ id: iid, name: '', raw: null });
+
+                        }
+                    }
+                }
+
+                const horses = [];
+                for (const hid of Array.from(allHorseIds)) {
+                    const hrow = DB.horse.mapById.get(hid);
+                    if (hrow) {
+                        const horseNameIdxCandidates = findHeaderIndices(DB.horse.headers, '坐骑名字').concat(findHeaderIndices(DB.horse.headers, '坐骑名'), findHeaderIndices(DB.horse.headers,'名字'));
+                        const hnameIdx = horseNameIdxCandidates.length ? horseNameIdxCandidates[0] : 4;
+                        horses.push({ id: hid, name: hrow[hnameIdx] || '', raw: rowToObj(DB.horse.headers, hrow) });
+                    } else {
+                        horses.push({ id: hid, name: '', raw: null });
+                    }
+                }
+
+                results.push({ monster: monsterObj, items, horses });
+            }
+
+            return { headers: monsterHeaders, results };
+        }
+
+        // --------- 渲染 modal ----------
+
+        function createModal(title, innerHtml) {
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop';
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'closeBtn';
+            closeBtn.textContent = '关闭 ✕';
+            closeBtn.onclick = () => document.body.removeChild(backdrop);
+            const h2 = document.createElement('h2');
+            h2.textContent = title;
+            modal.appendChild(closeBtn);
+            modal.appendChild(h2);
+            const contentDiv = document.createElement('div');
+            contentDiv.innerHTML = innerHtml;
+            modal.appendChild(contentDiv);
+            backdrop.appendChild(modal);
+            document.body.appendChild(backdrop);
+            // 返回 backdrop 以便调用者后续可以关闭
+            return backdrop;
+        }
+
+        function escapeHtml(s) {
+            if (s === null || s === undefined) return '';
+            return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        function renderMonsterListHtml(monsterHeaders, monsterObjs) {
+            if (!monsterObjs || monsterObjs.length === 0) return '<div class="small">无匹配怪物</div>';
+            let html = `<div class="meta">${monsterObjs.length} 个怪物</div>`;
+            html += `<table><thead><tr>${monsterHeaders.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead><tbody>`;
+            for (const o of monsterObjs) {
+                html += '<tr>' + monsterHeaders.map(h => `<td>${escapeHtml(o[h]===undefined?'':o[h])}</td>`).join('') + '</tr>';
+            }
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function renderSearchByHorse(res) {
+            if (res.error) return createModal('查询马 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            let html = `<div class="tag">匹配马ID：${res.horseIds.join(', ')}</div>`;
+            html += renderMonsterListHtml(res.monsterHeaders, res.monsters);
+            return createModal('查询马 — 结果', html);
+        }
+
+        function renderSearchByItem(res) {
+            if (res.error) return createModal('查询物品 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            let html = `<div class="tag">匹配物品ID：${res.itemIds.join(', ')}</div>`;
+            html += renderMonsterListHtml(res.monsterHeaders, res.monsters);
+            return createModal('查询物品 — 结果', html);
+        }
+
+        function renderSearchByMonster(res) {
+            if (res.error) return createModal('查询怪物 — 错误', `<div class="warn">${escapeHtml(res.error)}</div>`);
+            if (!res.results || res.results.length === 0) return createModal('查询怪物 — 结果', '<div class="small">无结果</div>');
+            let html = '';
+            res.results.forEach((r, idx) => {
+                html += `<div style="margin-bottom:12px"><div style="font-weight:600">怪物 #${idx+1}</div>`;
+                // monster table
+                html += `<table style="margin-top:6px"><thead><tr>${res.headers.map(h=>`<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>`;
+                html += `<tbody><tr>${res.headers.map(h=>`<td>${escapeHtml(r.monster[h]||'')}</td>`).join('')}</tr></tbody></table>`;
+                // items
+                html += `<div style="margin-top:8px"><strong>掉落物品 (${r.items.length})</strong></div>`;
+                if (r.items.length===0) html += `<div class="small">无</div>`; else {
+                    html += `<table><thead><tr><th>物品ID</th><th>物品名称</th></tr></thead><tbody>`;
+                    for (const it of r.items) html += `<tr><td class="mono">${escapeHtml(it.id)}</td><td>${escapeHtml(it.name||'(未知)')}</td></tr>`;
+                    html += `</tbody></table>`;
+                }
+                // horses
+                html += `<div style="margin-top:8px"><strong>掉落坐骑/马 (${r.horses.length})</strong></div>`;
+                if (r.horses.length===0) html += `<div class="small">无</div>`; else {
+                    html += `<table><thead><tr><th>坐骑ID</th><th>坐骑名称</th></tr></thead><tbody>`;
+                    for (const h of r.horses) html += `<tr><td class="mono">${escapeHtml(h.id)}</td><td>${escapeHtml(h.name||'(未知)')}</td></tr>`;
+                    html += `</tbody></table>`;
+                }
+                html += `</div>`;
+            });
+            return createModal('查询怪物 — 结果', html);
+        }
+
+        // 绑定按钮
+        document.getElementById('horseSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('horseInput').value.trim();
+            if (!DB.horse.rows.length) { createModal('错误', '<div class="warn">请先点击“加载所有文件”加载数据。</div>'); return; }
+            try {
+                const res = searchByHorseName(name);
+                renderSearchByHorse(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('itemSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('itemInput').value.trim();
+            if (!DB.item.rows.length) { createModal('错误', '<div class="warn">请先点击“加载所有文件”加载数据。</div>'); return; }
+            try {
+                const res = searchByItemName(name);
+                renderSearchByItem(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        document.getElementById('monsterSearchBtn').addEventListener('click', () => {
+            const name = document.getElementById('monsterInput').value.trim();
+            if (!DB.monster.rows.length) { createModal('错误', '<div class="warn">请先点击“加载所有文件”加载数据。</div>'); return; }
+            try {
+                const res = searchByMonsterName(name);
+                renderSearchByMonster(res);
+            } catch (e) {
+                createModal('错误', `<div class="warn">查询失败：${escapeHtml(e.message || e)}</div>`);
+            }
+        });
+
+        setStatus('等待用户点击 “加载所有文件”');
+    })();
+</script>
+</body>
+</html>

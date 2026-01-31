@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo.nav
+monster=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo_monster.tab
+xunluo=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo_patrolpoint.ini
+caijidata=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo_growpoint.txt
+caijisetup=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo_growpointsetup.txt
+teleport=jyfuben15_bolanwangguo/jyfuben15_bolanwangguo_area.ini

@@ -1,0 +1,17 @@
+ipcrm -M 200115
+ipcrm -M 300115
+ipcrm -M 400115
+ipcrm -M 500115
+ipcrm -M 800115
+ipcrm -M 900115
+ipcrm -M 1000115
+ipcrm -M 1100115
+ipcrm -M 1200115
+ipcrm -M 1300115
+ipcrm -M 1400115
+ipcrm -M 1500115
+ipcrm -M 1600115
+ipcrm -M 1700115
+ipcrm -M 1800115
+ipcrm -M 1900115
+ipcrm -M 2000115

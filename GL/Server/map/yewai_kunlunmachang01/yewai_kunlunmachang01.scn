@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=yewai_kunlunmachang01/yewai_kunlunmachang01.nav
+monster=yewai_kunlunmachang01/yewai_kunlunmachang01_monster.tab
+xunluo=yewai_kunlunmachang01/yewai_kunlunmachang01_patrolpoint.ini
+caijidata=yewai_kunlunmachang01/yewai_kunlunmachang01_growpoint.txt
+caijisetup=yewai_kunlunmachang01/yewai_kunlunmachang01_growpointsetup.txt
+teleport=yewai_kunlunmachang01/yewai_kunlunmachang01_area.ini
+baitan=yewai_kunlunmachang01/yewai_kunlunmachang01_StallInfo.stall

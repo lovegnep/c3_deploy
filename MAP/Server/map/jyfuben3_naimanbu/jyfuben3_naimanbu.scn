@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=jyfuben3_naimanbu/jyfuben3_naimanbu.nav
+monster=jyfuben3_naimanbu/jyfuben3_naimanbu_monster.tab
+xunluo=jyfuben3_naimanbu/jyfuben3_naimanbu_patrolpoint.ini
+caijidata=jyfuben3_naimanbu/jyfuben3_naimanbu_growpoint.txt
+caijisetup=jyfuben3_naimanbu/jyfuben3_naimanbu_growpointsetup.txt
+teleport=jyfuben3_naimanbu/jyfuben3_naimanbu_area.ini

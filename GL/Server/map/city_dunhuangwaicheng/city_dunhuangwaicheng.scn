@@ -1,0 +1,8 @@
+[MapDesc]
+mapnav=city_dunhuangwaicheng/city_dunhuangwaicheng.nav
+monster=city_dunhuangwaicheng/city_dunhuangwaicheng_monster.tab
+xunluo=city_dunhuangwaicheng/city_dunhuangwaicheng_patrolpoint.ini
+caijidata=city_dunhuangwaicheng/city_dunhuangwaicheng_growpoint.txt
+caijisetup=city_dunhuangwaicheng/city_dunhuangwaicheng_growpointsetup.txt
+teleport=city_dunhuangwaicheng/city_dunhuangwaicheng_area.ini
+baitan=city_dunhuangwaicheng/city_dunhuangwaicheng_StallInfo.stall

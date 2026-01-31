@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_maqueling/fuben_maqueling.nav
+monster=fuben_maqueling/fuben_maqueling_monster.tab
+xunluo=fuben_maqueling/fuben_maqueling_patrolpoint.ini
+caijidata=fuben_maqueling/fuben_maqueling_growpoint.txt
+caijisetup=fuben_maqueling/fuben_maqueling_growpointsetup.txt
+teleport=fuben_maqueling/fuben_maqueling_area.ini

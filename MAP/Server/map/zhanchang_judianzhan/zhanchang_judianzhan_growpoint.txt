@@ -1,0 +1,5 @@
+NUM	NUM	FLOAT	FLOAT	NUM	NUM	NUM	NUM
+NUM	NUM	FLOAT	FLOAT	采集点类型(0标准式1集合式)	种子的数量	种子补充间隔	镜像组Id
+1	730	44	125	1	1	-1
+2	731	210	124	1	1	-1
+

@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=city_yangweihao/city_yangweihao.nav
+monster=city_yangweihao/city_yangweihao_monster.tab
+xunluo=city_yangweihao/city_yangweihao_patrolpoint.ini
+caijidata=city_yangweihao/city_yangweihao_growpoint.txt
+caijisetup=city_yangweihao/city_yangweihao_growpointsetup.txt
+teleport=city_yangweihao/city_yangweihao_area.ini

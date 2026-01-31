@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="Website Painter">
+    <title></title>
+    <style type="text/css">
+        a {
+            color: #A01FCB;
+        }
+
+        a:visited {
+            color: #800080;
+        }
+
+        a:active {
+            color: #8018CB;
+        }
+
+        a:hover {
+            color: #E3B4F3;
+        }
+
+        html,
+        body {
+            min-height: 100%
+        }
+    </style>
+</head>
+
+<body style="background-color:#FFFFFF; background: linear-gradient(to bottom, #7F7F7F, #FFFFFF); background-repeat: no-repeat; height:480px; width:890px;padding:0; margin: 0;">
+<div style="text-align:left;">
+    <img src="wsp_images/aasa.jpg" style="position:absolute; left:0px; top:0px; width:892px; height:340px; background:none; " id="img_555429bd" alt="" title="" />
+    <img src="wsp_images/3ji.jpg" style="position:absolute; left:3px; top:238px; width:189px; height:92px; background:none; " id="img_46617e6a" alt="" title="" border="0" />
+    <img src="wsp_images/longx.jpg" style="position:absolute; left:195px; top:241px; width:189px; height:92px; background:none; " id="img_4146eb3e" alt="" title="" border="0" />
+    <img src="wsp_images/shangjia.jpg" style="position:absolute; left:386px; top:239px; width:189px; height:92px; background:none; " id="img_7d1752af" alt="" title="" border="0" />
+    <div style="box-sizing: border-box; position:absolute; left:582px; top:4px; width:301px; height:331px; border: 2px solid #A0A0A0; background-color:#3B2601; " id="placeh_63851a2">
+        <!-- 添加的标题 -->
+        <h2 style="color: #FFFF00; text-align: center; margin-top: 0; padding-top: 10px; font-size: 24px;">游戏注册</h2>
+        <!-- 嵌入的注册表单 -->
+        <form id="regform" name="regform" method="post" action="reg.php">
+            <table width="100%" border="0">
+                <tr>
+                    <th height="50"><span style="color: #FFFF00; font-size: 18px;">游戏帐号</span>
+                        <span style="color: #FFFF00; font-size: 18px;">
+                                <input name="name" type="text" id="name" maxlength="32" style="background-color: transparent; border: 1px solid #CCCCCC; color: #FFFF00; width: 200px; height: 25px;" />
+                            </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th height="50"><span style="color: #FFFF00; font-size: 18px;">登录密码</span>
+                        <span style="color: #FFFF00; font-size: 18px;">
+                                <input name="pwd" type="password" id="pwd" maxlength="32" style="background-color: transparent; border: 1px solid #CCCCCC; color: #FFFF00; width: 200px; height: 25px;" />
+                            </span>
+                    </th>
+                </tr>
+                <tr>
+                    <th height="50"><span style="color: #FFFF00; font-size: 18px;">确认密码</span>
+                        <span style="color: #FFFF00; font-size: 18px;">
+                                <input name="repwd" type="password" id="repwd" maxlength="32" style="background-color: transparent; border: 1px solid #CCCCCC; color: #FFFF00; width: 200px; height: 25px;" />
+                            </span>
+                    </th>
+                </tr>
+                <tr>
+                    <td height="50" style="text-align: center;">
+                        <input type="image" src="wsp_images/1111.png" alt="注册" />
+                        <input name="act" type="hidden" id="act" value="save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<!-- 开放国家 -->
+<div style="position: absolute; left: 620px; top: 295px; width: 284px; height: 80px; background-color: rgba(0, 0, 0, 0.5);">
+    <h2 style="margin: 0; color: #FFFF00; font-size: 32px;">开放:<span style="color: #FF00FF; font-weight: bold;">楼兰</span></h2>
+</div>
+
+<!-- 新服倒计时 -->
+<div style="position: absolute; left: 310px; top: 155px; width: 299px; height: 61px; background-color: rgba(0, 0, 0, 0.7); padding: 10px; box-sizing: border-box;">
+    <div id="html_286f15fa">
+        <div id="countdown" style="color: #00FF00; font-size: 24px; text-align: center;">
+            <span id="t_d">00</span>天
+            <span id="t_h">00</span>时
+            <span id="t_m">00</span>分
+            <span id="t_s">00</span>秒
+        </div>
+        <div id="con" style="color: #FF00FF; font-size: 26px; text-align: center; margin-top: 10px;">服务器即将开启</div>
+    </div>
+</div>
+
+<!-- 防止右键和查看源码的脚本 -->
+<script>
+    document.onkeydown = function () {
+        if (event.keyCode == 123) {
+            return false;
+        }
+        if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+            return false;
+        }
+    };
+    document.oncontextmenu = function () {
+        return false;
+    };
+</script>
+
+<!-- 倒计时脚本 -->
+<script>
+    function getRTime() {
+        var EndTime = new Date('2025/11/15 18:30:00'); // 服务器开始时间
+        var NowTime = new Date();
+        var t = EndTime.getTime() - NowTime.getTime();
+
+        if (t >= 0) {
+            // 服务器未开启，显示倒计时
+            var d = Math.floor(t / (1000 * 60 * 60 * 24));
+            var h = Math.floor(t % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+            var m = Math.floor(t % (1000 * 60 * 60) / (1000 * 60));
+            var s = Math.floor(t % (1000 * 60) / 1000);
+
+            // 确保时间显示为双位数
+            d = (d >= 0) ? d : '00';
+            h = (h >= 10) ? h : '0' + h;
+            m = (m >= 10) ? m : '0' + m;
+            s = (s >= 10) ? s : '0' + s;
+
+            document.getElementById("t_d").innerHTML = d;
+            document.getElementById("t_h").innerHTML = h;
+            document.getElementById("t_m").innerHTML = m;
+            document.getElementById("t_s").innerHTML = s;
+            document.getElementById("countdown").style.display = "block";
+            document.getElementById("con").innerHTML = "服务器即将开启";
+            document.getElementById("con").style.color = "#FF00FF";
+        } else {
+            // 服务器已开启，显示运行时间
+            var runTime = Math.abs(t); // 取绝对值计算已运行时间
+            var d = Math.floor(runTime / (1000 * 60 * 60 * 24));
+            var h = Math.floor(runTime % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+            var m = Math.floor(runTime % (1000 * 60 * 60) / (1000 * 60));
+            var s = Math.floor(runTime % (1000 * 60) / 1000);
+
+            // 确保时间显示为双位数
+            d = (d >= 10) ? d : '0' + d;
+            h = (h >= 10) ? h : '0' + h;
+            m = (m >= 10) ? m : '0' + m;
+            s = (s >= 10) ? s : '0' + s;
+
+            document.getElementById("t_d").innerHTML = d;
+            document.getElementById("t_h").innerHTML = h;
+            document.getElementById("t_m").innerHTML = m;
+            document.getElementById("t_s").innerHTML = s;
+            document.getElementById("countdown").style.display = "block";
+            document.getElementById("con").innerHTML = "服务器已开启";
+            document.getElementById("con").style.color = "red";
+        }
+    }
+    setInterval(getRTime, 1000);
+    getRTime();
+</script>
+</body>
+
+</html>

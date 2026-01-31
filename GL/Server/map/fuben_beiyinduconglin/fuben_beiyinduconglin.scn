@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_beiyinduconglin/fuben_beiyinduconglin.nav
+monster=fuben_beiyinduconglin/fuben_beiyinduconglin_monster.tab
+xunluo=fuben_beiyinduconglin/fuben_beiyinduconglin_patrolpoint.ini
+caijidata=fuben_beiyinduconglin/fuben_beiyinduconglin_growpoint.txt
+caijisetup=fuben_beiyinduconglin/fuben_beiyinduconglin_growpointsetup.txt
+teleport=fuben_beiyinduconglin/fuben_beiyinduconglin_area.ini

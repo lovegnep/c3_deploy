@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=denglujiemian/denglujiemian.nav
+monster=denglujiemian/denglujiemian_monster.tab
+xunluo=denglujiemian/denglujiemian_patrolpoint.ini
+caijidata=denglujiemian/denglujiemian_growpoint.txt
+caijisetup=denglujiemian/denglujiemian_growpointsetup.txt
+teleport=denglujiemian/denglujiemian_area.ini

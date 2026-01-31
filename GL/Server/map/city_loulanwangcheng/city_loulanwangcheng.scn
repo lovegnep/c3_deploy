@@ -1,0 +1,9 @@
+[MapDesc]
+mapnav=city_loulanwangcheng/city_loulanwangcheng.nav
+monster=city_loulanwangcheng/city_loulanwangcheng_monster.tab
+xunluo=city_loulanwangcheng/city_loulanwangcheng_patrolpoint.ini
+caijidata=city_loulanwangcheng/city_loulanwangcheng_growpoint.txt
+caijisetup=city_loulanwangcheng/city_loulanwangcheng_growpointsetup.txt
+teleport=city_loulanwangcheng/city_loulanwangcheng_area.ini
+baitan=city_loulanwangcheng/city_loulanwangcheng_StallInfo.stall
+pkgrid=city_loulanwangcheng/city_loulanwangcheng_pkarea.ini

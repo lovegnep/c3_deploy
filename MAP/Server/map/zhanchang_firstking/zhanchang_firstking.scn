@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=zhanchang_jifucheng/zhanchang_jifucheng.nav
+monster=zhanchang_firstking/zhanchang_firstking_monster.tab
+xunluo=zhanchang_firstking/zhanchang_firstking_patrolpoint.ini
+caijidata=zhanchang_firstking/zhanchang_firstking_growpoint.txt
+caijisetup=zhanchang_firstking/zhanchang_firstking_growpointsetup.txt
+teleport=zhanchang_firstking/zhanchang_firstking_area.ini
