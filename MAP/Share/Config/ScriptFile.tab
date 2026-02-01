@@ -7000,3 +7000,4 @@ NUM	TEXT
 930204	/cjsh/hmm/recycle/buy_horse.lua
 930205	/cjsh/hmm/recycle/exchange.lua
 930206	/cjsh/hmm/fuben/zhanshen.lua
+930207	/cjsh/hmm/ability/produce.lua
