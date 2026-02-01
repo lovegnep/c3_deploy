@@ -62,7 +62,12 @@ x303001_var_Loser_Bonus_Mark			= 7
 x303001_var_Other_Bonus_Mark			= 7
 
 
-
+--胜利方奖励的道具
+x303001_var_winneritems = {
+	{id=11000380,name="稀世奇珍兑换卷",num=1},
+	{id=12266663,name="英勇勋章",num=5},
+	{id=12266664,name="王者勋章",num=5},
+}
 
 
 x303001_var_State_Invalid				= -1
