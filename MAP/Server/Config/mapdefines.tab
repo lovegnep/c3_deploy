@@ -1920,8 +1920,8 @@ NUM	NUM	TEXT	NUM	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
 1917	55	世界杯战场	0	zhanchang_shijiebeizhanchang/zhanchang_shijiebeizhanchang.scn	4	2	1	0	1	125	134	1917	20	-1
 1918	61	世界杯战场	0	zhanchang_shijiebeizhanchang/zhanchang_shijiebeizhanchang.scn	0	2	1	0	1	125	134	1918	20	-1
 1919	60	世界杯战场	0	zhanchang_shijiebeizhanchang/zhanchang_shijiebeizhanchang.scn	1	2	1	0	1	125	134	1919	20	-1
-1920	24	双人战场	1	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	0	1	0	-1	1	125	134	1920	20	-1
-1921	24	双人战场	1	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	0	1	0	-1	1	125	134	1921	20	-1
+1920	24	双人战场	1	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	0	2	0	-1	1	125	134	1920	20	-1
+1921	24	双人战场	1	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	0	2	0	-1	1	125	134	1921	20	-1
 1922	24	双人战场	1	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	6	1	0	-1	1	125	134	1922	20	-1
 1923	24	双人战场	0	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	6	1	0	-1	1	125	134	1923	20	-1
 1924	24	双人战场	0	zhanchang_shuangrenzhanchang/zhanchang_shuangrenzhanchang.scn	6	1	0	-1	1	125	134	1924	20	-1
