@@ -2,7 +2,7 @@
 x930207_var_FileId = 930207
 
 x930207_var_item = {
-    id=14030001,name="初级黄刚玉",num=1,abilityid=2,abilitylevel=1,energy=30,exp=9,need={
+    id=14030001,name="初级黄刚玉",num=1,presid=53,abilityid=2,abilitylevel=1,energy=30,exp=9,need={
         {id=11030001,num=9},
         {id=11030601,num=1},
     }
@@ -73,6 +73,10 @@ function x930207_AbilityProduce(varMap, varPlayer)
         Msg2Player( varMap, varPlayer, "无法获得物品，请整理道具栏", 8, 3)
     end
 
+    -- ★★★ 关键：发送成功消息，否则无法批量制作 ★★★
+    local abilityId = 7   -- 生活技能ID（珠宝术=7）
+    local presId = xxx    -- 配方ID
+    SendAbilitySuccessMsg(varMap, varPlayer, x930207_var_item.abilityid, x930207_var_item.presid, x930207_var_item.id)
 
 
     TipsToPlayer(varMap, varPlayer, "#Y制作成功")
