@@ -166,7 +166,7 @@ x930146_var_dldCreatePositions = {
 
 --福星下凡的地图
 x930146_var_shopPositions = {
-    {varMap= 0, guid=122993,prob=10 ,xy={
+    {varMap= 0, guid=122993,prob=5 ,xy={
         {272,268},
         {216,108},
         {90,318},
@@ -178,7 +178,7 @@ x930146_var_shopPositions = {
         {247,455},
         {165,347},
         {153,169}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·中心城"},
-    {varMap= 36, guid=122993,prob=10 ,xy={
+    {varMap= 36, guid=122993,prob=5 ,xy={
         {94,92},
         {170,62},
         {159,108},
@@ -190,7 +190,7 @@ x930146_var_shopPositions = {
         {224,194},
         {42,217},
         {92,225}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·南"},
-    {varMap= 37, guid=122993,prob=10 ,xy={
+    {varMap= 37, guid=122993,prob=5 ,xy={
         {144,92},
         {190,89},
         {81,52},
@@ -202,7 +202,7 @@ x930146_var_shopPositions = {
         {208,216},
         {139,36},
         {190,83}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·东"},
-    {varMap= 38, guid=122993,prob=10 ,xy={
+    {varMap= 38, guid=122993,prob=5 ,xy={
         {143,97},
         {110,62},
         {165,30},
@@ -214,7 +214,7 @@ x930146_var_shopPositions = {
         {147,216},
         {71,108},
         {67,222}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·西"},
-    {varMap= 2, guid=122993,prob=10 ,xy={
+    {varMap= 2, guid=122993,prob=5 ,xy={
         {205,195},
         {124,218},
         {208,75},
@@ -227,14 +227,14 @@ x930146_var_shopPositions = {
         {129,182},
         {160,43},
         {124,218}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·泰山"},
-    {varMap= 3, guid=122993 ,prob=10 ,xy={
+    {varMap= 3, guid=122993 ,prob=5 ,xy={
         {44,89},
         {191,98},
         {131,149},
         {90,121},
         {57,84},
         {58,197}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="边塞·中兴府"},
-    {varMap= 4, guid=122993 ,prob=10 ,xy={
+    {varMap= 4, guid=122993 ,prob=5 ,xy={
         {225,216},
         {196,34},
         {120,117},
@@ -246,7 +246,7 @@ x930146_var_shopPositions = {
         {166,82},
         {180,173},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="大都·太行山"},
-    {varMap= 5, guid=122993 ,prob=10 ,xy={
+    {varMap= 5, guid=122993 ,prob=5 ,xy={
         {28,97},
         {124,60},
         {160,55},
@@ -258,7 +258,7 @@ x930146_var_shopPositions = {
         {66,52},
         {35,111},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·凤翔府"},
-    {varMap= 6, guid=122993 ,prob=10 ,xy={
+    {varMap= 6, guid=122993 ,prob=5 ,xy={
         {149,37},
         {156,108},
         {104,130},
@@ -269,7 +269,7 @@ x930146_var_shopPositions = {
         {170,229},
         {213,132},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·蔡州城"},
-    {varMap= 7, guid=122993 ,prob=10 ,xy={
+    {varMap= 7, guid=122993 ,prob=5 ,xy={
         {212,51},
         {76,156},
         {98,125},
@@ -280,7 +280,7 @@ x930146_var_shopPositions = {
         {221,98},
         {155,112},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·秦岭"},
-    {varMap= 8, guid=122993 ,prob=10 ,xy={
+    {varMap= 8, guid=122993 ,prob=5 ,xy={
         {85,193},
         {88,105},
         {97,66},
@@ -293,7 +293,7 @@ x930146_var_shopPositions = {
         {131,220},
         {41,79},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·阿尔金山"},
-    {varMap= 9, guid=122993 ,prob=10 ,xy={
+    {varMap= 9, guid=122993 ,prob=5 ,xy={
         {96,29},
         {166,57},
         {46,55},
@@ -305,7 +305,7 @@ x930146_var_shopPositions = {
         {167,145},
         {95,50},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·碎叶城"},
-    {varMap= 10, guid=122993 ,prob=10 ,xy={
+    {varMap= 10, guid=122993 ,prob=5 ,xy={
         {73,40},
         {174,107},
         {133,119},
@@ -319,7 +319,7 @@ x930146_var_shopPositions = {
         {58,144},
         {211,122},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·红沙漠"},
-    {varMap= 11, guid=122993 ,prob=10 ,xy={
+    {varMap= 11, guid=122993 ,prob=5 ,xy={
         {193,161},
         {176,59},
         {67,138},
@@ -331,7 +331,7 @@ x930146_var_shopPositions = {
         {145,215},
         {129,106},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·撒马尔罕"},
-    {varMap= 13, guid=122993 ,prob=10 ,xy={
+    {varMap= 13, guid=122993 ,prob=5 ,xy={
         {154,94},
         {145,97},
         {99,110},
@@ -342,7 +342,7 @@ x930146_var_shopPositions = {
         {134,149},
         {196,54},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·巴格达"},
-    {varMap= 16, guid=122993 ,prob=10 ,xy={
+    {varMap= 16, guid=122993 ,prob=5 ,xy={
         {38,49},
         {145,116},
         {79,119},
@@ -354,7 +354,7 @@ x930146_var_shopPositions = {
         {206,212},
         {88,202},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·波斯高原"},
-    {varMap= 17, guid=122993 ,prob=10 ,xy={
+    {varMap= 17, guid=122993 ,prob=5 ,xy={
         {124,75},
         {120,142},
         {65,99},
@@ -367,7 +367,7 @@ x930146_var_shopPositions = {
         {138,214},
         {32,145},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·莫斯科"},
-    {varMap= 18, guid=122993 ,prob=10 ,xy={
+    {varMap= 18, guid=122993 ,prob=5 ,xy={
         {71,152},
         {160,108},
         {129,43},
@@ -379,7 +379,7 @@ x930146_var_shopPositions = {
         {218,176},
         {112,108},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·基辅公国"},
-    {varMap= 19, guid=122993 ,prob=10 ,xy={
+    {varMap= 19, guid=122993 ,prob=5 ,xy={
         {133,97},
         {132,123},
         {82,110},
@@ -391,7 +391,7 @@ x930146_var_shopPositions = {
         {208,163},
         {211,79},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·波兰王国"},
-    {varMap= 20, guid=122993 ,prob=10 ,xy={
+    {varMap= 20, guid=122993 ,prob=5 ,xy={
         {215,158},
         {222,21},
         {241,69},
@@ -399,7 +399,7 @@ x930146_var_shopPositions = {
         {74,136},
         {161,230},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·匈牙利"},
-    {varMap= 21, guid=122993 ,prob=10 ,xy={
+    {varMap= 21, guid=122993 ,prob=5 ,xy={
         {78,37},
         {181,92},
         {47,80},
@@ -407,7 +407,7 @@ x930146_var_shopPositions = {
         {188,171},
         {150,204},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·神圣罗马"},
-    {varMap= 22, guid=122993 ,prob=10 ,xy={
+    {varMap= 22, guid=122993 ,prob=5 ,xy={
         {61,87},
         {145,74},
         {108,106},
@@ -417,18 +417,18 @@ x930146_var_shopPositions = {
         {122,124},
         {109,153},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·拜占庭"},
-    {varMap= 23, guid=122993 ,prob=10 ,xy={
+    {varMap= 23, guid=122993 ,prob=5 ,xy={
         {222,29},
         {167,86},
         {56,138},
         {129,169},
         {112,209},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·大马士革"},
-    {varMap= 24, guid=122993 ,prob=10 ,xy={{193,101}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·耶路撒冷"},
-    {varMap= 25, guid=122993 ,prob=10 ,xy={{52,62}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·西奈半岛"},
+    {varMap= 24, guid=122993 ,prob=5 ,xy={{193,101}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·耶路撒冷"},
+    {varMap= 25, guid=122993 ,prob=5 ,xy={{52,62}} ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="领地·西奈半岛"},
 
 
-    {varMap= 51, guid=122993 ,prob=10 ,xy={
+    {varMap= 51, guid=122993 ,prob=5 ,xy={
         {134,210},
         {204,69},
         {89,99},
@@ -444,7 +444,7 @@ x930146_var_shopPositions = {
         {441,64},
         {220,243},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="边塞·楼兰边塞"},
-    {varMap= 151, guid=122993 ,prob=10 ,xy={
+    {varMap= 151, guid=122993 ,prob=5 ,xy={
         {134,210},
         {204,69},
         {89,99},
@@ -460,7 +460,7 @@ x930146_var_shopPositions = {
         {441,64},
         {220,243},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="边塞·天山边塞"},
-    {varMap= 251, guid=122993 ,prob=10 ,xy={
+    {varMap= 251, guid=122993 ,prob=5 ,xy={
         {134,210},
         {204,69},
         {89,99},
@@ -476,7 +476,7 @@ x930146_var_shopPositions = {
         {441,64},
         {220,243},
     } ,MonsterType= 4804 ,varCount= 1 ,ai=1,aiscript=	754, title="福星",mapname="边塞·昆仑边塞"},
-    {varMap= 351, guid=122993 ,prob=10 ,xy={
+    {varMap= 351, guid=122993 ,prob=5 ,xy={
         {134,210},
         {204,69},
         {89,99},
