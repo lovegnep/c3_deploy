@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "iconv-lite": "^0.7.1",
+    "lodash": "^4.17.21"
+  }
+}

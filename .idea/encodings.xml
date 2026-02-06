@@ -15,6 +15,37 @@
     <file url="file://$PROJECT_DIR$/nohuprun.sh" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/restartmap.sh" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/run.sh" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/tool" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/tool/script/gem/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_exp/gen_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_jyl/gen_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_itemmix_jieri.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang_buff_desc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang_jieri.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang_recall.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_shizhuang_shop.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_tujian.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_tujian_buff_desc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_tujian_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/gen_up_tujian_type.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/package-lock.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/package.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_shop/shop.tab" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_war/gen_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_zhengfalu/gen_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_坐骑变形/edit_script_buffid.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_坐骑变形/gen_up_bufflua.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_坐骑变形/gen_up_tujian_buff_desc.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_buff_坐骑变形/gen_up_tujian_buff_logic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_shop_card/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_spell_logic_banghuixiuxingproperty.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/gen_title/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/horse_equip_level/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/horse_equip_level/index2.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tool/script/horse_equip_level/index3.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/www" charset="GB2312" />
   </component>
 </project>
