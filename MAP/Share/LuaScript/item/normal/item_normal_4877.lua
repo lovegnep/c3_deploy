@@ -991,7 +991,12 @@ x404877_var_MapList = {
 
 
                         --ÐÂÔö
-                        {varItem=12500001, prescrId=1014, abilityId =1, title = -1  },
+                        {varItem=12400620, prescrId=1014, abilityId =6, title = -1  },
+                        {varItem=12400621, prescrId=1015, abilityId =3, title = -1  },
+                        {varItem=12400622, prescrId=1016, abilityId =7, title = -1  },
+                        {varItem=12400623, prescrId=1017, abilityId =2, title = -1  },
+                        {varItem=12400624, prescrId=1018, abilityId =1, title = -1  },
+                        {varItem=12400625, prescrId=1019, abilityId =10, title = -1  },
 
 
  					}

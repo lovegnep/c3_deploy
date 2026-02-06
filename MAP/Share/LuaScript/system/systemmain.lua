@@ -765,6 +765,15 @@ end
 
 function x888888_ProcMapPlayerEnter( varMap, varPlayer )
 
+	--删除可能存在的旧任务
+	if varMap == 0 then
+		local qids = {11103,11104,11105,11106}
+		for k,qid in qids do
+			DelQuest(varMap, varPlayer, qid)
+		end
+	end
+
+
 	
 	local SceneRestrictiveMode = GetSceneRestrictiveMode(varMap) ;
 	if SceneRestrictiveMode >= 0 then
