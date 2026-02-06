@@ -114,6 +114,14 @@ x350007_var_DailyTable            = {
 
 --40级以下的
 x350007_var_DailyTable40            = {
+      {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+      {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+      {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+      {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+      {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+      {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
+
+
       {varItem=       11000100        ,probability=   500     , price=        1       ,varName="赤铜钻", deplete = 1,},
     {varItem=       11000101        ,probability=   500     , price=        1       ,varName="生铁钻", deplete = 1,},
     {varItem=       11000110        ,probability=   500     , price=        1       ,varName="青铜钻", deplete = 1,},
@@ -170,7 +178,12 @@ x350007_var_DailyTable40            = {
 
 --50级以下的
 x350007_var_DailyTable50            = {
-
+    {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+    {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+    {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+    {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+    {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+    {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
     {varItem=       10211104        ,probability=   500     , price=        1       ,varName="一级锻造徽章", deplete = 1,},
     {varItem=       10222203        ,probability=   500     , price=        1       ,varName="一级工艺披风", deplete = 1,},
     {varItem=       10222204        ,probability=   500     , price=        1       ,varName="二级工艺披风", deplete = 1,},
@@ -278,7 +291,12 @@ x350007_var_DailyTable50            = {
 
 --60级以下的
 x350007_var_DailyTable60            = {
-
+    {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+    {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+    {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+    {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+    {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+    {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
     {varItem=       10211104        ,probability=   500     , price=        1       ,varName="一级锻造徽章", deplete = 1,},
     {varItem=       10222203        ,probability=   500     , price=        1       ,varName="一级工艺披风", deplete = 1,},
     {varItem=       10222204        ,probability=   500     , price=        1       ,varName="二级工艺披风", deplete = 1,},
@@ -392,7 +410,12 @@ x350007_var_DailyTable60            = {
 
 --70级以下的
 x350007_var_DailyTable70            = {
-
+    {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+    {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+    {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+    {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+    {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+    {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
     {varItem=       10211104        ,probability=   500     , price=        1       ,varName="一级锻造徽章", deplete = 1,},
     {varItem=       10211105        ,probability=   500     , price=        1       ,varName="二级锻造徽章", deplete = 1,},
     {varItem=       10211106        ,probability=   500     , price=        1       ,varName="三级锻造徽章", deplete = 1,},
@@ -648,7 +671,12 @@ x350007_var_DailyTable70            = {
 
 --80级以下的
 x350007_var_DailyTable80            = {
-
+    {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+    {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+    {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+    {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+    {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+    {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
     {varItem=       10211104        ,probability=   500     , price=        1       ,varName="一级锻造徽章", deplete = 1,},
     {varItem=       10211105        ,probability=   500     , price=        1       ,varName="二级锻造徽章", deplete = 1,},
     {varItem=       10211106        ,probability=   500     , price=        1       ,varName="三级锻造徽章", deplete = 1,},
@@ -973,7 +1001,12 @@ x350007_var_DailyTable80            = {
 
 --100级以下的
 x350007_var_DailyTable100            = {
-
+    {varItem=       12400600        ,probability=   500     , price=        1       ,varName="鸣镝狼牙镞", deplete = 1,},
+    {varItem=       12400601        ,probability=   500     , price=        1       ,varName="苏鲁锭护心镜", deplete = 1,},
+    {varItem=       12400602        ,probability=   500     , price=        1       ,varName="黄金家族玺印", deplete = 1,},
+    {varItem=       12400603        ,probability=   500     , price=        1       ,varName="长生天之眼", deplete = 1,},
+    {varItem=       12400604        ,probability=   500     , price=        1       ,varName="腾格里神油", deplete = 1,},
+    {varItem=       12400605        ,probability=   500     , price=        1       ,varName="汗血宝马蹬", deplete = 1,},
     {varItem=       10211104        ,probability=   500     , price=        1       ,varName="一级锻造徽章", deplete = 1,},
     {varItem=       10211105        ,probability=   500     , price=        1       ,varName="二级锻造徽章", deplete = 1,},
     {varItem=       10211106        ,probability=   500     , price=        1       ,varName="三级锻造徽章", deplete = 1,},
@@ -1492,6 +1525,7 @@ function x350007_ProcEventEntry( varMap, varPlayer, varTalknpc, varState, varInd
         StartTalkTask( varMap)
         TalkAppendString( varMap, "#Y【活动】积分查询" )
         TalkAppendString( varMap, format( "\n\t您目前的节日积分为#G%d#W。", GetPlayerGameData( varMap, varPlayer, MD_SEED_SCORE[ 1], MD_SEED_SCORE[ 2], MD_SEED_SCORE[ 3] ) ) )
+        TalkAppendString( varMap, format( "\n\t您目前的肝帝活跃积分为#G%d#W。", GetPlayerGameData( varMap, varPlayer, MD_SHANXIN_TIME2[ 1], MD_SHANXIN_TIME2[ 2], MD_SHANXIN_TIME2[ 3] ) or 0 ) )
         StopTalkTask()
         DeliverTalkMenu( varMap, varPlayer, varTalknpc)
     end
