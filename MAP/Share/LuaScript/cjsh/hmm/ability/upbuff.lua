@@ -280,7 +280,7 @@ function x930209_Accept( varMap, varPlayer )
     end
 
     --检查道具
-    for k, item in x930209_var_ExcObjID[nextIndex] do
+    for k, item in x930209_var_ExcObjID[nextIndex].need do
         if GetItemCount( varMap, varPlayer, item.id ) < item.num then
             Msg2Player(varMap, varPlayer,format("道具@item_%d数量不足%d个", item.id, item.num),8,3)
             Msg2Player(varMap, varPlayer,format("道具@item_%d数量不足%d个", item.id, item.num),8,2)
@@ -289,7 +289,7 @@ function x930209_Accept( varMap, varPlayer )
     end
 
     --扣除道具
-    for k, item in x930209_var_ExcObjID[nextIndex] do
+    for k, item in x930209_var_ExcObjID[nextIndex].need do
         if DelItem(varMap, varPlayer, item.id, item.num) ~= 1 then
             Msg2Player(varMap, varPlayer,format("道具@item_%d数量不足%d个", item.id, item.num),8,3)
             Msg2Player(varMap, varPlayer,format("道具@item_%d数量不足%d个", item.id, item.num),8,2)
