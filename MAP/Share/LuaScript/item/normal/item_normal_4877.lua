@@ -991,7 +991,7 @@ x404877_var_MapList = {
 
 
                         --ÐÂÔö
-                        {varItem=12500000, prescrId=1014, abilityId =1, title = -1  },
+                        {varItem=12500001, prescrId=1014, abilityId =1, title = -1  },
 
 
  					}
