@@ -241,7 +241,7 @@ function x930177_AddBonus(varMap, varPlayer)
     local weekIdx = GetWeek()
     local daojuprob = x930177_var_daoju
     if weekIdx == 6 or weekIdx == 0 then
-        daojuprob = daojuprob * 2
+        daojuprob = daojuprob * 7
     end
 
     if random( 1, 150) <= daojuprob then
