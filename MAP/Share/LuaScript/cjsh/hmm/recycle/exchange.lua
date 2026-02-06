@@ -103,7 +103,16 @@ x930205_var_objs = {
         {index = 6 ,id=10340034, name="四彩护身符·医仙",num=1,need={
             {id=11000328,name="四彩护身符碎片",num=500},
         }},
-    }}
+    }},
+    {index=3,name="肝帝活跃积分",items={
+        {index = 1 ,id=12041103, name="活力丹",num=1,need={
+            {id=200,name="肝帝活跃积分",num=30},
+        }},
+        {index = 1 ,id=12273004, name="100元充值券",num=1,need={
+            {id=200,name="肝帝活跃积分",num=600},
+        }},
+
+    }},
 }
 
 -- ============================================================================
@@ -158,7 +167,7 @@ end
 
 -- 枚举事件（显示NPC选项按钮）
 function x930205_ProcEnumEvent(varMap, varPlayer, varTalknpc, varQuest)
-
+    DelQuest(varMap, varPlayer, x930205_var_QuestId)
     TalkAppendButton(varMap, x930205_var_FileId, x930205_var_QuestName, 3, -1)
 end
 
@@ -262,6 +271,8 @@ function x930205_ProcAccept(varMap, varPlayer,varTalknpc)
         return
     end
 
+    local jf = GetPlayerGameData(varMap,varPlayer,MD_SHANXIN_TIME2[1],MD_SHANXIN_TIME2[2],MD_SHANXIN_TIME2[3])
+
 
     --先检查数量
     for vari, need in itemData.need do
@@ -273,7 +284,16 @@ function x930205_ProcAccept(varMap, varPlayer,varTalknpc)
                 x930205_ProcEventEntry(varMap, varPlayer,varTalknpc, 0, si.index)
                 return 0
             end
-
+        elseif need.id == 200 then
+            --肝帝活跃积分
+            if jf < need.num then
+                Msg2Player(varMap, varPlayer,format("%s不足%d",need.name, need.num),8,2)
+                Msg2Player(varMap, varPlayer,format("%s不足%d",need.name, need.num),8,3)
+                x930205_ProcEventEntry(varMap, varPlayer,varTalknpc, 0, si.index)
+                return 0
+            end
+        else
+            --
         end
     end
 
@@ -286,7 +306,13 @@ function x930205_ProcAccept(varMap, varPlayer,varTalknpc)
                 x930205_ProcEventEntry(varMap, varPlayer,varTalknpc, 0, si.index)
                 return 0
             end
-
+        elseif need.id == 200 then
+            --肝帝活跃积分
+            if jf < need.num then
+                SetPlayerGameData(varMap,varPlayer,MD_SHANXIN_TIME2[1],MD_SHANXIN_TIME2[2],MD_SHANXIN_TIME2[3], jf-need.num)
+            end
+        else
+            --
         end
     end
 
