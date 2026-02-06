@@ -213,7 +213,8 @@ MD_ZDOUXI_DATE 						= {38, 0, 9}
 MD_SHENGSICAISHEN_DATE              = {38,18, 9}       	
 
 MD_SHANXIN_TIME1					= {39, 0,32}		
-MD_SHANXIN_TIME2					= {40, 0,32}		
+-- 韩梅梅  在线积分奖励
+MD_SHANXIN_TIME2					= {40, 0,32}
 MD_SHANXIN_TIME3					= {41, 0,32}		
 
 

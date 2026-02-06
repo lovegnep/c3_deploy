@@ -2,7 +2,7 @@
 x930177_var_FileId	= 930177
 --如果背包内有特殊道具时的倍率
 x930177_var_beilu = 4
-x930177_var_daoju = 5
+x930177_var_daoju = 1
 x930177_var_LuckySeedTable            = {
     {varItem=	11030502	,probability=	10000	, price=	1	,varName="黑曜石", num = 1},
     {varItem=	11030406	,probability=	10000	, price=	1	,varName="七步封喉", num = 1},
@@ -150,7 +150,7 @@ end
 function x930177_ProcIntervalOverEvent( varMap, varPlayer )
 
 
-    x930177_FixedBuf(varMap,varPlayer,7718)
+    --x930177_FixedBuf(varMap,varPlayer,7730)
 
     local day, week = GetWeek()
     if varMap==94 then
@@ -244,7 +244,7 @@ function x930177_AddBonus(varMap, varPlayer)
         daojuprob = daojuprob * 2
     end
 
-    if random( 1, 100) < 100-daojuprob then
+    if random( 1, 150) <= daojuprob then
         return
     end
 

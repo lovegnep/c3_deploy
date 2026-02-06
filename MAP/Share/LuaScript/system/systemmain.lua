@@ -4392,6 +4392,8 @@ function x888888_ClearPlayerData(varMap, varPlayer)
 	end
 end
 
+
+--登录游戏
 function x888888_ProcMapPlayerNewConnectEnter(varMap, varPlayer)
 
 	
@@ -4547,11 +4549,16 @@ function x888888_ProcMapPlayerNewConnectEnter(varMap, varPlayer)
 		end
 		
 
+	--在线奖励buff
+	if IsHaveSpecificImpact( varMap, varPlayer, 7731) == 1 then
+		CancelSpecificImpact( varMap, varPlayer, 7731)
+	end
+	SendSpecificImpactToUnit( varMap, varPlayer, varPlayer, varPlayer, 7731, 0)
 
 
-	
-	
---关闭多余代码 by 596 2012.3.29 begin--	
+
+
+	--关闭多余代码 by 596 2012.3.29 begin--
 --	if GetPlayerGameData(varMap,varPlayer,MD_20110214JIEZHI_FLAG[1], MD_20110214JIEZHI_FLAG[2], MD_20110214JIEZHI_FLAG[3]) == 0 then
 --		SetPlayerGameData(varMap,varPlayer,MD_20110214JIEZHI_FLAG[1], MD_20110214JIEZHI_FLAG[2], MD_20110214JIEZHI_FLAG[3],1)
 --		--解除情人节戒指的绑定状态

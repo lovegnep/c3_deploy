@@ -7003,4 +7003,5 @@ NUM	TEXT
 930207	/cjsh/hmm/ability/produce.lua
 930208	/cjsh/hmm/pvp/v2.lua
 930209	/cjsh/hmm/ability/upbuff.lua
+930210	/cjsh/hmm/twopeople/onlinebuff.lua
 
