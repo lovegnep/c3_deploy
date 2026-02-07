@@ -178,7 +178,7 @@ function x700500_ProcDie(varMap, selfId, killerId)
 		if mod(killCount, 10) == 0 then
 			x700500_MsgToAllPlayers(varMap, "#Y【天关副本】#W已击杀" .. killCount .. "只怪物")
 		end
-		if killCount >= x700500_getmonstercnt() then
+		if killCount >= x700500_getmonstercnt() and (bossObjId == nil or bossObjId <= 0)  then
 			x700500_CreateBoss(varMap)
 		end
 	end
