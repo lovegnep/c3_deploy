@@ -388,6 +388,11 @@ function x930205_ProcQuestSubmit(varMap, varPlayer, varTalknpc, varRadioSelected
         if need.id > 100000 then
             --需要道具兑换
             TalkAppendString(varMap,"#Y"..format("【购买】#R@item_%d#W需要道具#G@item_%d#W#R%d#W个",itemData.id,need.id,need.num))
+        elseif need.id == 200 then
+            --肝帝活跃积分
+            TalkAppendString(varMap,"#Y"..format("【购买】#R@item_%d#W需要#G%s#W#R%d#W",itemData.id,need.name,need.num))
+        else
+            --
         end
     end
 
