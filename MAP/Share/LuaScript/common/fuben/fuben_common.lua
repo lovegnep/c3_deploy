@@ -9404,6 +9404,25 @@ function x700081_CheckOwnerItemRequest(varMap, varPlayer, varMode, varIndex)
 			end
 		end
 	local fubenScriptID = x700081_var_RegisterFuben[varIndex].varId
+	if fubenScriptID == 700500 then
+		--天关
+		if GetLevel(varMap, varPlayer) < 85 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 85))
+			return 0
+		end
+	elseif fubenScriptID == 700501 then
+		--杳无音讯的村庄
+		if GetLevel(varMap, varPlayer) < 90 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 90))
+			return 0
+		end
+	elseif fubenScriptID == 700502 then
+		--污染边塞
+		if GetLevel(varMap, varPlayer) < 95 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 95))
+			return 0
+		end
+	end
 	if (fubenScriptID == 700136 or fubenScriptID == 700500 or fubenScriptID == 700501 or fubenScriptID == 700502) and nFubenType == 0 then -- 月宫处理做一个特殊处理
 			if x700081_var_Item_XJ[varIndex].varItem > 0 then
 				local num = GetItemCount( varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem )
@@ -9455,6 +9474,27 @@ function x700081_CheckAllMemberItemRequest(varMap, varPlayer, varMode, varIndex)
 		end
 	end
 	local fubenScriptID = x700081_var_RegisterFuben[varIndex].varId
+
+	if fubenScriptID == 700500 then
+		--天关
+		if GetLevel(varMap, varPlayer) < 85 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 85))
+			return 0
+		end
+	elseif fubenScriptID == 700501 then
+		--杳无音讯的村庄
+		if GetLevel(varMap, varPlayer) < 90 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 90))
+			return 0
+		end
+	elseif fubenScriptID == 700502 then
+		--污染边塞
+		if GetLevel(varMap, varPlayer) < 95 then
+			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 95))
+			return 0
+		end
+	end
+
 	if (fubenScriptID == 700136 or fubenScriptID == 700500 or fubenScriptID == 700501 or fubenScriptID == 700502) and nFubenType == 0 then -- 月宫处理做一个特殊处理
 		if x700081_var_Item_XJ[varIndex].varItem > 0 then
 			local num = GetItemCount( varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem )
