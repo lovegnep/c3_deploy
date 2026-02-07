@@ -2879,8 +2879,8 @@ x700081_var_SceneMapNavPathList		= {
 										
 										"fuben_yuegong/fuben_yuegong.nav",                   	            --【队伍】月宫
 										"fuben_tianguan/fuben_tianguan.nav",                   	            --【队伍】天关  使用夏王墓穴地图
-										"fuben_ywyxdcz/fuben_rongyanzhaoze.scn",                   	            --【队伍】杳无音讯的村庄  使用夏王墓穴地图
-										"fuben_wuranbiansai/fuben_rongyanzhaoze.scn",                   	            --【队伍】污染边塞  使用夏王墓穴地图
+										"fuben_ywyxdcz/fuben_ywyxdcz.scn",                   	            --【队伍】杳无音讯的村庄  使用夏王墓穴地图
+										"fuben_wuranbiansai/fuben_wuranbiansai.scn",                   	            --【队伍】污染边塞  使用夏王墓穴地图
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
