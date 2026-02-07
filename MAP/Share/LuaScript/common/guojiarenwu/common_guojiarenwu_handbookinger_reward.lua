@@ -309,7 +309,7 @@ function x430610_GetBonus( varMap, varPlayer,varTalknpc,money)
 	if x430610_var_BonusMoney6 > 0 then
 		AddHonor(varMap,varPlayer,x430610_var_BonusMoney6)
 	end
-	if x430610_var_BonusMoney18 > 0 and GetLevel(varMap,varPlayer) >= 75 then
+	if x430610_var_BonusMoney18 > 0  then
 		AddHorseMoney(varMap, varPlayer, x430610_var_BonusMoney18 )
 	end
 end

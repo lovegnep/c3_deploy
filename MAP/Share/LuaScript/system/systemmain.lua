@@ -4554,6 +4554,11 @@ function x888888_ProcMapPlayerNewConnectEnter(varMap, varPlayer)
 		CancelSpecificImpact( varMap, varPlayer, 7731)
 	end
 	SendSpecificImpactToUnit( varMap, varPlayer, varPlayer, varPlayer, 7731, 0)
+	--Í¼¼øÅàÑø¾­Ñé
+	if IsHaveSpecificImpact( varMap, varPlayer, 7732) == 1 then
+		CancelSpecificImpact( varMap, varPlayer, 7732)
+	end
+	SendSpecificImpactToUnit( varMap, varPlayer, varPlayer, varPlayer, 7732, 0)
 
 
 
