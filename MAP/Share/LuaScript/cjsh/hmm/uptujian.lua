@@ -352,9 +352,6 @@ function x930127_CheckAndAddjy(varMap, varPlayer)
         --判断培养的经验值
         local jinyan = GetPlayerGameData(varMap, varPlayer, MD_JIERIQINGDIAN_DATE[1], MD_JIERIQINGDIAN_DATE[2], MD_JIERIQINGDIAN_DATE[3])
 
-        Msg2Player(varMap, varPlayer,format("当前经验%d", jinyan),8,3)
-        Msg2Player(varMap, varPlayer,format("当前经验%d", jinyan),8,2)
-
         if jinyan < x930127_var_pyexp*curIndex then
             --经验不够，需要培养
 
@@ -365,8 +362,6 @@ function x930127_CheckAndAddjy(varMap, varPlayer)
                 local tujianid = x930127_var_ExcObjID[curIndex].targetID
                 local mounttype = x930127_GetHorseType(varMap,varPlayer, mountId)
                 local tujiantype = x930127_GetHorseType(varMap,varPlayer, tujianid)
-                Msg2Player(varMap, varPlayer,format("当前出战坐骑id%d,当前图鉴坐骑id%d", mountId,tujianid),8,2)
-                Msg2Player(varMap, varPlayer,format("当前出战物种%d,%d", mounttype,tujiantype ),8,2)
 
                 if mounttype ~= -1 and mounttype == tujiantype then
                     local after = jinyan+x930127_var_pyexppermin

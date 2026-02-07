@@ -308,9 +308,7 @@ function x930205_ProcAccept(varMap, varPlayer,varTalknpc)
             end
         elseif need.id == 200 then
             --¸ÎµÛ»îÔ¾»ý·Ö
-            if jf < need.num then
-                SetPlayerGameData(varMap,varPlayer,MD_SHANXIN_TIME2[1],MD_SHANXIN_TIME2[2],MD_SHANXIN_TIME2[3], jf-need.num)
-            end
+            SetPlayerGameData(varMap,varPlayer,MD_SHANXIN_TIME2[1],MD_SHANXIN_TIME2[2],MD_SHANXIN_TIME2[3], jf-need.num)
         else
             --
         end
