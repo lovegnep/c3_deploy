@@ -221,7 +221,6 @@ end
 function x930205_DeliverTalkInfo(varMap, varPlayer, varTalknpc)
     local si = x930205_var_Selectinfo[GetGUID(varMap, varPlayer)]
 
-    Msg2Player(varMap, varPlayer, format("x930205_DeliverTalkInfo %d", varTalknpc), 8, 2)
     StartTalkTask(varMap)
     
     TalkAppendString(varMap, "#Y" .. x930205_var_QuestName .. "\n" .. x930205_var_QuestInfo)
