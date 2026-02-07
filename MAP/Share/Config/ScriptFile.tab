@@ -6583,6 +6583,8 @@ NUM	TEXT
 700228	/common/fuben/fuben_try_qiulongdao.lua												
 700229	/common/fuben/fuben_try_bamiyangshiku.lua												
 700500	/cjsh/hmm/fuben/fuben_tianguan.lua
+700501	/cjsh/hmm/fuben/fuben_ywyxdcz.lua
+700502	/cjsh/hmm/fuben/fuben_wuran.lua
 #	副本功能
 701001	/common/fuben/deletemonster.lua												
 #	副本战车boss对话攻击												
@@ -7005,4 +7007,5 @@ NUM	TEXT
 930209	/cjsh/hmm/ability/upbuff.lua
 930210	/cjsh/hmm/twopeople/onlinebuff.lua
 930211	/cjsh/hmm/twopeople/onlinebuff10.lua
+
 

@@ -902,8 +902,8 @@ NUM	NUM	TEXT	NUM	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
 899	6	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	899	20	-1
 900	33	天关	1	fuben_tianguan/fuben_tianguan.scn	0	1	0	-1	1	64	100	900	20	-1
 901	43	龙之谷	1	longzigu/longzigu.scn	0	0	0	-1	1	125	134	901	20	-1
-902	41	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	902	20	-1
-903	40	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	903	20	-1
+902	5	杳无音讯的村庄	1	fuben_ywyxdcz/fuben_rongyanzhaoze.scn	0	1	0	-1	1	115	15	902	20	-1
+903	5	污染边塞	1	fuben_wuranbiansai/fuben_rongyanzhaoze.scn	0	1	0	-1	1	115	15	903	20	-1
 904	6	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	904	20	-1
 905	44	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	905	20	-1
 906	43	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	906	20	-1

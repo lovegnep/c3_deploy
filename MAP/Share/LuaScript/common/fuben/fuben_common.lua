@@ -318,6 +318,8 @@ x700081_var_RegisterFuben				= {  --npc guid ==0 表示不直接挂NPC, fubentype=0:正
 																		
 										{ varId = 700136, varTalkNpcGUID = {138000,138000,138000,138000}, fubentype=0,loopindex=0},	--【个人】月宫大作战
 										{ varId = 700500, varTalkNpcGUID = {600011,600011,600011,600011}, fubentype=0,loopindex=0},	--【个人】天关
+										{ varId = 700501, varTalkNpcGUID = {600011,600011,600011,600011}, fubentype=0,loopindex=0},	--【个人】杳无音讯的村庄
+										{ varId = 700502, varTalkNpcGUID = {600011,600011,600011,600011}, fubentype=0,loopindex=0},	--【个人】污染边塞
 										{ varId = 700112, varTalkNpcGUID = {141537,141537,141537,141537}, fubentype=0,loopindex=0, enterLog=1781, leaveLog=1782},               --【队伍】神秘宝库
 										{ varId = 700113, varTalkNpcGUID = {141537,141537,141537,141537}, fubentype=0,loopindex=0, enterLog=1781, leaveLog=1782},               --【队伍】神秘宝库
 										{ varId = 700114, varTalkNpcGUID = {141537,141537,141537,141537}, fubentype=0,loopindex=0, enterLog=1781, leaveLog=1782},               --【队伍】神秘宝库
@@ -647,6 +649,8 @@ x700081_var_FubenNameList				= {
 										"【队伍】产出金矿洞", 
 										"【个人】月宫大作战",
 										"【个人】天关",
+										"【队伍】杳无音讯的村庄",
+										"【队伍】污染边塞",
 										"【队伍】神秘宝库",
 										"【队伍】神秘宝库",
 										"【队伍】神秘宝库",
@@ -782,6 +786,8 @@ x700081_var_CountModeList			= {   --记次模式 0：不记次，1：日记次，2：周记次,  5
 												        	 													
 									0,  --【个人】月宫大作战        
 									0,  --【个人】天关
+									0,  --【个人】杳无音讯的村庄
+									0,  --【个人】污染边塞
 									0,  --【队伍】神秘宝库
 								  0,  --【队伍】神秘宝库         
 									0,  --【队伍】神秘宝库         
@@ -962,6 +968,8 @@ x700081_var_CountUntilList			= { --每天（周）进入最大次数
 									
 									3,  --【个人】月宫大作战 
 									3,  --【个人】天关
+									3,  --【个人】杳无音讯的村庄
+									3,  --【个人】污染边塞
 									0,  --【队伍】神秘宝库
 									0,  --【队伍】神秘宝库 
 									0,  --【队伍】神秘宝库 
@@ -1293,6 +1301,8 @@ x700081_var_LimitMembersList			= {   --队伍最小人数
 
 										1,  --【个人】月宫大作战 
 										1,  --【个人】天关
+										1,  --【个人】杳无音讯的村庄
+										1,  --【个人】污染边塞
 										1,  --【队伍】神秘宝库
 										1,  --【队伍】神秘宝库 
 										1,  --【队伍】神秘宝库 
@@ -1624,6 +1634,8 @@ x700081_var_LevelRangeList				= {  --进入副本等级限制
 																				
 										{1,160},   --【个人】月宫大作战
 										{1,160},   --【个人】天关
+										{83,160},   --【个人】杳无音讯的村庄
+										{90,160},   --【个人】污染边塞
 										{50,59},   --【队伍】神秘宝库
 										{60,69},   --【队伍】神秘宝库 
 										{70,79},   --【队伍】神秘宝库 
@@ -2150,6 +2162,10 @@ x700081_var_EnterTimeList				={
 										},
 										{
 											{min=0*60+0,  max=24*60+0},--天关
+										},{
+											{min=0*60+0,  max=24*60+0},--杳无音讯的村庄
+										},{
+											{min=0*60+0,  max=24*60+0},--污染边塞
 										},
 										{ 
 											{min=0*60+0,  max=24*60+0},--神秘宝库
@@ -2529,6 +2545,8 @@ x700081_var_EnterDayList				={
 																				
 										{0,1,2,3,4,5,6}, --【队伍】月宫
 										{0,1,2,3,4,5,6}, --【队伍】天关
+										{0,1,2,3,4,5,6}, --【队伍】杳无音讯的村庄
+										{0,1,2,3,4,5,6}, --【队伍】污染边塞
 										{0,1,2,3,4,5,6}, --【队伍】神秘宝库
 										{0,1,2,3,4,5,6}, --【队伍】神秘宝库
 										{0,1,2,3,4,5,6}, --【队伍】神秘宝库
@@ -2861,6 +2879,8 @@ x700081_var_SceneMapNavPathList		= {
 										
 										"fuben_yuegong/fuben_yuegong.nav",                   	            --【队伍】月宫
 										"fuben_tianguan/fuben_tianguan.nav",                   	            --【队伍】天关  使用夏王墓穴地图
+										"fuben_ywyxdcz/fuben_rongyanzhaoze.scn",                   	            --【队伍】杳无音讯的村庄  使用夏王墓穴地图
+										"fuben_wuranbiansai/fuben_rongyanzhaoze.scn",                   	            --【队伍】污染边塞  使用夏王墓穴地图
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
 										"fuben_wuyishenyuan/fuben_wuyishenyuan.nav",                        --【队伍】神秘宝库
@@ -3191,6 +3211,8 @@ x700081_var_FubenTypeList				= {
 										FUBEN_HUANGJINKUANGDONG,      
 										FUBEN_SHENMIBAOKU1,              --【队伍】月宫
 										FUBEN_TIANGUAN,              --【队伍】天关
+										FUBEN_YWYX,              --【队伍】杳无音讯的村庄
+										FUBEN_WRBS,              --【队伍】污染边塞
 										FUBEN_SHENMIBAOKU2,              --【队伍】神秘宝库
 										FUBEN_SHENMIBAOKU3,              --【队伍】神秘宝库
 										FUBEN_SHENMIBAOKU4,              --【队伍】神秘宝库
@@ -3369,6 +3391,8 @@ x700081_var_LimitTotalHoldTimeList	= {
 										                    
 					                    540,        --【队伍】月宫
 					                    540,        --【队伍】天关
+					                    540,        --【队伍】杳无音讯的村庄
+					                    540,        --【队伍】污染边塞
 					                    540,        --【队伍】神秘宝库
 					                    540,        --【队伍】神秘宝库
 					                    540,        --【队伍】神秘宝库
@@ -3548,6 +3572,8 @@ x700081_var_BackSceneList				= {
 
 										{87,187,287,387},     --【个人】月宫大作战
 										{0,0,0,0},     --【个人】天关
+										{0,0,0,0},     --【个人】杳无音讯的村庄
+										{0,0,0,0},     --【个人】污染边塞
 										{50,150,250,350},     --【队伍】神秘宝库
 										{50,150,250,350},     --【队伍】神秘宝库
 										{50,150,250,350},     --【队伍】神秘宝库
@@ -3727,6 +3753,8 @@ x700081_md_List						= {
 										
 										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT, MD_FUBEN_HUANGHOUHUAYUAN_X,MD_FUBEN_HUANGHOUHUAYUAN_Y},                                --【队伍】月宫
 										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT, MD_FUBEN_HUANGHOUHUAYUAN_X,MD_FUBEN_HUANGHOUHUAYUAN_Y},                                --【队伍】天关
+										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT, MD_FUBEN_HUANGHOUHUAYUAN_X,MD_FUBEN_HUANGHOUHUAYUAN_Y},                                --【队伍】杳无音讯的村庄
+										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT, MD_FUBEN_HUANGHOUHUAYUAN_X,MD_FUBEN_HUANGHOUHUAYUAN_Y},                                --【队伍】污染边塞
 										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT,MD_FUBEN_HUANGHOUHUAYUAN_X, MD_FUBEN_HUANGHOUHUAYUAN_Y},                --【队伍】神秘宝库
 										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT,MD_FUBEN_HUANGHOUHUAYUAN_X, MD_FUBEN_HUANGHOUHUAYUAN_Y},      --【队伍】神秘宝库
 										{MD_FUBEN_HUANGHOUHUAYUAN_DATE,MD_FUBEN_HUANGHOUHUAYUAN_DAYCOUNT,MD_FUBEN_HUANGHOUHUAYUAN_X, MD_FUBEN_HUANGHOUHUAYUAN_Y},                          --【队伍】神秘宝库
@@ -3911,6 +3939,8 @@ x700081_var_EnterInfoList				=	{
 											
 											"\t月宫出了乱子，有头天虎神兽隔三差五就跑来捣乱，扰的人头疼。快去收服那头作乱的天虎吧！\n#Y开放时间：#W全天开放！\n#Y友情提示：#W必须持有月宫进入次数才可以进入副本，每日最多可进入3次！\n#Y副本说明：#W在这个副本中，需要消灭各种害虫收集月饼材料，完成魔法月饼解除月兔魔咒，击败天虎神兽！",--【个人】月宫大作战 
 											"\t天关是一个充满挑战的副本，里面有强大的怪物和Boss。",--【个人】天关
+											"\t这是一个充满挑战的副本，里面有强大的怪物和Boss。",--【个人】杳无音讯的村庄
+											"\t这是一个充满挑战的副本，里面有强大的怪物和Boss。",--【个人】污染边塞
 
 											"\t传说佛祖释迦摩尼涅??之后，留下六颗真身舍利，其中一舍利，多方辗转，最终被一位高僧镶嵌在藏宝洞一座大佛的佛头中，可是，自从察合台汗国的那一帮败类来到了王城，他们整日打着黄金家族后裔的幌子，百方打探得知了藏宝洞的位置，并派遣大量人手进入其中，欲盗取佛祖舍利。\n\t百年前我们耶律家族曾追随大汗征战四方，如今我们也不能坐视这宝物落入歹人之手！\n#Y开放时间：#W全天\n#Y友情提示：#W3人以上的队伍，才能进入该副本！\n#Y副本说明：#W在这个副本中，你可以获得水晶、龙眼石、生活技能材料、银子等各种奖励！",--【队伍】神秘宝库 
 											
@@ -4181,6 +4211,8 @@ x700081_var_EnterMenuDescList				=	{
 																						
 											"\t如果你感到自己的实力不足以继续进行挑战，我可以把你送回王城。", --【队伍】月宫
 											"\t如果你感到自己的实力不足以继续进行挑战，我可以把你送回大都。", --【队伍】天关
+											"\t如果你感到自己的实力不足以继续进行挑战，我可以把你送回大都。", --【队伍】杳无音讯的村庄
+											"\t如果你感到自己的实力不足以继续进行挑战，我可以把你送回大都。", --【队伍】污染边塞
 
 											"\t如果你感到自己的实力不足以继续进行挑战，我可以把你送回王城。", --【队伍】神秘宝库 
 											
@@ -4450,7 +4482,9 @@ x700081_var_LeaveMenuDescList				=	{
 											"\t【队伍】产出金矿洞1",
 																						
 											"\t【个人】月宫大作战",--【个人】月宫大作战  
-											"\t【个人】天关",--【个人】天关
+											"\t【队伍】天关",--【个人】天关
+											"\t【队伍】杳无音讯的村庄",--【个人】天关
+											"\t【队伍】污染边塞",--【个人】天关
 
 											"\t【队伍】神秘宝库 1",--【队伍】神秘宝库 
 											
@@ -4715,6 +4749,8 @@ x700081_var_TeleportWangchengDescList				=	{
 																						
 											"\t你确定要返回王城吗？",  --【队伍】月宫
 											"\t你确定要返回王城吗？",  --【队伍】天关
+											"\t你确定要返回王城吗？",  --【队伍】杳无音讯的村庄
+											"\t你确定要返回王城吗？",  --【队伍】污染边塞
 
 											"\t你确定要返回王城吗？",  --【队伍】神秘宝库 
 											
@@ -5603,9 +5639,35 @@ x700081_var_EnterPosList                  =   {
 																								
 													{--【队伍】神秘宝库
 													{ idx = 1, varX = 35, z=30 },
+													{ idx = 2, varX = 35, z=30 },
+													{ idx = 3, varX = 35, z=30 },
+													{ idx = 4, varX = 35, z=30 },
+													{ idx = 5, varX = 35, z=30 },
+													{ idx = 6, varX = 35, z=30 },
 												},--68
 													{--【队伍】天关
 													{ idx = 1, varX = 114, z=11 },
+													{ idx = 2, varX = 114, z=11 },
+													{ idx = 3, varX = 114, z=11 },
+													{ idx = 4, varX = 114, z=11 },
+													{ idx = 5, varX = 114, z=11 },
+													{ idx = 6, varX = 114, z=11 },
+												},--69
+{--【队伍】杳无音讯的村庄
+													{ idx = 1, varX = 115, z=15 },
+													{ idx = 2, varX = 115, z=15 },
+													{ idx = 3, varX = 115, z=15 },
+													{ idx = 4, varX = 115, z=15 },
+													{ idx = 5, varX = 115, z=15 },
+													{ idx = 6, varX = 115, z=15 },
+												},--69
+{--【队伍】污染边塞
+													{ idx = 1, varX = 114, z=15 },
+													{ idx = 2, varX = 114, z=15 },
+													{ idx = 3, varX = 114, z=15 },
+													{ idx = 4, varX = 114, z=15 },
+													{ idx = 5, varX = 114, z=15 },
+													{ idx = 6, varX = 114, z=15 },
 												},--69
 
 												{--【队伍】神秘宝库
@@ -6942,6 +7004,22 @@ x700081_var_BackPosList =   {
 													{ idx = 6, varX = 259, z=192 },
 												},--69 天关
 												{
+													{ idx = 1, varX = 259, z=192 },
+													{ idx = 2, varX = 259, z=192 },
+													{ idx = 3, varX = 259, z=192 },
+													{ idx = 4, varX = 259, z=192 },
+													{ idx = 5, varX = 259, z=192 },
+													{ idx = 6, varX = 259, z=192 },
+												},--70 杳无音讯的村庄
+												{
+													{ idx = 1, varX = 259, z=192 },
+													{ idx = 2, varX = 259, z=192 },
+													{ idx = 3, varX = 259, z=192 },
+													{ idx = 4, varX = 259, z=192 },
+													{ idx = 5, varX = 259, z=192 },
+													{ idx = 6, varX = 259, z=192 },
+												},--69 污染边塞
+												{
 													{ idx = 1, varX = 300, z=63 },
 													{ idx = 2, varX = 300, z=63 },
 													{ idx = 3, varX = 300, z=63 },
@@ -7835,6 +7913,8 @@ x700081_var_Item_XJ =	{
 
 												{index = 68,varItem=11000386, varCount=1},    --月宫
 												{index = 69,varItem=12100011, varCount=1},    --天关
+												{index = 69,varItem=0, varCount=1},    --杳无音讯的村庄
+												{index = 69,varItem=0, varCount=1},    --污染边塞
 												{varItem=0, varCount=1},     --【队伍】神秘宝库
 												{varItem=0, varCount=1},     --【队伍】神秘宝库
 												{varItem=0, varCount=1},     --【队伍】神秘宝库

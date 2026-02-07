@@ -1666,6 +1666,8 @@ FUBEN_SHIZIJING1	= 936			--【个人】十子井副本1
 FUBEN_SHIZIJING2	= 935			--【个人】十子井副本2
 FUBEN_MIMIKUANGDONG  = 929 --矿山秘洞
 FUBEN_TIANGUAN                    = 928   --天关副本
+FUBEN_YWYX                    = 927   --天关副本
+FUBEN_WRBS                    = 926   --污染边塞
 FUBEN_FUTUTA = 934
 
 FUBEN_JINGYING = 933  --副本精英剧场
