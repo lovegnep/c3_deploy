@@ -8096,6 +8096,8 @@ x700081_var_Item_ZHOUXJ						=	{
 																								
 												{index = 68,varItem=11000386, varCount=1},  --月宫
 												{index = 69,varItem=12100011, varCount=1},  --天关
+												{index = 69,varItem=0, varCount=1},  --天关
+												{index = 69,varItem=0, varCount=1},  --天关
 												{varItem=0, varCount=0},         --【队伍】神秘宝库
 												{varItem=0, varCount=0},         --【队伍】神秘宝库
 												{varItem=0, varCount=0},         --【队伍】神秘宝库
