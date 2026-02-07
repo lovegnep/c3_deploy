@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_wuranbiansai/fuben_wuranbiansai.nav
+monster=fuben_wuranbiansai/fuben_wuranbiansai_monster.tab
+xunluo=fuben_wuranbiansai/fuben_wuranbiansai_patrolpoint.ini
+caijidata=fuben_wuranbiansai/fuben_wuranbiansai_growpoint.txt
+caijisetup=fuben_wuranbiansai/fuben_wuranbiansai_growpointsetup.txt
+teleport=fuben_wuranbiansai/fuben_wuranbiansai_area.ini

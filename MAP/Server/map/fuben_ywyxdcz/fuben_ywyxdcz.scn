@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=fuben_ywyxdcz/fuben_ywyxdcz.nav
+monster=fuben_ywyxdcz/fuben_ywyxdcz_monster.tab
+xunluo=fuben_ywyxdcz/fuben_ywyxdcz_patrolpoint.ini
+caijidata=fuben_ywyxdcz/fuben_ywyxdcz_growpoint.txt
+caijisetup=fuben_ywyxdcz/fuben_ywyxdcz_growpointsetup.txt
+teleport=fuben_ywyxdcz/fuben_ywyxdcz_area.ini

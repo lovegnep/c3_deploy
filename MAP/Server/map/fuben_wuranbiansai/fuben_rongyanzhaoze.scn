@@ -1,7 +1,0 @@
-[MapDesc]
-mapnav=fuben_wuranbiansai/fuben_rongyanzhaoze.nav
-monster=fuben_wuranbiansai/fuben_rongyanzhaoze_monster.tab
-xunluo=fuben_wuranbiansai/fuben_rongyanzhaoze_patrolpoint.ini
-caijidata=fuben_wuranbiansai/fuben_rongyanzhaoze_growpoint.txt
-caijisetup=fuben_wuranbiansai/fuben_rongyanzhaoze_growpointsetup.txt
-teleport=fuben_wuranbiansai/fuben_rongyanzhaoze_area.ini
