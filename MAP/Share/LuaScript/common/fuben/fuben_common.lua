@@ -1634,8 +1634,8 @@ x700081_var_LevelRangeList				= {  --进入副本等级限制
 																				
 										{1,160},   --【个人】月宫大作战
 										{1,160},   --【个人】天关
-										{83,160},   --【个人】杳无音讯的村庄
-										{90,160},   --【个人】污染边塞
+										{1,160},   --【个人】杳无音讯的村庄
+										{1,160},   --【个人】污染边塞
 										{50,59},   --【队伍】神秘宝库
 										{60,69},   --【队伍】神秘宝库 
 										{70,79},   --【队伍】神秘宝库 
@@ -9403,7 +9403,8 @@ function x700081_CheckOwnerItemRequest(varMap, varPlayer, varMode, varIndex)
 				end
 			end
 		end
-		if (x700081_var_RegisterFuben[varIndex].varId == 700136 or x700081_var_RegisterFuben[varIndex].varId == 700500) and nFubenType == 0 then -- 月宫处理做一个特殊处理
+	local fubenScriptID = x700081_var_RegisterFuben[varIndex].varId
+	if (fubenScriptID == 700136 or fubenScriptID == 700500 or fubenScriptID == 700501 or fubenScriptID == 700502) and nFubenType == 0 then -- 月宫处理做一个特殊处理
 			if x700081_var_Item_XJ[varIndex].varItem > 0 then
 				local num = GetItemCount( varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem )
 				if num<x700081_var_Item_XJ[varIndex].varCount then
@@ -9453,7 +9454,8 @@ function x700081_CheckAllMemberItemRequest(varMap, varPlayer, varMode, varIndex)
 			end
 		end
 	end
-	if (x700081_var_RegisterFuben[varIndex].varId == 700136 or x700081_var_RegisterFuben[varIndex].varId == 700500) and nFubenType == 0 then -- 月宫处理做一个特殊处理
+	local fubenScriptID = x700081_var_RegisterFuben[varIndex].varId
+	if (fubenScriptID == 700136 or fubenScriptID == 700500 or fubenScriptID == 700501 or fubenScriptID == 700502) and nFubenType == 0 then -- 月宫处理做一个特殊处理
 		if x700081_var_Item_XJ[varIndex].varItem > 0 then
 			local num = GetItemCount( varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem )
 			if num<x700081_var_Item_XJ[varIndex].varCount then
@@ -9570,9 +9572,12 @@ function x700081_ProcXianJinRequestOk(varMap, varPlayer, varIndex, varMode)
 			if DelItem(varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem, x700081_var_Item_XJ[varIndex].varCount) ~= 1 then return 0 end
 		end
 	end	
-	if x700081_var_RegisterFuben[varIndex].varId == 700136 or x700081_var_RegisterFuben[varIndex].varId == 700500 then -- 月宫处理做一个特殊处理
+	local fubenScriptID = x700081_var_RegisterFuben[varIndex].varId
+	if fubenScriptID == 700136 or fubenScriptID == 700500 or fubenScriptID == 700501 or fubenScriptID == 700502 then -- 月宫处理做一个特殊处理
 		if x700081_var_Item_XJ[varIndex].varCount > 0 then
-			if DelItem(varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem, x700081_var_Item_XJ[varIndex].varCount) ~= 1 then return 0 end
+			if DelItem(varMap, varPlayer, x700081_var_Item_XJ[varIndex].varItem, x700081_var_Item_XJ[varIndex].varCount) ~= 1 then
+				return 0
+			end
 		end
 	end		
 end
