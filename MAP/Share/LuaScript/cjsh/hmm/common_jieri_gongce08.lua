@@ -1427,8 +1427,8 @@ x350007_var_DailyTable100            = {
 x350007_var_MaxScore                  = 999000
 --每日领奖低保金额、
 x350007_var_dibao = 1000000
-x350007_var_jemin = 1000000
-x350007_var_jemax = 3000000
+x350007_var_jemin = 3000000
+x350007_var_jemax = 5000000
 
 --每日领奖给的道具
 x350007_var_Dailyitems = {
@@ -1828,7 +1828,7 @@ function x350007_ProcAcceptCheck( varMap, varPlayer, varTalknpc)
                 local killerName = GetName(varMap,varPlayer)
                 local countryId = GetCurCountry(varMap, varPlayer)
                 local countryName = GetCountryName(countryId)
-                local varMsg = "哭！"..countryName.."的"..killerName.."仅获得了"..format( "金卡#G%d#W两。", gd/1000 )
+                local varMsg = "悲剧！"..countryName.."的"..killerName.."仅获得了"..format( "金卡#G%d#W两。", gd/1000 )
                 LuaAllScenceM2Wrold(varMap, varMsg, CHAT_PLANE_SCROLL, 1)
                 LuaAllScenceM2Wrold(varMap, varMsg, CHAT_LEFTDOWN, 1)
                 LuaAllScenceM2Wrold(varMap, varMsg, CHAT_MAIN_RIGHTDOWN, 1)
