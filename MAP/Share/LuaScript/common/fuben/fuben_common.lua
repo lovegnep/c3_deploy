@@ -5654,13 +5654,13 @@ x700081_var_EnterPosList                  =   {
 													{ idx = 6, varX = 114, z=11 },
 												},--69
 {--【队伍】杳无音讯的村庄
-													{ idx = 1, varX = 115, z=15 },
-													{ idx = 2, varX = 115, z=15 },
-													{ idx = 3, varX = 115, z=15 },
-													{ idx = 4, varX = 115, z=15 },
-													{ idx = 5, varX = 115, z=15 },
-													{ idx = 6, varX = 115, z=15 },
-												},--69
+													{ idx = 1, varX = 26, z=75 },
+													{ idx = 2, varX = 26, z=75 },
+													{ idx = 3, varX = 26, z=75 },
+													{ idx = 4, varX = 26, z=75 },
+													{ idx = 5, varX = 26, z=75 },
+													{ idx = 6, varX = 26, z=75 },
+												},--70
 {--【队伍】污染边塞
 													{ idx = 1, varX = 114, z=15 },
 													{ idx = 2, varX = 114, z=15 },

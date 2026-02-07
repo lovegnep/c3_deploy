@@ -31,28 +31,13 @@ x700501_var_TickTime		= 1000		-- 心跳间隔（毫秒）
 -- 小怪配置: {type=怪物类型ID, x=X坐标, z=Z坐标, ai=AI类型, count=数量, radius=随机半径}
 x700501_var_MonsterList = {
 	-- 第一波小怪 (入口附近)
-	{type = 22494, x = 111, z = 43, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 114, z = 73, ai=9,aiscript=962,count = 5, radius = 1},
-	{type = 22494, x = 114, z = 106, ai=9,aiscript=962,count = 5, radius = 1},
-	{type = 22494, x = 114, z = 118, ai=9,aiscript=962,count = 5, radius = 1},
-	{type = 22494, x = 84, z = 109, ai=9,aiscript=962,count = 5, radius = 1},
-	{type = 22494, x = 111, z = 89, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 87, z = 78, ai=9,aiscript=962,count = 10, radius = 2},
-	{type = 22494, x = 87, z = 65, ai=9,aiscript=962,count = 10, radius = 2},
-	{type = 22494, x = 62, z = 63, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 44, z = 63, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 55, z = 92, ai=9,aiscript=962,count = 20, radius = 2},
-	{type = 22494, x = 15, z = 113, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 13, z = 95, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 13, z = 75, ai=9,aiscript=962,count = 5, radius = 2},
-	{type = 22494, x = 26, z = 29, ai=9,aiscript=962,count = 15, radius = 2},
-
-
-	{type = 22494, x = 101, z = 109, ai=9,aiscript=962,count = 5, radius = 2},
-	-- 第二波小怪 (中间区域)
-	{type = 22494, x = 81, z = 97, ai=9,aiscript=962,count = 18, radius = 2},
-	-- 第三波小怪 (Boss区域附近)
-	{type = 22494, x = 16, z = 60, ai=9,aiscript=962,count = 4, radius = 2},
+	{type = 22494, x = 29, z = 65, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 35, z = 43, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 56, z = 37, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 67, z = 67, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 74, z = 89, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 86, z = 96, ai=9,aiscript=962,count = 5, radius = 2},
+	{type = 22494, x = 104, z = 71, ai=9,aiscript=962,count = 5, radius = 2},
 }
 x700501_var_NPC =
 {
@@ -98,7 +83,7 @@ end
 -- 当副本创建成功时, (初始化操作在这进行)
 -----------------------------------------------------------
 function x700501_ProcFubenSceneCreated(varMap)
-    WriteLog(1,"x700501_OnFubenSceneCreated: 天关副本创建成功")
+    WriteLog(1,"x700501_OnFubenSceneCreated: 杳无音讯的村庄副本创建成功")
 	
 	-- 初始化副本参数
 	SetFubenData_Param(varMap, x700501_CSP_KILLCOUNT, 0)
@@ -119,7 +104,7 @@ function x700501_ProcFubenSceneCreated(varMap)
 	--x700501_CreateBoss(varMap)
 	
 	-- 通知所有玩家副本开始
-	x700501_MsgToAllPlayers(varMap, "#Y【天关副本】#W副本开始！击杀所有怪物后才会刷新出BOSS！")
+	x700501_MsgToAllPlayers(varMap, "#Y【杳无音讯的村庄副本】#W副本开始！击杀所有怪物后才会刷新出BOSS！")
 end
 
 -----------------------------------------------------------
@@ -142,7 +127,7 @@ function x700501_EnterTick(varMap, nowTickCount)
 		if remainTicks > 0 then
 			local remainMinutes = floor(remainTicks / 60)
 			if remainMinutes > 0 then
-				x700501_MsgToAllPlayers(varMap, "#Y【天关副本】#W剩余时间: " .. remainMinutes .. "分钟")
+				x700501_MsgToAllPlayers(varMap, "#Y【杳无音讯的村庄副本】#W剩余时间: " .. remainMinutes .. "分钟")
 			end
 		end
 	end
@@ -167,7 +152,7 @@ function x700501_ProcDie(varMap, selfId, killerId)
 	if selfId == bossObjId then
 		-- Boss被击杀
 		SetFubenData_Param(varMap, x700501_CSP_BOSS_KILLED, 1)
-		x700501_MsgToAllPlayers(varMap, "#G【天关副本】#WBOSS已被击杀！副本即将通关！")
+		x700501_MsgToAllPlayers(varMap, "#G【杳无音讯的村庄副本】#WBOSS已被击杀！副本即将通关！")
 	else
 		-- 普通怪物被击杀
 		local killCount = GetFubenData_Param(varMap, x700501_CSP_KILLCOUNT)
@@ -176,7 +161,7 @@ function x700501_ProcDie(varMap, selfId, killerId)
 		
 		-- 每杀10只怪物提示一次
 		if mod(killCount, 10) == 0 then
-			x700501_MsgToAllPlayers(varMap, "#Y【天关副本】#W已击杀" .. killCount .. "只怪物")
+			x700501_MsgToAllPlayers(varMap, "#Y【杳无音讯的村庄副本】#W已击杀" .. killCount .. "只怪物")
 		end
 		if killCount >= x700501_getmonstercnt() then
 			x700501_CreateBoss(varMap)
@@ -200,7 +185,7 @@ function x700501_CreateMonsters(varMap)
 
 
 			-- 创建怪物
-			local monsterId = CreateMonster(varMap, monster.type, posX, posZ, monster.ai, monster.aiscript, x700501_var_FileId, -1, 21, -1, 0, "巨人","天关守卫")
+			local monsterId = CreateMonster(varMap, monster.type, posX, posZ, monster.ai, monster.aiscript, x700501_var_FileId, -1, 21, -1, 0, "巨人","守卫")
 			
 			if monsterId and monsterId > 0 then
 				WriteLog(1,"x700501_CreateMonsters: 创建怪物成功, type=" .. monster.type .. ", id=" .. monsterId)
@@ -253,7 +238,7 @@ function x700501_OnFubenCompleted(varMap)
 	end
 	
 	-- 通知所有玩家
-	x700501_MsgToAllPlayers(varMap, "#G【天关副本】#W恭喜通关！奖励已发放！30秒后将离开副本。")
+	x700501_MsgToAllPlayers(varMap, "#G【杳无音讯的村庄副本】#W恭喜通关！奖励已发放！30秒后将离开副本。")
 	
 	-- 调用通用副本通关回调
 	LuaCallNoclosure(700103, "ProcFubuenCompleted", varMap)
@@ -290,7 +275,7 @@ function x700501_GiveReward(varMap, humanId)
 	end
 	
 	-- 发送奖励提示
-	local msg = "#G【天关副本】#W获得奖励: 经验" .. x700501_var_RewardExp .. ", 金币" .. x700501_var_RewardMoney
+	local msg = "#G【杳无音讯的村庄副本】#W获得奖励: 经验" .. x700501_var_RewardExp .. ", 金币" .. x700501_var_RewardMoney
 	Msg2Player(varMap, humanId, msg, 8, 2)
 end
 
@@ -326,7 +311,7 @@ end
 -----------------------------------------------------------
 function x700501_OnPlayerEnter(varMap, humanId)
 	WriteLog(1,"x700501_OnPlayerEnter: 玩家进入副本, humanId=" .. humanId)
-	Msg2Player(varMap, humanId, "#Y【天关副本】#W欢迎进入天关！击杀所有怪物和Boss即可通关！", 8, 2)
+	Msg2Player(varMap, humanId, "#Y【杳无音讯的村庄副本】#W欢迎进入杳无音讯的村庄！击杀所有怪物和Boss即可通关！", 8, 2)
 end
 
 -----------------------------------------------------------
