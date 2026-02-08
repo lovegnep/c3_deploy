@@ -22,27 +22,7 @@ x930177_var_LuckySeedTable            = {
     { varItem = 11000151, probability = 100,  price = 45,    varName = "龙骨解玉钻",    num = 1   , doubleID=12274052  },
     { varItem = 11000159, probability = 100,  price = 45,    varName = "天权镶玉钻",    num = 1   , doubleID=12274052   },
     { varItem = 11000166, probability = 100,  price = 45,    varName = "绿龙镂玉钻",    num = 1   , doubleID=12274052   },
-    {varItem=       10300000        ,probability=   60     , price=        45       ,varName="练舞服", num = 1, doubleID=12274050},
-    {varItem=       10300001        ,probability=   60     , price=        45       ,varName="狂舞服", num = 1, doubleID=12274050},
-    {varItem=       10300010        ,probability=   60     , price=        45       ,varName="天舞服", num = 1, doubleID=12274050},
-    {varItem=       10300011        ,probability=   60     , price=        45       ,varName="威武2装", num = 1, doubleID=12274050},
-    {varItem=       10300100        ,probability=   60     , price=        45       ,varName="王者套装", num = 1, doubleID=12274050},
-    {varItem=       10300101        ,probability=   60     , price=        45       ,varName="剑龙超炫外装", num = 1, doubleID=12274050},
-    {varItem=       10300102        ,probability=   60     , price=        45       ,varName="绝版成吉思汗套装", num = 1, doubleID=12274050},
-    {varItem=       10300103        ,probability=   60     , price=        45       ,varName="屠龙外装", num = 1, doubleID=12274050},
-    {varItem=       10300104        ,probability=   60     , price=        45       ,varName="突厥时装", num = 1, doubleID=12274050},
-    {varItem=       10300105        ,probability=   60     , price=        45       ,varName="成吉思汗公测纪念装", num = 1, doubleID=12274050},
-    {varItem=       10300106        ,probability=   60     , price=        45       ,varName="黄金外装", num = 1, doubleID=12274050},
-    {varItem=       10300107        ,probability=   60     , price=        45       ,varName="七夕时装", num = 1, doubleID=12274050},
-    {varItem=       10300108        ,probability=   60     , price=        45       ,varName="1天初级攻装", num = 1, doubleID=12274050},
-    {varItem=       10300109        ,probability=   60     , price=        45       ,varName="7天初级攻装", num = 1, doubleID=12274050},
-    {varItem=       10300110        ,probability=   60     , price=        45       ,varName="30天初级攻装", num = 1, doubleID=12274050},
-    {varItem=       10300111        ,probability=   60     , price=        45       ,varName="苗疆时装(1天)", num = 1, doubleID=12274050},
-    {varItem=       10300112        ,probability=   60     , price=        45       ,varName="苗疆时装(7天)", num = 1, doubleID=12274050},
-    {varItem=       10300113        ,probability=   60     , price=        45       ,varName="苗疆时装(30天)", num = 1, doubleID=12274050},
-    {varItem=       10300114        ,probability=   60     , price=        45       ,varName="刺陵时装(1天)", num = 1, doubleID=12274050},
-    {varItem=       10300115        ,probability=   60     , price=        45       ,varName="刺陵时装(7天)", num = 1, doubleID=12274050},
-    
+
     {varItem=	11030502	,probability=	1000	, price=	1	,varName="黑曜石", num=1},
     {varItem=	11030406	,probability=	1000	, price=	1	,varName="七步封喉", num=1},
     {varItem=	11020502	,probability=	1000	, price=	1	,varName="水木精华", num=1},
@@ -62,8 +42,6 @@ x930177_var_LuckySeedTable            = {
     {varItem=	11970023	,probability=	750	, price=	1	,varName="黄金乱士符	", num=1},
     {varItem=	11000552	,probability=	750	, price=	1	,varName="完美星辰	", num=1},
     {varItem=	11000381	,probability=	25	, price=	1	,varName="暗影四彩护身符碎片	", num=1},
-    {varItem=	12271325	,probability=	50	, price=	50	,varName="狩魔猎人时装礼包（30天）	", num=1, doubleID=12274051},
-    {varItem=	12271326	,probability=	50	, price=	50	,varName="决战八方时装（14天）	", num=1, doubleID=12274051},
     {varItem=	12271327	,probability=	500	, price=	1	,varName="战车装备大礼包	", num=1},
     {varItem=	12036620	,probability=	500	, price=	1	,varName="高级骑术强化符：健体	", num=1},
     {varItem=	12036621	,probability=	500	, price=	1	,varName="高级骑术强化符：蛮力	", num=1},
@@ -77,30 +55,6 @@ x930177_var_LuckySeedTable            = {
     {varItem=	11000160	,probability=	100	, price=	50	,varName="玉恒镶玉钻", num=1, doubleID=12274052},
     {varItem=	11000167	,probability=	100	, price=	50	,varName="青龙镂玉钻", num=1, doubleID=12274052},
     {varItem=	12274095	,probability=	50	, price=	50	,varName="坐骑图鉴大礼包", num=1, },
-
-    {varItem=       10300116        ,probability=   100     , price=        50       ,varName="刺陵时装(30天)",num=1, doubleID=12274050},
-    {varItem=       10300117        ,probability=   100     , price=        50       ,varName="1天初级防装",num=1, doubleID=12274050},
-    {varItem=       10300118        ,probability=   100     , price=        50       ,varName="7天初级防装",num=1, doubleID=12274050},
-    {varItem=       10300119        ,probability=   100     , price=        50       ,varName="30天初级防装",num=1, doubleID=12274050},
-    {varItem=       10300120        ,probability=   100     , price=        50       ,varName="百夷时装(1天)",num=1, doubleID=12274050},
-    {varItem=       10300121        ,probability=   100     , price=        50       ,varName="百夷时装(7天)",num=1, doubleID=12274050},
-    {varItem=       10300122        ,probability=   100     , price=        50       ,varName="百夷时装(30天)",num=1, doubleID=12274050},
-    {varItem=       10300123        ,probability=   100     , price=        50       ,varName="天竺时装(1天)",num=1, doubleID=12274050},
-    {varItem=       10300124        ,probability=   100     , price=        50       ,varName="天竺时装(7天)",num=1, doubleID=12274050},
-    {varItem=       10300125        ,probability=   100     , price=        50       ,varName="天竺时装(30天)",num=1, doubleID=12274050},
-    {varItem=       10300126        ,probability=   100     , price=        50       ,varName="1天初级血装",num=1, doubleID=12274050},
-    {varItem=       10300127        ,probability=   100     , price=        50       ,varName="7天初级血装",num=1, doubleID=12274050},
-    {varItem=       10300128        ,probability=   100     , price=        50       ,varName="30天初级血装",num=1, doubleID=12274050},
-    {varItem=       10300129        ,probability=   100     , price=        50       ,varName="大理时装(1天)",num=1, doubleID=12274050},
-    {varItem=       10300130        ,probability=   100     , price=        50       ,varName="大理时装(7天)",num=1, doubleID=12274050},
-    {varItem=       10300131        ,probability=   100     , price=        50       ,varName="大理时装(30天)",num=1, doubleID=12274050},
-    {varItem=       10300132        ,probability=   100     , price=        50       ,varName="波斯时装(1天)",num=1, doubleID=12274050},
-    {varItem=       10300133        ,probability=   100     , price=        50       ,varName="波斯时装(7天)",num=1, doubleID=12274050},
-    {varItem=       10300134        ,probability=   100     , price=        50       ,varName="波斯时装(30天)",num=1, doubleID=12274050},
-    {varItem=       10300135        ,probability=   100     , price=        50       ,varName="斩龙套装",num=1, doubleID=12274050},
-    {varItem=       10300136        ,probability=   100     , price=        50       ,varName="刺陵时装",num=1, doubleID=12274050},
-    {varItem=       12274000        ,probability=   50     , price=        50       ,varName="时装精华", num = 1, doubleID=12274050},
-    {varItem=       12274000        ,probability=   10     , price=        50       ,varName="时装精华", num = 10, doubleID=12274050},
     {varItem=       12271329        ,probability=   500     , price=        50       ,varName="绝世时装大礼包", num = 1, doubleID=12274050},
 
 
@@ -241,10 +195,10 @@ function x930177_AddBonus(varMap, varPlayer)
     local weekIdx = GetWeek()
     local daojuprob = x930177_var_daoju
     if weekIdx == 6 or weekIdx == 0 then
-        daojuprob = daojuprob * 7
+        daojuprob = daojuprob * 2
     end
 
-    if random( 1, 150) <= daojuprob then
+    if random( 1, 400) <= daojuprob then
         return
     end
 
