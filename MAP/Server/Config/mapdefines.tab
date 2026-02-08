@@ -452,7 +452,7 @@ NUM	NUM	TEXT	NUM	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
 449	2	国王战场	1	zhanchang_guowangzhanchang/zhanchang_guowangzhanchang.scn	0	2	1	0	1	100	100	449	20	-1
 450	16	藏宝洞	1	fuben_qianfoku/fuben_qianfoku.scn	0	1	0	-1	1	285	191	450	20	-1
 451	33	角斗场	1	fuben_juedouchang/fuben_juedouchang.scn	0	0	1	-1	1	100	100	451	20	-1
-452	16	藏宝洞	1	fuben_wuyishenyuan/fuben_wuyishenyuan.scn	0	1	0	-1	1	100	100	452	20	-1
+452	16	冥王秘境	1	fuben_wuyishenyuan/fuben_wuyishenyuan.scn	0	1	0	-1	1	100	100	452	20	-1
 453	16	月宫	1	fuben_yuegong/fuben_yuegong.scn	0	1	0	-1	1	35	35	453	20	-1
 454	16	副本场景预留	0	test/test.scn	0	1	0	-1	1	27	27	454	20	-1
 455	16	副本场景预留	0	test/test.scn	0	1	0	-1	1	100	100	455	20	-1

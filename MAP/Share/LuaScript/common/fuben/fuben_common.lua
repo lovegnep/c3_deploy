@@ -9412,13 +9412,13 @@ function x700081_CheckOwnerItemRequest(varMap, varPlayer, varMode, varIndex)
 		end
 	elseif fubenScriptID == 700501 then
 		--杳无音讯的村庄
-		if GetLevel(varMap, varPlayer) < 90 then
+		if GetLevel(varMap, varPlayer) < 110 then
 			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 90))
 			return 0
 		end
 	elseif fubenScriptID == 700502 then
 		--污染边塞
-		if GetLevel(varMap, varPlayer) < 95 then
+		if GetLevel(varMap, varPlayer) < 115 then
 			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 95))
 			return 0
 		end
@@ -9483,13 +9483,13 @@ function x700081_CheckAllMemberItemRequest(varMap, varPlayer, varMode, varIndex)
 		end
 	elseif fubenScriptID == 700501 then
 		--杳无音讯的村庄
-		if GetLevel(varMap, varPlayer) < 90 then
+		if GetLevel(varMap, varPlayer) < 110 then
 			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 90))
 			return 0
 		end
 	elseif fubenScriptID == 700502 then
 		--污染边塞
-		if GetLevel(varMap, varPlayer) < 95 then
+		if GetLevel(varMap, varPlayer) < 115 then
 			x700081_ShowTips(varMap, varPlayer, format("等级不足%d", 95))
 			return 0
 		end
