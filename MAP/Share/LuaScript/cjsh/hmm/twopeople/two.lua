@@ -580,19 +580,22 @@ function x930175_TwohmmTimer( varMap, varAct, varTime)
     if addnum >0 then
         for varI = 1, addnum do
             --随机选一个boss
-            local bid = x930175_var_Boss[random(1,getn(x930175_var_Boss))]
+            local bid = x930175_randomgetmonster()
+            if bid ~= nil then
+                --随机选一个位置
+                local pos = x930175_var_EnterScenePos[random(1,getn(x930175_var_EnterScenePos))]
 
-            --随机选一个位置
-            local pos = x930175_var_EnterScenePos[random(1,getn(x930175_var_EnterScenePos))]
+                local varObj, objGuid =CreateMonster( varMap, bid.id, pos[1], pos[2], 1, 754, x930175_var_FileId, -1, 21, x930175_var_bosslivetime*1000, 0, bid.name)
+                local varmsg = format("战场boss刷新了！ 位置[%d,%d]", pos[1], pos[2])
+                LuaAllScenceM2Wrold(varMap, varmsg, CHAT_PLANE_SCROLL, 1)
+                LuaAllScenceM2Wrold(varMap, varmsg, CHAT_LEFTDOWN, 1)
+                LuaAllScenceM2Wrold(varMap, varmsg, CHAT_MAIN_RIGHTDOWN, 1)
 
-            local varObj, objGuid =CreateMonster( varMap, bid.id, pos[1], pos[2], 1, 754, x930175_var_FileId, -1, 21, x930175_var_bosslivetime*1000, 0, bid.name)
-            local varmsg = format("战场boss刷新了！ 位置[%d,%d]", pos[1], pos[2])
-            LuaAllScenceM2Wrold(varMap, varmsg, CHAT_PLANE_SCROLL, 1)
-            LuaAllScenceM2Wrold(varMap, varmsg, CHAT_LEFTDOWN, 1)
-            LuaAllScenceM2Wrold(varMap, varmsg, CHAT_MAIN_RIGHTDOWN, 1)
+                newbosslist[ni] = {id = bid.id, objid=tostring(varObj),createTime = GetCurrentTime(),x=pos[1],z=pos[2]}
+                ni = ni+1
+            end
 
-            newbosslist[ni] = {id = bid.id, objid=tostring(varObj),createTime = GetCurrentTime(),x=pos[1],z=pos[2]}
-            ni = ni+1
+
         end
         x930175_var_bosslist = newbosslist
     end
@@ -685,6 +688,25 @@ function x930175_Getmonsterinfo(varMap, varPlayer)
 
     local item = tmp[random(1,getn(tmp))]
     return item.id, item.name,item.posId
+end
+function x930175_randomgetmonster()
+    local nLevel = GetTopListInfo_MaxLevel( GetWorldIdEx() )
+    local tmp = {}
+    local num = 1
+    for k, v in x930175_var_Boss do
+        if nLevel >= v.level then
+            tmp[num] = v
+            num = num + 1
+        end
+    end
+
+    if num <= 1 then
+        return nil
+    end
+
+
+    local item = tmp[random(1,getn(tmp))]
+    return item
 end
 function x930175_Getmonsterbyid(varMap, varPlayer,objid)
 
