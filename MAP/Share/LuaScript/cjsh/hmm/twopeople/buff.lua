@@ -198,7 +198,7 @@ function x930177_AddBonus(varMap, varPlayer)
         daojuprob = daojuprob * 2
     end
 
-    if random( 1, 400) <= daojuprob then
+    if random( 1, 400) >= daojuprob then
         return
     end
 

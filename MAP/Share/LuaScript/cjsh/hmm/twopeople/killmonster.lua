@@ -194,6 +194,13 @@ function x930187_ProcQuestAccept( varMap, varPlayer, varTalknpc, varQuest )
 
 
         local monsterId,varName, posid = x930187_getmonsterinfo(varMap, varPlayer)
+        if( monsterId == nil) then
+            StartTalkTask( varMap)
+            TalkAppendString( varMap, "人物等级过低，没有合适的清剿任务！" )
+            StopTalkTask( varMap)
+            DeliverTalkTips( varMap, varPlayer)
+            return 0;
+        end
 
         local varQuestIdx = GetQuestIndexByID( varMap, varPlayer, x930187_var_QuestId)
         SetQuestByIndex( varMap, varPlayer, varQuestIdx, x930187_MP_TARGET1, monsterId)

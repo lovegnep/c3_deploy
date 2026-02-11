@@ -84,7 +84,7 @@ function x930206_Showzhanshen( varMap, nFubenType,nFubenMode )
 		strFubenName = "Ìì¹Ø"
 		jy = 0.15
 	else
-		jy = 0.15
+		jy = 0.35
 	end
 
 

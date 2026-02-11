@@ -9,25 +9,30 @@ x930175_var_bosslist = {}--创建的怪物数组
 x930175_var_bosslivetime = 60 * 60--怪物生存时间  1小时， 单位秒
 x930175_var_Boss = {
     --80级部将
-    {id=17021,name="德米特利", posId = 600202,prob=100,price=1,jf=1},
+    {id=17021,level=40,name="德米特利", posId = 600202,prob=100,price=1,jf=1},
+    {id=17000,level=40,name="完颜洪烈部将", posId = 600202,prob=100,price=1,jf=1},
+    {id=17007,level=40,name="屈出律部将", posId = 600202,prob=100,price=1,jf=1},
+    {id=17014,level=40,name="扎兰丁部将", posId = 600202,prob=100,price=1,jf=1},
     --18魔君
-    {id=3211,name="屈出律", posId = 600202,prob=100,price=1,jf=1},
+    {id=3211,level=40,name="屈出律", posId = 600202,prob=100,price=1,jf=1},
+    {id=3201,level=40,name="大河之王", posId = 600202,prob=100,price=1,jf=1},
+    {id=3204,level=40,name="波西米亚之王", posId = 600202,prob=100,price=1,jf=1},
 
     --幸运红蜂
-    {id=56061,name="幸运红蜂", posId = 600202,prob=100,price=1,jf=1},
+    {id=56061,level=40,name="幸运红蜂", posId = 600202,prob=100,price=1,jf=1},
 
     --3F宝箱
-    {id=43510,name="3F宝箱", posId = 600202,prob=100,price=1,jf=1},
+    {id=43510,level=40,name="3F宝箱", posId = 600202,prob=100,price=1,jf=1},
 
 
-    {id=18101,name="#G米底亚酋长", posId = 600202,prob=100,price=1,jf=1},--#G米底亚酋长
-    {id=18119,name="#G奥托巴姆", posId = 600202,prob=100,price=1,jf=1},--#G奥托巴姆
-    {id=18114,name="#G莫里克", posId = 600202,prob=100,price=1,jf=1},--#G莫里克
+    {id=18101,level=40,name="#G米底亚酋长", posId = 600202,prob=100,price=1,jf=1},--#G米底亚酋长
+    {id=18119,level=60,name="#G奥托巴姆", posId = 600202,prob=100,price=1,jf=1},--#G奥托巴姆
+    {id=18114,level=60,name="#G莫里克", posId = 600202,prob=100,price=1,jf=1},--#G莫里克
 
     --草原精英
-    {id=18000,name="#G黑粽狼精英", posId = 600202,prob=100,price=1,jf=1},--#G黑粽狼精英
-    {id=11001,name="#R喜兽王", posId = 600202,prob=100,price=2,jf=1},--#喜兽王
-    {id=11000,name="#R喜兽", posId = 600202,prob=100,price=1,jf=1},--#喜兽
+    {id=18000,level=40,name="#G黑粽狼精英", posId = 600202,prob=100,price=1,jf=1},--#G黑粽狼精英
+    {id=11001,level=60,name="#R喜兽王", posId = 600202,prob=100,price=2,jf=1},--#喜兽王
+    {id=11000,level=60,name="#R喜兽", posId = 600202,prob=100,price=1,jf=1},--#喜兽
 
     --80-110 3f战神
     --{id=27849,name="九旄战神-80级1", posId = 600202,prob=100,price=1,jf=1},
@@ -46,29 +51,29 @@ x930175_var_Boss = {
     --{id=27953,name="九旄战神-110级4", posId = 600202,prob=100,price=1,jf=1},
 
     --{id=18090,name="咆哮战狼", posId = 600202,prob=10,price=100,jf=2},
-    {id=18089,name="大猫神兽（牛逼世界boss）", posId = 600202,prob=10,price=90,jf=2},
+    {id=18089,level=80,name="大猫神兽（牛逼世界boss）", posId = 600202,prob=10,price=90,jf=2},
 
-    {id=18134,name="低调dè凯", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18135,name="伊克昭箭客", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18136,name="拜占庭风魔", posId = 600202,prob=10,price=100,jf=2},
-    {id=20001,name="强·战场之魂", posId = 600202,prob=10,price=100,jf=20},
-    {id=20002,name="战场之魄", posId = 600202,prob=10,price=100,jf=1},
-    {id=20003,name="战场之灵", posId = 600202,prob=10,price=100,jf=1},
+    {id=18134,level=85,name="低调dè凯", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18135,level=85,name="伊克昭箭客", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18136,level=85,name="拜占庭风魔", posId = 600202,prob=10,price=100,jf=2},
+    {id=20001,level=85,name="强·战场之魂", posId = 600202,prob=10,price=100,jf=20},
+    {id=20002,level=85,name="战场之魄", posId = 600202,prob=10,price=100,jf=1},
+    {id=20003,level=85,name="战场之灵", posId = 600202,prob=10,price=100,jf=1},
 
     --战场之魂
-    {id=18500,name="#O武士之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18501,name="#O剑侠之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18502,name="#O骑射之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18503,name="#O火枪之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18504,name="#O先知之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
-    {id=18505,name="#O萨满之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18500,level=85,name="#O武士之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18501,level=85,name="#O剑侠之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18502,level=85,name="#O骑射之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18503,level=85,name="#O火枪之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18504,level=85,name="#O先知之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
+    {id=18505,level=85,name="#O萨满之魂", posId = 600202,prob=10,price=100,jf=2,zsjy=10},
 
     --
-    {id=18160,name="暗·黑无常", posId = 600202,prob=10,price=100,jf=50,zsjy=100},
-    {id=18161,name="暗·白无常", posId = 600202,prob=10,price=100,jf=60,zsjy=110},
+    {id=18160,level=90,name="暗·黑无常", posId = 600202,prob=10,price=100,jf=50,zsjy=100},
+    {id=18161,level=90,name="暗·白无常", posId = 600202,prob=10,price=100,jf=60,zsjy=110},
 
-    {id=62741,name="恶来", posId = 600202,prob=10,price=10,jf=2,zsjy=3},
-    {id=62742,name="冥王", posId = 600202,prob=10,price=10,jf=2,zsjy=3},
+    {id=62741,level=95,name="恶来", posId = 600202,prob=10,price=10,jf=2,zsjy=3},
+    {id=62742,level=95,name="冥王", posId = 600202,prob=10,price=10,jf=2,zsjy=3},
 }
 
 --定时任务上次刷新boss的时间，单位秒
@@ -663,7 +668,22 @@ function x930175_ProcDie(varMap, varPlayer, varKiller)
     GamePlayScriptLog(varMap, varKiller, 501)
 end
 function x930175_Getmonsterinfo(varMap, varPlayer)
-    local item = x930175_var_Boss[random(1,getn(x930175_var_Boss))]
+    local nLevel = GetLevel(varMap, varPlayer)
+    local tmp = {}
+    local num = 1
+    for k, v in x930175_var_Boss do
+        if nLevel >= v.level then
+            tmp[num] = v
+            num = num + 1
+        end
+    end
+
+    if num <= 1 then
+        return nil, nil, nil
+    end
+
+
+    local item = tmp[random(1,getn(tmp))]
     return item.id, item.name,item.posId
 end
 function x930175_Getmonsterbyid(varMap, varPlayer,objid)
