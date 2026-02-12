@@ -46,45 +46,45 @@ function x930206_Showzhanshen( varMap, nFubenType,nFubenMode )
 	local nParam = 0
 
 	local strFubenName = ""
-	local jy = 0.08
+	local jy = 0.28
 	if nFubenType == FUBEN_DONGHAIHAIYAN then
 		nParam = QIULONGDAO_TOPLIST
 		strFubenName = "囚龙岛"
-		jy = 0.18
+		jy = 0.30
 	elseif nFubenType == FUBEN_HESHIBI then
 		nParam = HESHIBI_TOPLIST
 		strFubenName = "和氏璧"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_HUOQIYING then
 		nParam = CAISHENDIAN_TOPLIST
 		strFubenName = "赤血号"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_ZHUJIAZHUANG3 then
 		nParam = ZHUJIAZHUANG_TOPLIST
 		strFubenName = "祝家庄"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_FUTUTA4 then
 		nParam = LUNHUITAI_TOPLIST
 		strFubenName = "轮回台"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_TANSUO_ZHANSHENMU_3 then
 		nParam = ZHANSHENMU_TOPLIST
 		strFubenName = "夏王墓"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_YINDUSHENMIAO3 then
 		nParam = INDIANTEMPLE_TOPLIST
 		strFubenName = "印度河"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_JIAOTANGMIMI3 then
 		nParam = JINGJIAOTANG_TOPLIST
 		strFubenName = "大教堂"
-		jy = 0.15
+		jy = 0.25
 	elseif nFubenType == FUBEN_TIANGUAN then
 		nParam = JINGJIAOTANG_TOPLIST
 		strFubenName = "天关"
-		jy = 0.15
+		jy = 0.25
 	else
-		jy = 0.65
+		jy = 0.25
 	end
 
 
