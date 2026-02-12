@@ -84,7 +84,7 @@ function x930206_Showzhanshen( varMap, nFubenType,nFubenMode )
 		strFubenName = "Ìì¹Ø"
 		jy = 0.15
 	else
-		jy = 0.35
+		jy = 0.65
 	end
 
 
@@ -110,9 +110,7 @@ function x930206_ShowTipsToAll(varMap, varStr)
 	for varI = 0, humancount - 1 do
 		local humanId = GetFuben_PlayerObjId(varMap, varI);
 
-		StartTalkTask(varMap);
-		TalkAppendString(varMap,varStr);
-		StopTalkTask();
-		DeliverTalkTips(varMap, humanId);
+		Msg2Player( varMap,humanId,varStr,8,2)
+		Msg2Player( varMap,humanId,varStr,8,3)
 	end
 end
