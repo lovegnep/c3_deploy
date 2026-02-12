@@ -468,7 +468,7 @@ function x700009_CreateRandomMonster(varMap)
 	
 	local rate = random(0,100)/100;
 	local nFubenMode = GetFubenData_Param(varMap, x700009_CSP_FUBEN_MODE)
-	local nStdRate = LuaCallNoclosure(930206,"Showzhanshen", varMap,nFubenType,nFubenMode )
+	local nStdRate = LuaCallNoclosure(930206,"Showzhanshen", varMap,FUBEN_HESHIBI,nFubenMode )/100
 
 	if nFubenMode ==1 then
 		nStdRate = nStdRate*3

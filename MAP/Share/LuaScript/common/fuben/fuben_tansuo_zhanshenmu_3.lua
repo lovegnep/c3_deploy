@@ -635,7 +635,7 @@ function x700086_CreateRandomMonster(varMap)
 	elseif nFubenMode ==2	then
 		nStdRate = x700086_var_RandomMonsterRateList[3]
 	end
-	nStdRate = LuaCallNoclosure(930206,"Showzhanshen", varMap,fuben_type,nFubenMode )
+	nStdRate = LuaCallNoclosure(930206,"Showzhanshen", varMap,FUBEN_TANSUO_ZHANSHENMU_3,nFubenMode )/100
 
 
 	if rate >= nStdRate then

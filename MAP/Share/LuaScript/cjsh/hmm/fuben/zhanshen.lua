@@ -98,9 +98,9 @@ function x930206_Showzhanshen( varMap, nFubenType,nFubenMode )
 	 end
     WriteLog(1,format("x930206_Showzhanshen leave %d %d %d %.2f", varMap, nFubenType,nFubenMode,jy))
 
-	x930206_ShowTipsToAll(varMap, format("当前副本出战神概率%d", jy))
+	x930206_ShowTipsToAll(varMap, format("当前副本出战神概率%.2f", jy))
 
-	return jy
+	return floor(jy*100)
 end
 function x930206_ShowTipsToAll(varMap, varStr)
 
