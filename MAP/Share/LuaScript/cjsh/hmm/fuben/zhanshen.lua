@@ -97,5 +97,22 @@ function x930206_Showzhanshen( varMap, nFubenType,nFubenMode )
 		 jy = jy + 0.06
 	 end
     WriteLog(1,format("x930206_Showzhanshen leave %d %d %d %.2f", varMap, nFubenType,nFubenMode,jy))
+
+	x930206_ShowTipsToAll(varMap, format("当前副本出战神概率%d", jy))
+
 	return jy
+end
+function x930206_ShowTipsToAll(varMap, varStr)
+
+	local humancount = GetFuben_PlayerCount(varMap);
+
+
+	for varI = 0, humancount - 1 do
+		local humanId = GetFuben_PlayerObjId(varMap, varI);
+
+		StartTalkTask(varMap);
+		TalkAppendString(varMap,varStr);
+		StopTalkTask();
+		DeliverTalkTips(varMap, humanId);
+	end
 end
