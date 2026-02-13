@@ -1179,6 +1179,8 @@ MD_RESTORE_PHYSICALFORCE_DATE     = {247,0, 9}		-- 上次恢复体力日期
 MD_TIMES_OF_MEDICINE     					= {247,10, 9}		-- 使用体力丹次数
 -- add by dragon 体力值 }
 
+--248  韩梅梅 预留
+
 MD_FUBEN_QIULONGDAO_TODAYCOUNT     		= {249,19, 4}      	
 MD_FUBEN_SANHUAN_LASTINDEX    			= {249,23, 7}   	
 
