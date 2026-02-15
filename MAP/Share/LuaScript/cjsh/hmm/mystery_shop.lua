@@ -91,7 +91,7 @@ x930192_var_ItemPool = {
     {varItem = 12272432, price = 50000,    probability = 300,  varName = "马币包",             num = 1,  isBind = 1},
 
     -- 稀有商品 (中概率)
-    {varItem = 11000310, price = 80000,    probability = 200,  varName = "北斗碎片",         num = 10,  isBind = 1},
+    {varItem = 11000310, price = 80000,    probability = 500,  varName = "北斗碎片",         num = 10,  isBind = 1},
     {varItem = 11010112, price = 80000,    probability = 200,  varName = "二级平衡之书",         num = 1,  isBind = 1},
     {varItem = 11970022, price = 80000,    probability = 200,  varName = "强效乱士符",         num = 1,  isBind = 1},
     {varItem = 12272433, price = 80000,    probability = 200,  varName = "征服包",         num = 1,  isBind = 1},

@@ -1542,13 +1542,16 @@ function x350007_ProcEventEntry( varMap, varPlayer, varTalknpc, varState, varInd
         if curTime >= 21*60 and curTime < 22*60 then --21点~22点
             vi = 1
         end
+        if curTime >= 6*60 and curTime < 8*60 then --6点~8点
+            vi = 1
+        end
 
         if vi == 0 then
             SetPlayerRuntimeData( varMap, varPlayer, RD_COLLECT_HORSE, varIndex)
             StartTalkTask( varMap)
             TalkAppendString( varMap, "#Y每日领奖" )
             TalkAppendString( varMap, "\n\t现在还不是领取时间，无法领取。#r" )
-            TalkAppendString( varMap, "\t每天的#G21：00 ~ 22：00，#W各位玩家可以在这里领取金卡奖励，以及下方道具：" )
+            TalkAppendString( varMap, "\t每天的#G21：00 ~ 22：00#W或者#G06:00 ~ 08:00#W，#W各位玩家可以在这里领取金卡奖励，以及下方道具：" )
             for varI, aitem in x350007_var_Dailyitems  do
                 AddQuestItemBonus(varMap, aitem.id, aitem.num)
             end
@@ -1740,12 +1743,15 @@ function x350007_ProcAcceptCheck( varMap, varPlayer, varTalknpc)
         if curTime >= 21*60 and curTime < 22*60 then --21点~22点
             vi = 1
         end
+        if curTime >= 6*60 and curTime < 8*60 then --21点~22点
+            vi = 1
+        end
 
         if vi == 0 then
             StartTalkTask( varMap)
             TalkAppendString( varMap, "#Y每日领奖" )
             TalkAppendString( varMap, "\n\t现在还不是领取时间，无法领取。#r" )
-            TalkAppendString( varMap, "\t每天的#G21：00 ~ 22：00，#W各位玩家可以在这里领取金卡奖励。" )
+            TalkAppendString( varMap, "\t每天的#G21：00 ~ 22：00#W或者#G06:00 ~ 08:00#W，各位玩家可以在这里领取金卡奖励。" )
             StopTalkTask()
             DeliverTalkMenu( varMap, varPlayer, varTalknpc)
             return
