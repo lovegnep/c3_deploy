@@ -65,12 +65,12 @@ x300346_var_ItemBonus = {
     {varId = 11000906, varName = "传说级洗石剂"     			, 	varNum = 1  	,  probability = 1000   },
     {varId = 11970022, varName = "强效乱士符"          		, 	varNum = 5  	,  probability = 2000   },
     {varId = 12030048, varName = "百两金卡红包"         	, 	varNum = 1  	,  probability = 100 		},
-    {varId = 11000970, varName = "星河神砂"          		, 	varNum = 10  	,  probability = 300   },
-    {varId = 11000969, varName = "钻石抛光钻"          		, 	varNum = 10  	,  probability = 300   },
-    {varId = 11000950, varName = "精品地中海尖凿"          		, 	varNum = 10  	,  probability = 300   },
-    {varId = 11000961, varName = "黄金抛光钻"          		, 	varNum = 10  	,  probability = 300   },
-    {varId = 11000937, varName = "地中海菱凿"          		, 	varNum = 10  	,  probability = 300   },
-    {varId = 11000907, varName = "神话级洗石剂"          		, 	varNum = 10  	,  probability = 300   },
+    {varId = 11000970, varName = "星河神砂"          		, 	varNum = 1  	,  probability = 100   },
+    {varId = 11000969, varName = "钻石抛光钻"          		, 	varNum = 1  	,  probability = 100   },
+    {varId = 11000950, varName = "精品地中海尖凿"          		, 	varNum = 1  	,  probability = 100   },
+    {varId = 11000961, varName = "黄金抛光钻"          		, 	varNum = 1  	,  probability = 100   },
+    {varId = 11000937, varName = "地中海菱凿"          		, 	varNum = 1  	,  probability = 100   },
+    {varId = 11000907, varName = "神话级洗石剂"          		, 	varNum = 1  	,  probability = 30   },
 
 } 
                               

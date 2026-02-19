@@ -46,6 +46,29 @@ function x930213_InitQueue(varMap)
     end
 end
 
+
+
+--报错原因
+--错误的根因是 Lua 4.0 的 tinsert 会给表设置一个 n 字段来记录数组长度。
+--调用 tinsert(queue, {GUID=xxx, OBJID=yyy}) 后，表的实际结构变成：
+--{    n = 1,                                    -- tinsert 自动设置的长度字段    [1] = {GUID=xxx, OBJID=yyy}}
+--而代码中所有遍历都用的是 for varI, item in table do 泛型迭代??它会遍历表中所有键值对，包括那个 n 字段。当迭代到 n 时：
+--varI = "n"
+--item = 1（数字）
+--此时执行 item.GUID 就触发了 attempt to index local 'item' (a number value)。
+--第一次报名不报错是因为队列为空，for 循环体根本不执行。第一次报名成功后 tinsert 写入了 n 字段，第二次打开菜单调用 IsInQueue 遍历时就命中了这个 n。
+--需要改的位置
+--以下函数中所有 for varI, item in table do 都要改为数值遍历：
+--x930213_IsInQueue (line 79)
+--x930213_AddToQueue (line 55)
+--x930213_RemoveFromQueue (line 64)
+--x930213_TryMatch（line 91 处的 for varI = 3, ... 已经是数值遍历，没问题）
+--x930213_GiveRewards 中的 GetFuben_PlayerObjId 循环没问题（用的数值索引）
+--修改方式统一为：
+--for varI = 1, getn(x930213_var_Queue[varMap]) do
+--    local item = x930213_var_Queue[varMap][varI]
+--    if item.GUID == guid then
+---- 改前for varI, item in x930213_var_Queue[varMap] do    if item.GUID == guid then-- 改后for varI = 1, getn(x930213_var_Queue[varMap]) do    local item = x930213_var_Queue[varMap][varI]
 function x930213_AddToQueue(varMap, varPlayer)
     x930213_InitQueue(varMap)
     local guid = GetPlayerGUID(varMap, varPlayer)
