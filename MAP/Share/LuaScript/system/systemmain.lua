@@ -3668,15 +3668,6 @@ function x888888_ProcMapPlayerLevelUp( varMap, varObj, varLevel )
 end
 
 function x888888_ProcMapNotify( varMap, destmapId )
-
-	local pvp1v1script = GetFubenData_Param(destmapId, 1)
-	WriteLog(1, format(" x888888_ProcMapNotify PVP1V1:  varMap=%d dest=%d sid %d", varMap, destmapId, pvp1v1script))
-
-	if pvp1v1script == 930213 then
-		LuaCallNoclosure( 930213, "ProcFubenReady", varMap, destmapId )
-		return
-	end
-
 	local destvarMapType = GetSceneType(destmapId) ;
 	if destvarMapType == 1 then
 		LuaCallNoclosure( FUBEN_COMMON_SCRIPT, "ProcFubenReady", varMap, destmapId ) ;
