@@ -49,7 +49,8 @@ end
 function x930213_AddToQueue(varMap, varPlayer)
     x930213_InitQueue(varMap)
     local guid = GetPlayerGUID(varMap, varPlayer)
-    for varI, item in x930213_var_Queue[varMap] do
+    for varI = 1, getn(x930213_var_Queue[varMap]) do
+        local item = x930213_var_Queue[varMap][varI]
         if item.GUID == guid then
             return -1
         end
@@ -63,7 +64,8 @@ function x930213_RemoveFromQueue(varMap, varPlayer)
     local guid = GetPlayerGUID(varMap, varPlayer)
     local newQueue = {}
     local ni = 1
-    for varI, item in x930213_var_Queue[varMap] do
+    for varI = 1, getn(x930213_var_Queue[varMap]) do
+        local item = x930213_var_Queue[varMap][varI]
         if item.GUID ~= guid then
             newQueue[ni] = item
             ni = ni + 1
@@ -75,7 +77,8 @@ end
 function x930213_IsInQueue(varMap, varPlayer)
     x930213_InitQueue(varMap)
     local guid = GetPlayerGUID(varMap, varPlayer)
-    for varI, item in x930213_var_Queue[varMap] do
+    for varI = 1, getn(x930213_var_Queue[varMap]) do
+        local item = x930213_var_Queue[varMap][varI]
         if item.GUID == guid then
             return 1
         end
