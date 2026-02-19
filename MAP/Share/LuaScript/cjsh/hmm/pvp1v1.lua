@@ -9,10 +9,10 @@ x930213_var_CloseTick = 6
 x930213_var_NoUserTime = 10
 x930213_var_PrepareTicks = 6
 
-x930213_var_PosX1 = 82
-x930213_var_PosZ1 = 126
-x930213_var_PosX2 = 169
-x930213_var_PosZ2 = 127
+x930213_var_PosX1 = 68
+x930213_var_PosZ1 = 65
+x930213_var_PosX2 = 68
+x930213_var_PosZ2 = 65
 
 x930213_CAMP_1 = 5
 x930213_CAMP_2 = 6
