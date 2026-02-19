@@ -209,8 +209,7 @@ function x930213_ProcFubenReady(varMap, destsceneId)
 
     WriteLog(1, format("PVP1V1: x930213_ProcFubenReady varMap=%d destMap=%d  g1 %d g2 %d o1 %d o2 %d", varMap, destsceneId, guid1, guid2, obj1,obj2))
 
-    --开启该地图的pvp模式
-    ChangeMapRestrictiveMode(destsceneId, 2)
+
 
     if obj1 ~= nil and obj1 >= 0 then
         local scenePre = varMap + 1
@@ -245,6 +244,9 @@ function x930213_ProcPlayerEnter(varMap, varPlayer)
     if GetSceneType(varMap) ~= 1 then
         return
     end
+
+    --开启该地图的pvp模式
+    ChangeMapRestrictiveMode(varMap, 2)
 
     -- 此时 varMap 就是副本地图
     local guid1 = GetFubenData_Param(varMap, x930213_CSP_PLAYER1_GUID)
