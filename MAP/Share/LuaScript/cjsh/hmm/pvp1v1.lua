@@ -209,6 +209,8 @@ function x930213_ProcFubenReady(varMap, destsceneId)
 
     WriteLog(1, format("PVP1V1: x930213_ProcFubenReady varMap=%d destMap=%d  g1 %d g2 %d o1 %d o2 %d", varMap, destsceneId, guid1, guid2, obj1,obj2))
 
+    --开启该地图的pvp模式
+    ChangeMapRestrictiveMode(destsceneId, 2)
 
     if obj1 ~= nil and obj1 >= 0 then
         local scenePre = varMap + 1
@@ -216,7 +218,7 @@ function x930213_ProcFubenReady(varMap, destsceneId)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_SCENE_PRE, scenePre)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSZ_PRE, curZ)
-        SetCurCamp(varMap, obj1, x930213_CAMP_1)
+        --SetCurCamp(varMap, obj1, x930213_CAMP_1)
         Msg2Player(varMap, obj1, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 2)
         Msg2Player(varMap, obj1, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 3)
         NewWorld(varMap, obj1, destsceneId, x930213_var_PosX1, x930213_var_PosZ1, x930213_var_FileId)
@@ -229,7 +231,7 @@ function x930213_ProcFubenReady(varMap, destsceneId)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_SCENE_PRE, scenePre)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSZ_PRE, curZ)
-        SetCurCamp(varMap, obj2, x930213_CAMP_2)
+        --SetCurCamp(varMap, obj2, x930213_CAMP_2)
         Msg2Player(varMap, obj2, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 2)
         Msg2Player(varMap, obj2, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 3)
         NewWorld(varMap, obj2, destsceneId, x930213_var_PosX2, x930213_var_PosZ2, x930213_var_FileId)
@@ -242,6 +244,17 @@ end
 function x930213_ProcPlayerEnter(varMap, varPlayer)
     if GetSceneType(varMap) ~= 1 then
         return
+    end
+
+    -- 此时 varMap 就是副本地图
+    local guid1 = GetFubenData_Param(varMap, x930213_CSP_PLAYER1_GUID)
+    local myGuid = GetPlayerGUID(varMap, varPlayer)
+    if NumberCastIntToUInt(myGuid) == NumberCastIntToUInt(guid1) then
+        SetCurCamp(varMap, varPlayer, x930213_CAMP_1)
+        WriteLog(1, format("PVP1V1: x930213_ProcPlayerEnter varMap=%d set camp 5", varMap))
+    else
+        SetCurCamp(varMap, varPlayer, x930213_CAMP_2)
+        WriteLog(1, format("PVP1V1: x930213_ProcPlayerEnter varMap=%d set camp 6", varMap))
     end
 
     local scenePre = GetPlayerRuntimeData(varMap, varPlayer, RD_HUMAN_SCENE_PRE) - 1
