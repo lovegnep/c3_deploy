@@ -459,10 +459,14 @@ function x888888_ProcMapTimer( varMap, nowTime )
 
 	local varMapType = GetSceneType(varMap)
 	
-	if varMapType == 1 then 
-		
-		LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcFubenTimer", varMap, nowTime)		
-	elseif varMapType == 2 or varMapType == 7 then  
+	if varMapType == 1 then
+		local pvp1v1script = GetFubenData_Param(varMap, 1)
+		if pvp1v1script == 930213 then
+			LuaCallNoclosure(930213, "ProcFubenTimer", varMap, nowTime)
+		else
+			LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcFubenTimer", varMap, nowTime)
+		end
+	elseif varMapType == 2 or varMapType == 7 then
 		
 		local varMapScript = x888888_GetBattleSceneType(varMap)
 	    if varMapScript ~= -1 then
@@ -829,9 +833,14 @@ function x888888_ProcMapPlayerEnter( varMap, varPlayer )
 
 	if varMapType == 1 then 
 		
-		local fubenscript = GetFubenData_Param(varMap,1) ; 
-		LuaCallNoclosure( FUBEN_COMMON_SCRIPT, "ProcPlayerEnter", varMap, varPlayer ) ;
-        SetPlayerMutexState( varMap,varPlayer ,PLAYER_STATE_READYFUBEN ,0)
+		local fubenscript = GetFubenData_Param(varMap,1) ;
+		if fubenscript == 930213 then
+			LuaCallNoclosure( 930213, "ProcPlayerEnter", varMap, varPlayer )
+			SetPlayerMutexState( varMap,varPlayer ,PLAYER_STATE_READYFUBEN ,0)
+		else
+			LuaCallNoclosure( FUBEN_COMMON_SCRIPT, "ProcPlayerEnter", varMap, varPlayer ) ;
+			SetPlayerMutexState( varMap,varPlayer ,PLAYER_STATE_READYFUBEN ,0)
+		end
 
 	else
 
@@ -1306,7 +1315,11 @@ function x888888_ProcMapPlayerEnterFinished( varMap, varPlayer )
   elseif varMapType == 1 then 
 
 		local fubenscript = GetFubenData_Param(varMap, 1)
-		LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcPlayerEnterFinished", varMap, varPlayer)
+		if fubenscript == 930213 then
+			LuaCallNoclosure(930213, "ProcPlayerEnter", varMap, varPlayer)
+		else
+			LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcPlayerEnterFinished", varMap, varPlayer)
+		end
 	else
 		
 		local varMapScript = x888888_GetLairdSceneType(varMap)
@@ -1563,7 +1576,12 @@ function x888888_ProcMapPlayerRelive( varMap, varPlayer, varReliveOp )
     		return
     	end
 	  end
-	elseif varMapType == 1 then 
+	elseif varMapType == 1 then
+		local pvp1v1script = GetFubenData_Param(varMap, 1)
+		if pvp1v1script == 930213 then
+			LuaCallNoclosure(930213, "ProcPlayerRelive", varMap, varPlayer, varReliveOp)
+			return
+		end
 		local bReliveFixedPos = GetFubenData_OnlyReliveFixedPos(varMap)
 		if nil ~= bReliveFixedPos and 1 == bReliveFixedPos then
 			LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcPlayerRelive", varMap, varPlayer, varReliveOp)
@@ -2690,8 +2708,11 @@ function x888888_ProcMapPlayerDie( varMap, varPlayer, varKiller )
 
 		
 		local fubentype   = GetFubenData_Param(varMap,0) ; 
-		local fubenscript = GetFubenData_Param(varMap,1) ; 
-
+		local fubenscript = GetFubenData_Param(varMap,1) ;
+		if fubenscript == 930213 then
+			LuaCallNoclosure( 930213, "ProcPlayerDie", varMap, varPlayer, varKiller )
+			return
+		end
 		if fubentype==FUBEN_BIWULEITAI then 
 		   	LuaCallNoclosure( FUBEN_COMMON_SCRIPT, "ProcPlayerDie", varMap, varPlayer, varKiller )
 		   	return
@@ -3649,8 +3670,12 @@ end
 function x888888_ProcMapNotify( varMap, destmapId )
 
 	local destvarMapType = GetSceneType(destmapId) ;
-	if destvarMapType == 1 then 	
-		
+	if destvarMapType == 1 then
+		local pvp1v1script = GetFubenData_Param(varMap, 1)
+		if pvp1v1script == 930213 then
+			LuaCallNoclosure( 930213, "ProcFubenReady", varMap, destmapId )
+			return
+		end
 		LuaCallNoclosure( FUBEN_COMMON_SCRIPT, "ProcFubenReady", varMap, destmapId ) ;
 		
 	end
@@ -4698,8 +4723,13 @@ function x888888_ProcMapPlayerLeave( varMap, varPlayer )
 	    if varMapScript ~= -1 then
 	    	LuaCallNoclosure(varMapScript, "ProcPlayerLeave", varMap, varPlayer)
 	    end
-    elseif varMapType == 1 then  				
-    	LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcPlayerLeave", varMap, varPlayer)
+	elseif varMapType == 1 then
+		local pvp1v1script = GetFubenData_Param(varMap, 1)
+		if pvp1v1script == 930213 then
+			LuaCallNoclosure(930213, "ProcPlayerLeave", varMap, varPlayer)
+		else
+			LuaCallNoclosure(FUBEN_COMMON_SCRIPT, "ProcPlayerLeave", varMap, varPlayer)
+		end
     else
     	local varMapScript = x888888_GetLairdSceneType(varMap)
 	    if varMapScript ~= -1 then
