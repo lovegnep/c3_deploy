@@ -180,7 +180,7 @@ function x930213_CreateBattle(varMap, guid1, guid2)
         WriteLog(1, format("PVP1V1: CreateFuben failed varMap=%d", varMap))
     else
         WriteLog(1, format("PVP1V1: CreateFuben success varMap=%d destMap=%d", varMap, varSelectMap))
-        x930213_ProcFubenReady(varMap,varSelectMap, guid1, guid2)
+        --x930213_ProcFubenReady(varMap,varSelectMap, guid1, guid2)
     end
 end
 
@@ -189,7 +189,7 @@ end
 -- Fuben Callbacks (dispatched by systemmain hooks)
 -- ============================================================
 
-function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
+function x930213_ProcFubenReady(varMap, destsceneId)
     SetFubenData_Param(destsceneId, x930213_CSP_FROMSCENEID, varMap)
     SetFubenData_Param(destsceneId, x930213_CSP_SCRIPTID, x930213_var_FileId)
     SetFubenData_Param(destsceneId, x930213_CSP_FUBENTYPE, FUBEN_BIWULEITAI)
@@ -198,12 +198,17 @@ function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
     SetFubenData_Param(destsceneId, x930213_CSP_LEAVECOUNTDOWN, 0)
     SetFubenData_Param(destsceneId, x930213_CSP_RESULT, -1)
 
+    local guid1 = GetFubenData_Param(destsceneId, x930213_CSP_PLAYER1_GUID)
+    local guid2 = GetFubenData_Param(destsceneId, x930213_CSP_PLAYER2_GUID)
 
     SetFubenData_Param(destsceneId, x930213_CSP_PLAYER1_GUID, guid1)
     SetFubenData_Param(destsceneId, x930213_CSP_PLAYER2_GUID, guid2)
 
     local obj1 = Guid2ObjId(varMap, guid1)
     local obj2 = Guid2ObjId(varMap, guid2)
+
+    WriteLog(1, format("PVP1V1: x930213_ProcFubenReady varMap=%d destMap=%d  g1 %d g2 %d o1 %d o2 %d", varMap, destsceneId, guid1, guid2, obj1,obj2))
+
 
     if obj1 ~= nil and obj1 >= 0 then
         local scenePre = varMap + 1
