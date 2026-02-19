@@ -27,9 +27,9 @@ x930213_CSP_PLAYER1_GUID = 10
 x930213_CSP_PLAYER2_GUID = 11
 x930213_CSP_RESULT = 12
 
-x930213_var_WinnerMark = 20
-x930213_var_LoserMark = 5
-x930213_var_DrawMark = 7
+x930213_var_WinnerMark = 1
+x930213_var_LoserMark = 1
+x930213_var_DrawMark = 1
 x930213_var_MinLevel = 60
 
 x930213_var_BackX = 259
