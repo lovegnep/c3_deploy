@@ -14,7 +14,7 @@ x570081_var_ExcItemName = "黄金藏宝图碎片"
 x570081_var_ExcItemID = 12035017
 -- 兑换道具需要数量
 x570081_var_ExcItemNum = 1
-x570081_var_MaxCount = 5000
+x570081_var_MaxCount = 100
 
 x570081_var_QuestName = format("【兑换】兑换%s",x570081_var_ExcObjName)
 x570081_var_QuestInfo = format("\t您确定要使用#G%s兑换#W%s吗？\n\t将需要#R%d个#W#G%s#W。",x570081_var_ExcItemName,x570081_var_ExcObjName,x570081_var_ExcItemNum,x570081_var_ExcItemName)
