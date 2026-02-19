@@ -2,7 +2,7 @@ x930213_var_FileId = 930213
 
 x930213_var_Queue = {}
 
-x930213_var_SceneMapNavPath = "zhanchang_mshuangrenzhanchang/zhanchang_mshuangrenzhanchang.nav"
+x930213_var_SceneMapNavPath = "fuben_heshibi/fuben_heshibi.nav"
 x930213_var_TickTime = 5
 x930213_var_LimitTicks = 60
 x930213_var_CloseTick = 6
@@ -212,7 +212,10 @@ function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSZ_PRE, curZ)
         SetCurCamp(varMap, obj1, x930213_CAMP_1)
+        Msg2Player(varMap, obj1, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 2)
+        Msg2Player(varMap, obj1, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 3)
         NewWorld(varMap, obj1, destsceneId, x930213_var_PosX1, x930213_var_PosZ1, x930213_var_FileId)
+
     end
 
     if obj2 ~= nil and obj2 >= 0 then
@@ -222,6 +225,8 @@ function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSZ_PRE, curZ)
         SetCurCamp(varMap, obj2, x930213_CAMP_2)
+        Msg2Player(varMap, obj2, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 2)
+        Msg2Player(varMap, obj2, format("#G[1v1竞技] 传送新地图mid %d", destsceneId), 8, 3)
         NewWorld(varMap, obj2, destsceneId, x930213_var_PosX2, x930213_var_PosZ2, x930213_var_FileId)
     end
 
