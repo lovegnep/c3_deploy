@@ -207,8 +207,7 @@ function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
 
     if obj1 ~= nil and obj1 >= 0 then
         local scenePre = varMap + 1
-        local curX = GetPosX(varMap, obj1)
-        local curZ = GetPosZ(varMap, obj1)
+        local curX,curZ = GetWorldPos(varMap, obj1)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_SCENE_PRE, scenePre)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj1, RD_HUMAN_POSZ_PRE, curZ)
@@ -218,8 +217,7 @@ function x930213_ProcFubenReady(varMap, destsceneId,guid1, guid2)
 
     if obj2 ~= nil and obj2 >= 0 then
         local scenePre = varMap + 1
-        local curX = GetPosX(varMap, obj2)
-        local curZ = GetPosZ(varMap, obj2)
+        local curX,curZ = GetWorldPos(varMap, obj2)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_SCENE_PRE, scenePre)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSX_PRE, curX)
         SetPlayerRuntimeData(varMap, obj2, RD_HUMAN_POSZ_PRE, curZ)
