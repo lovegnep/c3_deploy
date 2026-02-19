@@ -197,8 +197,8 @@ function x930213_ProcFubenReady(varMap, destsceneId)
     SetFubenData_Param(destsceneId, x930213_CSP_LEAVECOUNTDOWN, 0)
     SetFubenData_Param(destsceneId, x930213_CSP_RESULT, -1)
 
-    local guid1 = GetFubenData_Param(varMap, x930213_CSP_PLAYER1_GUID)
-    local guid2 = GetFubenData_Param(varMap, x930213_CSP_PLAYER2_GUID)
+    local guid1 = GetFubenData_Param(destsceneId, x930213_CSP_PLAYER1_GUID)
+    local guid2 = GetFubenData_Param(destsceneId, x930213_CSP_PLAYER2_GUID)
 
     SetFubenData_Param(destsceneId, x930213_CSP_PLAYER1_GUID, guid1)
     SetFubenData_Param(destsceneId, x930213_CSP_PLAYER2_GUID, guid2)
