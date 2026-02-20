@@ -904,7 +904,7 @@ NUM	NUM	TEXT	NUM	NUM	TEXT	NUM	TEXT	NUM	NUM	NUM	NUM	TEXT	TEXT	TEXT	TEXT	TEXT	TEXT
 901	901	龙之谷	128	128	migong_shengshan.scb	140	migong_shengshanscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	0	4	0	1|2|3	8
 902	902	test	64	64	test.scb	180	testscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	0	1|2|3	1
 903	903	test	64	64	test.scb	180	testscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	0	1|2|3	1
-904	904	1v1战场	128	128	fuben_heshibi.scb	152	fuben_heshibiscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	1	1|2|3	1
+904	904	1v1战场	128	128	fuben_heshibi.scb	152	fuben_heshibiscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	7	4	0	1|2|3	1
 905	905	test	64	64	test.scb	180	testscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	0	1|2|3	1
 906	906	test	64	64	test.scb	180	testscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	0	1|2|3	1
 907	907	test	64	64	test.scb	180	testscene	590	394	590	418	Sign5	MiniMap_Icon2	Test02_Normal	MiniMap_Icon2	Test02_Hover	UI_Scene_Logo	1	4	0	1|2|3	1
