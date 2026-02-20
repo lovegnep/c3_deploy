@@ -1,5 +1,5 @@
 # Player inventory item GUID error
-_Exported on 2026/2/20 at GMT+8 18:41:02 from Cursor (2.4.28)_
+_Exported on 2026/2/20 at GMT+8 21:11:15 from Cursor (2.4.28)_
 
 ---
 
@@ -738,4 +738,247 @@ DBShareInterval=60000		; 改为 1 分钟（60000毫秒）
 ---
 
 总结：**`DBShareInterval=1800000`（30分钟）** 就是你配置文件中控制 flush 周期的参数，位于 `ExtServerConfig.ini` 的 `[DBShare]` 节。
+
+---
+
+**User**
+
+[root@localhost khan3_glan]# python
+Python 2.4.3 (#1, Feb 22 2012, 16:05:45) 
+[GCC 4.1.2 20080704 (Red Hat 4.1.2-52)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+[1]+  Stopped                 python
+[root@localhost khan3_glan]# cd ~
+[root@localhost ~]# shm.py
+-bash: shm.py: command not found
+[root@localhost ~]# vi shm.py
+[root@localhost ~]# python shm.py 
+sys:1: DeprecationWarning: Non-ASCII character '\xe8' in file shm.py on line 2, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+  File "shm.py", line 22
+    print(f"SHM Key: {SHM_KEY}")
+                              ^
+SyntaxError: invalid syntax
+
+
+---
+
+**Cursor**
+
+你的服务器上是 Python 2.4，不支持 f-string 和 `sysv_ipc` 模块。对于这么老的系统，最简单的方式是用 C 程序或者直接查数据库。
+
+---
+
+## 方法1：直接查数据库（最简单，推荐）
+
+不需要读共享内存，直接对比 `t_itemserial` 和 `t_item` 就能诊断问题：
+
+```sql
+-- 查看序列号计数器表
+SELECT sid, sn FROM t_itemserial;
+
+-- 查看实际物品最大 guid
+SELECT MAX(guid) AS max_guid FROM t_item WHERE valid = 1;
+
+-- 一条语句直接对比（如果 max_guid > sn，说明计数器落后了）
+SELECT 
+  s.sid, 
+  s.sn AS serial_in_table, 
+  m.max_guid AS max_guid_in_items,
+  (m.max_guid - s.sn) AS gap
+FROM t_itemserial s, 
+  (SELECT MAX(guid) AS max_guid FROM t_item WHERE valid = 1) m
+WHERE s.sid = 0;
+```
+
+> `sid` 替换为你实际的 MapServer ID（通常从 0 开始）。
+
+---
+
+## 方法2：写一个 C 小程序读共享内存
+
+在服务器上创建 `read_shm.c`：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+    int shm_key;
+    int shmid;
+    char *shm_ptr;
+    unsigned int serial;
+    /* MKHead: flag(4) + PoolId(4) + UseStatus(4) + SaveTime(4) = 16 bytes */
+    /* SMHead is at the beginning of the shared memory segment */
+    /* Then the ItemSerialKeyMK struct follows */
+    int smhead_size = 20; /* SMHead size, may need adjustment */
+    int mkhead_size = 16; /* MKHead size */
+
+    if (argc < 2) {
+        printf("Usage: %s <shm_key_decimal>\n", argv[0]);
+        printf("Example: %s 700015\n", argv[0]);
+        return 1;
+    }
+
+    shm_key = atoi(argv[1]);
+    shmid = shmget((key_t)shm_key, 0, 0);
+    if (shmid == -1) {
+        printf("shmget failed for key %d, shared memory may not exist\n", shm_key);
+        return 1;
+    }
+
+    shm_ptr = (char *)shmat(shmid, NULL, SHM_RDONLY);
+    if (shm_ptr == (char *)-1) {
+        printf("shmat failed\n");
+        return 1;
+    }
+
+    /* ItemSerialKeyMK.m_ItemSerial is after SMHead + MKHead */
+    memcpy(&serial, shm_ptr + smhead_size + mkhead_size, sizeof(unsigned int));
+    printf("SHM Key      : %d\n", shm_key);
+    printf("SHM ID       : %d\n", shmid);
+    printf("ItemSerial   : %u\n", serial);
+
+    /* Try a few offsets in case struct alignment differs */
+    printf("\n--- Debug: scanning nearby offsets ---\n");
+    int i;
+    for (i = smhead_size; i < smhead_size + 40; i += 4) {
+        unsigned int val;
+        memcpy(&val, shm_ptr + i, sizeof(unsigned int));
+        printf("  offset %3d : %u\n", i, val);
+    }
+
+    shmdt(shm_ptr);
+    return 0;
+}
+```
+
+编译和运行：
+
+```bash
+gcc -o read_shm read_shm.c
+# key 值从 ExtServerConfig.ini 的 ItemSNDBShareKey 获取
+# MapServer0 对应 700015
+./read_shm 700015
+```
+
+程序会输出当前偏移处的值，并额外 dump 附近的偏移量帮助定位。如果 `ItemSerial` 那个偏移不对，可以在 debug 输出中找到一个看起来合理的数值（应该和 `t_itemserial.sn` 接近但更大）。
+
+---
+
+## 方法3：直接用 ipcs 查看共享内存是否存在
+
+```bash
+# 查看所有共享内存段
+ipcs -m
+
+# 700015 的十六进制 = 0x000AAE8F
+# 查看该 key 是否存在
+ipcs -m | awk '{print $1}' | while read k; do printf "%s -> %d\n" "$k" "$k" 2>/dev/null; done
+```
+
+---
+
+**我的建议**：先用方法1直接查数据库，这是最快定位问题的方式。如果 `t_item.MAX(guid)` 大于 `t_itemserial.sn`，说明计数器确实落后了，这就是产生重复 GUID 的根因。
+
+---
+
+**User**
+
+0x000aae6f 4390937    root      666        36         2                       
+
+
+---
+
+**Cursor**
+
+共享内存已找到。信息如下：
+
+| 属性 | 值 |
+|---|---|
+| Key | `0x000aae6f` (= 700015，对应 MapServer0 的 `ItemSNDBShareKey`) |
+| shmid | 4390937 |
+| 大小 | **36 字节** |
+| 附加进程数 | **2**（DBShare + MapServer 都在运行） |
+
+内存大小 36 字节 = `sizeof(SMHead)` + `sizeof(ItemSerialKeyMK)` × 1。
+
+现在你有两个选择来读取当前序列号值：
+
+---
+
+### 选择A：编译 C 程序读取（精确读共享内存）
+
+由于总共只有 36 字节，我们直接 dump 全部内容就能找到序列号。在服务器上创建 `read_shm.c`：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+    int shm_key, shmid, i;
+    char *shm_ptr;
+    unsigned int val;
+
+    if (argc < 2) {
+        printf("Usage: %s <shm_key>\n", argv[0]);
+        return 1;
+    }
+
+    shm_key = atoi(argv[1]);
+    shmid = shmget((key_t)shm_key, 0, 0);
+    if (shmid == -1) {
+        printf("shmget failed for key %d\n", shm_key);
+        return 1;
+    }
+
+    shm_ptr = (char *)shmat(shmid, NULL, SHM_RDONLY);
+    if (shm_ptr == (char *)-1) {
+        printf("shmat failed\n");
+        return 1;
+    }
+
+    printf("SHM Key: %d, SHM ID: %d, dumping all 36 bytes as uint32:\n\n", shm_key, shmid);
+    for (i = 0; i < 36; i += 4) {
+        memcpy(&val, shm_ptr + i, sizeof(unsigned int));
+        printf("  offset %2d : %u\n", i, val);
+    }
+
+    shmdt(shm_ptr);
+    return 0;
+}
+```
+
+```bash
+gcc -o read_shm read_shm.c && ./read_shm 700015
+```
+
+输出 9 个 uint32 值中，**有一个数值应该在几万到几十万范围**（和你 `t_item` 中 guid 的量级相当），那个就是 `m_ItemSerial`（当前物品序列号计数器）。大概率在 **offset 32**（最后一个 uint32）。
+
+---
+
+### 选择B：直接查数据库对比（不需要编译，马上能做）
+
+```sql
+-- 查看计数器表中的值
+SELECT sid, sn FROM t_itemserial;
+
+-- 查看实际物品最大 guid
+SELECT MAX(guid) AS max_guid FROM t_item WHERE valid = 1;
+```
+
+- 如果 `MAX(guid)` > `sn`，说明 `t_itemserial` 落后了，这就是根因
+- 如果 `MAX(guid)` < `sn`，说明 `t_itemserial` 是正常的，但共享内存中的值可能已经更大
+
+---
+
+**建议先做选择B**，查一下 SQL 结果贴出来，我帮你判断当前状态。
 
