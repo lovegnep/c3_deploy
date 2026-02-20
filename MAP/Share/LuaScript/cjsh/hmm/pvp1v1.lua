@@ -5,9 +5,9 @@ x930213_var_Queue = {}
 x930213_var_SceneMapNavPath = "pvp11/pvp11.nav"
 x930213_var_TickTime = 5
 x930213_var_LimitTicks = 60
-x930213_var_CloseTick = 6
+x930213_var_CloseTick = 1
 x930213_var_NoUserTime = 10
-x930213_var_PrepareTicks = 6
+x930213_var_PrepareTicks = 1
 
 x930213_var_PosX1 = 68
 x930213_var_PosZ1 = 65
