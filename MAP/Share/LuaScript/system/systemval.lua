@@ -1542,22 +1542,22 @@ MD_FUBEN_JINGYING_WEEK			=   {317, 0, 9}	-- 周数标记
 MD_FUBEN_JINGYING_WEEKCOUNT		=   {317, 9, 7}	-- 记录每周已完次数
 
 ------------------------------------------------------------------.
------黄金藏宝图兑换限次索引-------------
+-----黄金藏宝图兑换限次索引-------------  韩梅梅  5种藏宝图共用次数。 后面几个废弃
 MD_DUIHUAN_MIZHUAN_DAY			= {318, 0 , 9}				--秘钻·黄金藏宝图完成日期，9位						
-MD_DUIHUAN_MIZHUAN_DAYCOUNT = {318, 9 , 17}				--秘钻·黄金藏宝图完成次数，5位
+MD_DUIHUAN_MIZHUAN_DAYCOUNT = {318, 9 , 10}				--秘钻·黄金藏宝图完成次数，5位
 
-MD_DUIHUAN_XISHI_DAY			= {318, 13 , 9}				--洗石·黄金藏宝图完成日期，9位						
-MD_DUIHUAN_XISHI_DAYCOUNT = {318, 22 , 17}				--洗石·黄金藏宝图完成次数，5位
+MD_DUIHUAN_XISHI_DAY			= {318, 0 , 9}				--洗石·黄金藏宝图完成日期，9位
+MD_DUIHUAN_XISHI_DAYCOUNT = {318, 9 , 10}				--洗石·黄金藏宝图完成次数，5位
 
-MD_DUIHUAN_WAIZHUANG_DAY			= {319, 0 , 9}				--外装·黄金藏宝图完成日期，9位						
-MD_DUIHUAN_WAIZHUANG_DAYCOUNT = {318, 26 , 17}				--外装·黄金藏宝图完成次数，5位
+MD_DUIHUAN_WAIZHUANG_DAY			= {318, 0 , 9}				--外装·黄金藏宝图完成日期，9位
+MD_DUIHUAN_WAIZHUANG_DAYCOUNT = {318, 9 , 10}				--外装·黄金藏宝图完成次数，5位
 
-MD_DUIHUAN_QICHENG_DAY			= {319, 9 , 9}				--骑乘·黄金藏宝图完成日期，9位						
-MD_DUIHUAN_QICHENG_DAYCOUNT = {319, 18 , 17}				--骑乘·黄金藏宝图完成次数，5位
+MD_DUIHUAN_QICHENG_DAY			= {318, 0 , 9}				--骑乘·黄金藏宝图完成日期，9位
+MD_DUIHUAN_QICHENG_DAYCOUNT = {318, 9 , 10}				--骑乘·黄金藏宝图完成次数，5位
 
 --因数据超标暂时借用316的
-MD_DUIHUAN_AOZHUAN_DAY			= {319, 22 , 9}				--奥钻·黄金藏宝图完成日期，9位						
-MD_DUIHUAN_AOZHUAN_DAYCOUNT = {316, 15 , 17}				--奥钻·黄金藏宝图完成次数，5位
+MD_DUIHUAN_AOZHUAN_DAY			= {318, 0 , 9}				--奥钻·黄金藏宝图完成日期，9位
+MD_DUIHUAN_AOZHUAN_DAYCOUNT = {318, 9 , 10}				--奥钻·黄金藏宝图完成次数，5位
 
 
 GUILD_KILLMONSTER_SCRIPT			= 300619
