@@ -241,9 +241,7 @@ end
 
 
 function x930213_ProcPlayerEnter(varMap, varPlayer)
-    if GetSceneType(varMap) ~= 1 then
-        return
-    end
+    WriteLog(1, format("PVP1V1: x930213_ProcPlayerEnter varMap=%d ", varMap))
 
     --开启该地图的pvp模式
     ChangeMapRestrictiveMode(varMap, 2)
