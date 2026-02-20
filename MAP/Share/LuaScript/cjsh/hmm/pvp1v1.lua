@@ -250,10 +250,10 @@ function x930213_ProcPlayerEnter(varMap, varPlayer)
     local guid1 = GetFubenData_Param(varMap, x930213_CSP_PLAYER1_GUID)
     local myGuid = GetPlayerGUID(varMap, varPlayer)
     if NumberCastIntToUInt(myGuid) == NumberCastIntToUInt(guid1) then
-        --SetCurCamp(varMap, varPlayer, x930213_CAMP_1)
+        SetCurCamp(varMap, varPlayer, x930213_CAMP_1)
         WriteLog(1, format("PVP1V1: x930213_ProcPlayerEnter varMap=%d set camp 5", varMap))
     else
-        --SetCurCamp(varMap, varPlayer, x930213_CAMP_2)
+        SetCurCamp(varMap, varPlayer, x930213_CAMP_2)
         WriteLog(1, format("PVP1V1: x930213_ProcPlayerEnter varMap=%d set camp 6", varMap))
     end
 

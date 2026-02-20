@@ -904,7 +904,7 @@ NUM	NUM	TEXT	NUM	TEXT	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM	NUM
 901	43	龙之谷	1	longzigu/longzigu.scn	0	0	0	-1	1	125	134	901	20	-1
 902	5	杳无音讯的村庄	1	fuben_ywyxdcz/fuben_ywyxdcz.scn	0	1	0	-1	1	115	15	902	20	-1
 903	5	污染边塞	1	fuben_wuranbiansai/fuben_wuranbiansai.scn	0	1	0	-1	1	115	15	903	20	-1
-904	16	1v1战场	1	pvp11/pvp11.scn	0	0	2	-1	1	65	55	904	20	-1
+904	16	1v1战场	1	pvp11/pvp11.scn	0	1	2	-1	1	65	55	904	20	-1
 905	11	测试勿用大乱斗战场	1	zhanchang_mshuangrenzhanchang/zhanchang_mshuangrenzhanchang.scn	0	0	2	-1	1	285	191	94	20	-1
 906	43	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	906	20	-1
 907	41	副本场景预留	0	test/test.scn	5	1	0	-1	1	125	134	907	20	-1
