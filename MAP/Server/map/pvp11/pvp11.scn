@@ -1,0 +1,7 @@
+[MapDesc]
+mapnav=pvp11/pvp11.nav
+monster=pvp11/pvp11_monster.tab
+xunluo=pvp11/pvp11_patrolpoint.ini
+caijidata=pvp11/pvp11_growpoint.txt
+caijisetup=pvp11/pvp11_growpointsetup.txt
+teleport=pvp11/pvp11_area.ini

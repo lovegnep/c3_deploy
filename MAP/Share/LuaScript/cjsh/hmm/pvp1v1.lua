@@ -2,7 +2,7 @@ x930213_var_FileId = 930213
 
 x930213_var_Queue = {}
 
-x930213_var_SceneMapNavPath = "fuben_heshibi/fuben_heshibi.nav"
+x930213_var_SceneMapNavPath = "pvp11/pvp11.nav"
 x930213_var_TickTime = 5
 x930213_var_LimitTicks = 60
 x930213_var_CloseTick = 6
