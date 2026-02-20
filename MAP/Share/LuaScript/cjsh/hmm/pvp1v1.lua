@@ -27,14 +27,20 @@ x930213_CSP_PLAYER1_GUID = 10
 x930213_CSP_PLAYER2_GUID = 11
 x930213_CSP_RESULT = 12
 
-x930213_var_WinnerMark = 1
+x930213_var_WinnerMark = 2
 x930213_var_LoserMark = 1
 x930213_var_DrawMark = 1
-x930213_var_MinLevel = 60
+x930213_var_MinLevel = 75
 
 x930213_var_BackX = 259
 x930213_var_BackZ = 192
 
+--timer是否初始化了
+x930213_var_timer = 0
+
+--报名范围，离开该范围则自动取消报名
+x930213_var_minxz = {177,185}
+x930213_var_maxxz = {188,203}
 
 -- ============================================================
 -- Queue Management
@@ -70,7 +76,11 @@ end
 --    if item.GUID == guid then
 ---- 改前for varI, item in x930213_var_Queue[varMap] do    if item.GUID == guid then-- 改后for varI = 1, getn(x930213_var_Queue[varMap]) do    local item = x930213_var_Queue[varMap][varI]
 function x930213_AddToQueue(varMap, varPlayer)
+    x930213_CleanQueue(varMap)
     x930213_InitQueue(varMap)
+    x930213_Settimer(varMap)
+
+
     local guid = GetPlayerGUID(varMap, varPlayer)
     for varI = 1, getn(x930213_var_Queue[varMap]) do
         local item = x930213_var_Queue[varMap][varI]
@@ -81,7 +91,22 @@ function x930213_AddToQueue(varMap, varPlayer)
     tinsert(x930213_var_Queue[varMap], {GUID = guid, OBJID = varPlayer})
     return getn(x930213_var_Queue[varMap])
 end
-
+function x930213_CleanQueue(varMap)
+    x930213_InitQueue(varMap)
+    local newQueue = {}
+    local ni = 1
+    for varI = 1, getn(x930213_var_Queue[varMap]) do
+        local item = x930213_var_Queue[varMap][varI]
+        local objId = Guid2ObjId(varMap, item.GUID)
+        if objId ~= nil and objId >= 0 then
+            newQueue[ni] = item
+            ni = ni + 1
+        else
+            WriteLog(1, format("PVP1V1: CleanQueue removed guid=%d from map=%d", item.GUID, varMap))
+        end
+    end
+    x930213_var_Queue[varMap] = newQueue
+end
 function x930213_RemoveFromQueue(varMap, varPlayer)
     x930213_InitQueue(varMap)
     local guid = GetPlayerGUID(varMap, varPlayer)
@@ -110,6 +135,7 @@ function x930213_IsInQueue(varMap, varPlayer)
 end
 
 function x930213_TryMatch(varMap)
+    x930213_CleanQueue(varMap)
     x930213_InitQueue(varMap)
     if getn(x930213_var_Queue[varMap]) < 2 then
         return
@@ -146,6 +172,31 @@ function x930213_TryMatch(varMap)
     x930213_CreateBattle(varMap, p1.GUID, p2.GUID)
 end
 
+function x930213_Settimer(varMap)
+    WriteLog(1, format("PVP1V1: x930213_Settimer varMap=%d timerflag %d", varMap, x930213_var_timer))
+
+    if x930213_var_timer == 1 then
+        return
+    end
+    SetSystemTimerTick( varMap, x930213_var_FileId, "Procqueuetimer", 0,  1000)
+    x930213_var_timer = 1
+    WriteLog(1, format("PVP1V1: x930213_Settimer success varMap=%d timerflag %d", varMap, x930213_var_timer))
+
+end
+
+function x930213_Procqueuetimer(varMap, varAct, varTime)
+    WriteLog(1, format("PVP1V1: x930213_Procqueuetimer called varMap=%d ", varMap))
+    x930213_InitQueue(varMap)
+    --检查报名队列中是否有人离开指定区域
+    for varI = 1, getn(x930213_var_Queue[varMap]) do
+        local item = x930213_var_Queue[varMap][varI]
+        local obj = Guid2ObjId(varMap, item.GUID)
+        --local x,z = GetWorldPos(varMap, obj)
+    end
+
+
+    SetSystemTimerTick( varMap, x930213_var_FileId, "Procqueuetimer", varAct, 1000)
+end
 
 -- ============================================================
 -- Fuben Creation
@@ -485,7 +536,7 @@ end
 -- ============================================================
 
 function x930213_ProcEnumEvent(varMap, varPlayer, varTalknpc, varQuest)
-    if varMap ~= 0 and varMap ~= 50 and varMap ~= 150 and varMap ~= 250 and varMap ~= 350 then
+    if varMap ~= 0 then
         return
     end
     local level = GetLevel(varMap, varPlayer)
@@ -497,7 +548,27 @@ end
 
 
 function x930213_ProcEventEntry(varMap, varPlayer, varTalknpc, varScript, seleteId)
-    if varMap ~= 0 and varMap ~= 50 and varMap ~= 150 and varMap ~= 250 and varMap ~= 350 then
+    if varMap ~= 0 then
+        return
+    end
+
+    local minOfDay = GetMinOfDay()
+    local timeValid = 0
+    if (minOfDay >= 360 and minOfDay <= 420) or (minOfDay >= 21*60 and minOfDay <= 22*60) then
+        timeValid = 1
+    end
+    if timeValid ~= 1 then
+        StartTalkTask(varMap)
+        TalkAppendString(varMap, "#Y【 1v1竞技场 】")
+        TalkAppendString(varMap, "\t单人报名，系统自动匹配对手")
+        TalkAppendString(varMap, "\t击杀对手或时间结束后平局")
+        TalkAppendString(varMap, format("\t等级要求：%d级以上", x930213_var_MinLevel))
+        TalkAppendString(varMap, format("\t奖励：胜者%d积分 / 败者%d积分", x930213_var_WinnerMark, x930213_var_LoserMark))
+
+        TalkAppendString(varMap, "\t当前不在对战时间： #G6:00 ~ 7:00,  21:00 ~ 22:00#W")
+
+        StopTalkTask()
+        DeliverTalkMenu(varMap, varPlayer, varTalknpc)
         return
     end
 
