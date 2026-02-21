@@ -1,5 +1,15 @@
 #!/bin/sh
 
+# 启动  前检查并修复 ItemSerial
+SCRIPT_DIR=$(dirname $(readlink -f $0))
+sh ${SCRIPT_DIR}/check_itemserial.sh
+if [ $? -ne 0 ]; then
+    echo "[ERROR] check_itemserial.sh failed, abort!"
+    exit 1
+fi
+
+
+
 ### 脚本1内容
 cd /home/khan3/GL/Server/
 ./billing &
@@ -15,6 +25,8 @@ sleep 5
 
 ### 脚本2内容
 cd /home/khan3/MAP/Server/
+
+
 ./DBShare &
 sleep 20
 ./MapServer &
