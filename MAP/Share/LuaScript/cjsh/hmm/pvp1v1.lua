@@ -32,6 +32,12 @@ x930213_var_LoserMark = 1
 x930213_var_DrawMark = 1
 x930213_var_MinLevel = 75
 
+x930213_var_awarditems = {
+    {id=11000310,name="北斗碎片",num=2},
+    {id=11000318,name="黄金马装碎片",num=2},
+    {id=11000320,name="黄金马装残片",num=2},
+}
+
 x930213_var_BackX = 259
 x930213_var_BackZ = 192
 
@@ -390,10 +396,12 @@ function x930213_GiveRewards(varMap, result)
                 Msg2Player(varMap, humanId, format("#G恭喜你获胜！获得#R%d#G点战场积分", x930213_var_WinnerMark), 8, 2)
                 Msg2Player(varMap, humanId, format("#G恭喜你获胜！获得#R%d#G点战场积分", x930213_var_WinnerMark), 8, 3)
                 AddPVP2V2Mark(varMap, humanId, x930213_var_WinnerMark)
+                x930213_rewardswinneritem(varMap,humanId)
             elseif result == 1 and isP2 then
                 Msg2Player(varMap, humanId, format("#G恭喜你获胜！获得#R%d#G点战场积分", x930213_var_WinnerMark), 8, 2)
                 Msg2Player(varMap, humanId, format("#G恭喜你获胜！获得#R%d#G点战场积分", x930213_var_WinnerMark), 8, 3)
                 AddPVP2V2Mark(varMap, humanId, x930213_var_WinnerMark)
+                x930213_rewardswinneritem(varMap,humanId)
             elseif result == 2 then
                 Msg2Player(varMap, humanId, format("#Y平局！获得#R%d#Y点战场积分", x930213_var_DrawMark), 8, 2)
                 AddPVP2V2Mark(varMap, humanId, x930213_var_DrawMark)
@@ -405,6 +413,25 @@ function x930213_GiveRewards(varMap, result)
     end
 end
 
+function x930213_rewardswinneritem(varMap, varPlayer)
+    local item = x930213_var_awarditems[random(1,getn(x930213_var_awarditems))]
+
+    --发放物品
+    StartItemTask(varMap)
+
+    ItemAppendBind( varMap, item.id, item.num)
+    local varRet = StopItemTask(varMap,varPlayer)
+
+    if varRet > 0 then
+        DeliverItemListSendToPlayer(varMap,varPlayer)
+        Msg2Player(varMap, varPlayer,format("奖励道具%d个@item_%d", item.num, item.id),8,3)
+        Msg2Player(varMap, varPlayer,format("奖励道具%d个@item_%d", item.num, item.id),8,2)
+    else
+        Msg2Player(varMap, varPlayer,"物品栏已满，无法发放奖励",8,3)
+        Msg2Player(varMap, varPlayer,"物品栏已满，无法发放奖励",8,2)
+    end
+
+end
 
 -- ============================================================
 -- Fuben Timer
@@ -539,16 +566,30 @@ function x930213_ProcEnumEvent(varMap, varPlayer, varTalknpc, varQuest)
     if varMap ~= 0 then
         return
     end
-    local level = GetLevel(varMap, varPlayer)
-    if level < x930213_var_MinLevel then
-        return
-    end
+
     TalkAppendButton(varMap, x930213_var_FileId, "#O【竞技】1v1竞技场", 3, -1)
+    TalkAppendButton(varMap, x930213_var_FileId, "#O【竞技】1v1竞技场说明", 0, -2)
 end
 
 
 function x930213_ProcEventEntry(varMap, varPlayer, varTalknpc, varScript, seleteId)
     if varMap ~= 0 then
+        return
+    end
+
+    local level = GetLevel(varMap, varPlayer)
+    if level < x930213_var_MinLevel then
+        StartTalkTask(varMap)
+        TalkAppendString(varMap, "#Y【 1v1竞技场 】")
+        TalkAppendString(varMap, "\t单人报名，系统自动匹配对手")
+        TalkAppendString(varMap, "\t击杀对手或时间结束后平局")
+        TalkAppendString(varMap, format("\t等级要求：%d级以上", x930213_var_MinLevel))
+        TalkAppendString(varMap, format("\t奖励：胜者%d积分 / 败者%d积分", x930213_var_WinnerMark, x930213_var_LoserMark))
+
+        TalkAppendString(varMap, format("等级不足#R%d#W", x930213_var_MinLevel))
+
+        StopTalkTask()
+        DeliverTalkMenu(varMap, varPlayer, varTalknpc)
         return
     end
 
@@ -612,6 +653,23 @@ function x930213_ProcEventEntry(varMap, varPlayer, varTalknpc, varScript, selete
         x930213_RemoveFromQueue(varMap, varPlayer)
         Msg2Player(varMap, varPlayer, "已取消1v1竞技场报名！", 8, 2)
         Msg2Player(varMap, varPlayer, "已取消1v1竞技场报名！", 8, 3)
+    elseif seleteId == -2 then--说明
+        StartTalkTask(varMap)
+        TalkAppendString(varMap, "#Y【 1v1竞技场 】")
+        TalkAppendString(varMap, "\t单人报名，系统自动匹配对手")
+        TalkAppendString(varMap, "\t击杀对手或时间结束后平局")
+        TalkAppendString(varMap, format("\t等级要求：%d级以上", x930213_var_MinLevel))
+        TalkAppendString(varMap, format("\t奖励：胜者%d积分 / 败者%d积分", x930213_var_WinnerMark, x930213_var_LoserMark))
+        if x930213_IsInQueue(varMap, varPlayer) == 1 then
+            TalkAppendString(varMap, "\t#G你已在排队中...")
+        end
+
+        for varI, aitem in x930213_var_awarditems  do
+            AddQuestItemBonus(varMap, aitem.id, aitem.num)
+        end
+
+        StopTalkTask()
+        DeliverTalkInfo( varMap, varPlayer, varTalknpc, x930213_var_FileId, -1)
     end
 end
 
