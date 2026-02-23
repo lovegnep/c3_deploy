@@ -64,7 +64,7 @@ function x930136_ProcEventEntry( varMap, varPlayer, varTalknpc ,varScript,selete
 
 		local str = ""
 		for k, v in x930136_moneylevellist do
-			if v >= nLevelPre then
+			if v <= nLevelPre then
 				str = str .. format("@item_%d", k) .. "\n"
 			end
 		end
