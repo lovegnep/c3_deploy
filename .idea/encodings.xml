@@ -14,7 +14,9 @@
     <file url="file://$PROJECT_DIR$/MAP/Share/LuaScript/item/normal/item_normal_4877.lua" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/MAP/Share/LuaScript/system/systemmain.lua" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/MAP/Share/LuaScript/system/systemval.lua" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/client/scene_define.tab" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/doc" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/doc/cursor_player_inventory_item_guid_error.md" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/html" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/killall.sh" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/nohuprun.sh" charset="GB2312" />
