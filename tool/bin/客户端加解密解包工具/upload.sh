@@ -54,7 +54,7 @@ else
 fi
 
 #
-zip Entrance.zip OUTPUT_FILE$
+zip Entrance.zip $OUTPUT_FILE
 echo "添加压缩文件成功: $OUTPUT_FILE   =>   Entrance.zip"
 
 
