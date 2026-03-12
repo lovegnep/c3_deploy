@@ -247,17 +247,23 @@ log "[步骤] 在配置文件中替换 IP: ${REPLACE_FROM} -> ${REPLACE_TO}"
 replace_in_file() {
     local f="$1"
     if [ -f "$f" ]; then
-        backup_file "$f"
+#        backup_file "$f"
         sed -i "s/${REPLACE_FROM//\//\\/}/${REPLACE_TO//\//\\/}/g" "$f" && log " -> $f 替换完成" || log " -> $f 替换失败"
     else
         log " -> 跳过: $f 不存在"
     fi
 }
 
-replace_in_file "$AREAINFO"
-replace_in_file "$PATCHINFO"
+#替换areainfo.txt
+sed -i "s#\(url=http://\)[0-9\.]*#\1${REPLACE_TO}#g" "$AREAINFO" && log " -> $AREAINFO 替换完成" || log " -> $AREAINFO 替换失败"
+sed -i "s#\(url=http://\)[0-9\.]*#\1${REPLACE_TO}#g" "$PATCHINFO" && log " -> $PATCHINFO 替换完成" || log " -> $PATCHINFO 替换失败"
+
+#replace_in_file "$AREAINFO"
+#replace_in_file "$PATCHINFO"
 replace_in_file "$BA1"
 replace_in_file "$BA2"
+
+
 
 # ----------------------
 # 如果存在 src/Entrance.txt，先替换 IP（全部替换为 NEW_IP），再用 wine+CryptCmd.exe 加密并把结果放到 DOWNLOAD_DIR（备份旧ZIP）
@@ -340,6 +346,19 @@ if [ "$MODE" = "public" ] && [ -n "$DEFAULT_IFACE" ]; then
         service network restart >/dev/null 2>&1 && log "network 服务已重启 (service)" || log "警告: network 重启失败"
     fi
 fi
+
+TARGET_FILE="/www/server/panel/vhost/nginx/${NEW_IP}.conf"
+
+if [ ! -f "$TARGET_FILE" ]; then
+    cp /www/server/panel/vhost/nginx/default "$TARGET_FILE"
+    sed -i "s/[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+/${NEW_IP}/g" "$TARGET_FILE" && log " -> $TARGET_FILE 替换完成" || log " -> $TARGET_FILE 替换失败"
+
+    #重启nginx
+    nginx -s reload
+fi
+
+# 修改网站权限
+chown -R www:www /www/wwwroot/default/khan3
 
 log "----------------------------------------"
 log "所有操作完成。请手动检查日志输出中提到的警告（如果有）。"
