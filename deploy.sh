@@ -256,7 +256,7 @@ replace_in_file() {
 
 #替换areainfo.txt
 sed -i "s#\(url=http://\)[0-9\.]*#\1${REPLACE_TO}#g" "$AREAINFO" && log " -> $AREAINFO 替换完成" || log " -> $AREAINFO 替换失败"
-sed -i "s#\(url=http://\)[0-9\.]*#\1${REPLACE_TO}#g" "$PATCHINFO" && log " -> $PATCHINFO 替换完成" || log " -> $PATCHINFO 替换失败"
+sed -i "s#\(http://\)[0-9\.]*#\1${REPLACE_TO}#g" "$PATCHINFO" && log " -> $PATCHINFO 替换完成" || log " -> $PATCHINFO 替换失败"
 
 #replace_in_file "$AREAINFO"
 #replace_in_file "$PATCHINFO"
