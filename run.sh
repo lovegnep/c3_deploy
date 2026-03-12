@@ -29,7 +29,41 @@ cd /home/khan3/MAP/Server/
 
 ./DBShare &
 sleep 20
-./MapServer &
+
+
+start_mapserver() {
+    echo "Starting MapServer..."
+    ./MapServer &
+}
+
+check_mapserver() {
+    ps -ef | grep MapServer | grep -v grep >/dev/null
+}
+
+start_mapserver
+
+# 监控 MapServer（启动后容易崩溃）
+RETRY=0
+MAX_RETRY=500
+
+while [ $RETRY -lt $MAX_RETRY ]
+do
+    sleep 6
+
+    check_mapserver
+    if [ $? -eq 0 ]; then
+        echo "MapServer running normally"
+        break
+    else
+        echo "MapServer crashed, restarting..."
+        start_mapserver
+        RETRY=$((RETRY+1))
+    fi
+done
+
+if [ $RETRY -ge $MAX_RETRY ]; then
+    echo "MapServer failed too many times!"
+fi
 
 # 脚本2和脚本3之间休眠5秒
 sleep 20
