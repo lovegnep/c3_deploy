@@ -191,7 +191,7 @@ cp /home/khan3/scripts/check_itemserial.sh /root
 cp /home/khan3/scripts/deploy.sh /root
 cp /home/khan3/scripts/run.sh /root
 cp /home/khan3/scripts/killall.sh /root
-
+chmod +x *.sh
 ```
 
 # 准备wine环境
@@ -202,3 +202,12 @@ mkdir /root/src
 mkdir /root/dst
 cp /home/khan3/lib/Entrance.txt /root/src
 ```
+
+# 部署网站
+
+```angular2html
+cp -rf /home/khan3/www/html/khan3 /www/wwwroot/default
+cp /home/khan3/lib/default /www/server/panel/vhost/nginx
+chown -R www:www /home/khan3/lib/default
+```
+
