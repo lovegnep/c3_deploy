@@ -127,3 +127,57 @@ MySQL 5.5
 PHP 5.6
 
 ```
+
+# 设置mysql
+
+```angular2html
+
+通过宝塔将root密码改为123456，动态周期改为9000
+日志周期1天，防止打满磁盘
+
+```
+
+# 处理依赖so
+```angular2html
+
+
+cp -rf /home/khan3/lib/mysql-connector-odbc-3.51.26-linux-x86-64bit/lib/* /lib64
+
+rm -rf /home/khan3/lib/odbc.ini
+rm -rf /home/khan3/lib/odbcinst.ini
+cp /home/khan3/lib/odbc.ini /etc
+cp /home/khan3/lib/odbcinst.ini /etc
+
+cp /home/khan3/lib/libLua_khan2_64.so /lib64
+cp /home/khan3/lib/libScriptEngine_khan2_64.so /lib64
+
+ln -s /usr/lib64/libodbc.so.2 /lib64/libodbc.so.1
+
+cp /home/khan3/lib/libiop.so /lib64
+
+ln -s /usr/lib64/mysql/libmysqlclient.so.18 /usr/lib64/libmysqlclient.so.15
+
+
+
+
+```
+
+
+# 恢复mysql表结构
+```angular2html
+编辑配置文件：
+
+Bash
+vi /etc/my.cnf
+在 [mysqld] 后面添加一行：
+log_bin_trust_function_creators = 1
+
+重启
+/etc/init.d/mysqld restart
+
+
+mysql -uroot -p123456 < /home/khan3/lib/all_databases.sql
+mysql -uroot -p123456 Billing < /home/khan3/lib/Billing.sql
+mysql -uroot -p123456 khan3 < /home/khan3/lib/khan3.sql
+
+```
