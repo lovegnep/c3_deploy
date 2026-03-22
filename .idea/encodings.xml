@@ -22,6 +22,12 @@
     <file url="file://$PROJECT_DIR$/scripts/1" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/scripts/2" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/scripts/3" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/1" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/2" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/3" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/4" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/5" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/scripts/each/7" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/scripts/killall.sh" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/scripts/nohuprun.sh" charset="GB2312" />
     <file url="file://$PROJECT_DIR$/scripts/restartmap.sh" charset="GB2312" />
