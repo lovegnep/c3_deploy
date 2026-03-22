@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /home/khan3/GL/Server/
+./billing &
+

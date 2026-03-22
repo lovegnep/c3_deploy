@@ -111,7 +111,9 @@ yum update -y
 yum groupinstall "Development Tools" -y
 yum install -y glibc.x86_64 libstdc++.x86_64 libgcc.x86_64 \
                libtool-ltdl.x86_64 unixODBC.x86_64 unixODBC-devel.x86_64
-
+yum install -y iptables-services
+systemctl start iptables
+systemctl enable iptables
 ```
 
 # °²×°±¦ËþºÍmysql php nginx
@@ -209,5 +211,7 @@ cp /home/khan3/lib/Entrance.txt /root/src
 cp -rf /home/khan3/www/html/khan3 /www/wwwroot/default
 cp /home/khan3/lib/default /www/server/panel/vhost/nginx
 chown -R www:www /home/khan3/lib/default
+chown -R www:www /www/wwwroot/default
+
 ```
 
