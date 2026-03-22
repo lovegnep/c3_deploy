@@ -157,7 +157,7 @@ cp /home/khan3/lib/libiop.so /lib64
 
 ln -s /usr/lib64/mysql/libmysqlclient.so.18 /usr/lib64/libmysqlclient.so.15
 
-
+ln -s /usr/lib64/libodbcinst.so.2 /lib64/libodbcinst.so.1
 
 
 ```
@@ -180,4 +180,25 @@ mysql -uroot -p123456 < /home/khan3/lib/all_databases.sql
 mysql -uroot -p123456 Billing < /home/khan3/lib/Billing.sql
 mysql -uroot -p123456 khan3 < /home/khan3/lib/khan3.sql
 
+```
+
+
+# 拷贝执行脚本
+
+```angular2html
+
+cp /home/khan3/scripts/check_itemserial.sh /root
+cp /home/khan3/scripts/deploy.sh /root
+cp /home/khan3/scripts/run.sh /root
+cp /home/khan3/scripts/killall.sh /root
+
+```
+
+# 准备wine环境
+
+```angular2html
+cp /home/khan3/lib/CryptCmd.exe /root
+mkdir /root/src
+mkdir /root/dst
+cp /home/khan3/lib/Entrance.txt /root/src
 ```

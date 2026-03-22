@@ -1,0 +1,7 @@
+[Area]
+Count=1
+[Area0]
+AreaInfo=³É¼ªË¼º¹III;1;1;0
+AreaPing=192.168.50.48
+ServerCount=1
+ServerInfo0=¸ÎµÛ³É3;1200;3;1;1;192.168.50.48:27713
