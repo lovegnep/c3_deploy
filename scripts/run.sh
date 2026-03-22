@@ -1,5 +1,11 @@
 #!/bin/sh
 
+mkdir -p /home/khan3/GL/Server/Log
+mkdir -p /home/khan3/MAP/Server/Log
+rm -rf /home/khan3/GL/Server/Log/*
+rm -rf /home/khan3/MAP/Server/Log/*
+
+
 # 启动  前检查并修复 ItemSerial
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 sh ${SCRIPT_DIR}/check_itemserial.sh
