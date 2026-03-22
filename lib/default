@@ -45,6 +45,9 @@ server
         error_log /dev/null;
         access_log /dev/null;
     }
+    location = / {
+        return 302 /khan3/index.php;
+    }
     access_log  /www/wwwlogs/192.168.50.165.log;
     error_log  /www/wwwlogs/192.168.50.165.error.log;
 }
