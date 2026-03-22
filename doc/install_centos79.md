@@ -167,18 +167,49 @@ ln -s /usr/lib64/libodbcinst.so.2 /lib64/libodbcinst.so.1
 
 # 恢复mysql表结构
 ```angular2html
-编辑配置文件：
-
-Bash
-vi /etc/my.cnf
-在 [mysqld] 后面添加一行：
-log_bin_trust_function_creators = 1
-
-重启
-/etc/init.d/mysqld restart
+#进入mysql设置
+mysql -uroot -p123456
+#输入以下命令
+SET GLOBAL log_bin_trust_function_creators = 1;
+#退出
+exit
 
 
 mysql -uroot -p123456 < /home/khan3/lib/all_databases.sql
+mysql -uroot -p123456 Billing < /home/khan3/lib/Billing.sql
+mysql -uroot -p123456 khan3 < /home/khan3/lib/khan3.sql
+
+#如果后续无法进入游戏，比如输入游戏账号密码一闪而过的话说明db有问题，查看控制台报错如下：
+KCheck:[../../khan2-share/DataBase/DBCore.cpp][107][void DBCore::__FlushMsg(const char*)][NULL != f]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.298)
+KCheck:S[../../khan2-share/DataBase/DBCore.cpp][113][void DBCore::__FlushMsg(const char*)][FALSE]
+S[void DBCore::__FlushMsg(const char*)]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.303)
+KCheck:S[../../khan2-share/DataBase/DBCore.cpp][78][void DBCore::ErrorDiag()][FALSE]
+S[void DBCore::ErrorDiag()]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.303)
+KCheck:[../../khan2-share/DataBase/DBCore.cpp][107][void DBCore::__FlushMsg(const char*)][NULL != f]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.303)
+KCheck:S[../../khan2-share/DataBase/DBCore.cpp][113][void DBCore::__FlushMsg(const char*)][FALSE]
+S[void DBCore::__FlushMsg(const char*)]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.303)
+KCheck:S[../../khan2-share/DataBase/KLODBCBase.cpp][189][virtual int KLODBCBase::DB2Memory()][FALSE]
+S[virtual int KLODBCBase::DB2Memory()]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.303)
+KCheck:S[../../khan2-share/DataBase/ArchiveInterface.cpp][1514][virtual int DBPlayerList::DB2Memory()][FALSE]
+S[virtual int DBPlayerList::DB2Memory()]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.304)
+KCheck:S[../../khan2-dbcenter/LDRequestPlayerListHandler.cpp][161][static uint32 Messages::LDRequestPlayerListDispatch::Process(Messages::LDRequestPlayerList*, Connector*)][FALSE]
+S[static uint32 Messages::LDRequestPlayerListDispatch::Process(Messages::LDRequestPlayerList*, Connector*)]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.305)
+KCheck:S[../../khan2-share/Messages/LDRequestPlayerList.cpp][48][virtual uint32 Messages::LDRequestPlayerList::Process(Connector*)][FALSE]
+S[virtual uint32 Messages::LDRequestPlayerList::Process(Connector*)]
+(139964941944576)(T0=2026-3-22_10:46:17 T1=960.307)
+(10:46:17 960.308 139964941944576) ArchiveThread::Procs_CacheCommand Get Errors,TID=547702528,PlayerID =2
+(10:46:17 960.314 139964941944576) ArchiveThread::Reconnect database,TID=547702528
+
+
+#如何解决，重新清空数据库
 mysql -uroot -p123456 Billing < /home/khan3/lib/Billing.sql
 mysql -uroot -p123456 khan3 < /home/khan3/lib/khan3.sql
 
